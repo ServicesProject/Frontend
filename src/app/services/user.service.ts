@@ -14,9 +14,7 @@ export class UserService {
   constructor(private httpClient:HttpClient) { }
 
   public list(): Observable<User[]>{
-    console.log("OTRO MENSAJE AQUIII")
     return this.httpClient.get<User[]>(this.apiUrl+ 'user')
-  
   }
 
   public details(id:number): Observable<User[]>{

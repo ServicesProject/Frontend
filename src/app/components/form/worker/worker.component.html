@@ -1,51 +1,11 @@
 <div class="container">
     <div class="card border-0">
-        <form>
-            <h4 class="text-center">Datos personales</h4>
-            <div class="row mb-4">
-              <div class="col">
-                <div class="form-outline">
-                  <input type="text" id="nombre" class="form-control" placeholder="Nombre" />
-                </div>
-              </div>
-              <div class="col">
-                <div class="form-outline">
-                  <input type="text" id="apellido" class="form-control" placeholder="Apellido"/>
-                </div>
-              </div>
-              <div class="col">
-                <div class="form-outline">
-                  <input type="text" id="celular" class="form-control"placeholder="Celular" />
-                </div>
-              </div>
-            </div>
-          
-            <div class="row mb-4">
-                <div class="col">
-                  <div class="form-outline">
-                    <input type="text" id="apellido" class="form-control" placeholder="Sobre ti"/>
-                  </div>
-                </div>
-                <div class="col">
-                    <div class="form-group col-md-4">
-                        <select id="inputState" class="form-control">
-                          <option selected>Género</option>
-                          <option>Mujer</option>
-                          <option>Hombre</option>
-                        </select>
-                    </div>
-                </div>
-              </div>
-          </form>
-    </div>
-
-    <div class="card border-0">
-        <form>
+        <form (ngSubmit)="onCreate()">
             <h4 class="text-center">Datos del servicio</h4>
             <div class="row mb-4">
               <div class="col">
                 <div class="form-group col-md-12">
-                    <select id="inputState" class="form-control">
+                    <select id="job" name="job" class="form-control" [(ngModel)]="job" required autocomplete="off">
                       <option selected>Oficio</option>
                       <option>Electricista</option>
                       <option>Mecánico</option>
@@ -54,7 +14,7 @@
               </div>
               <div class="col">
                 <div class="form-group col-md-12">
-                    <select id="inputState" class="form-control">
+                    <select id="contract" name="contract" class="form-control" [(ngModel)]="contract" required autocomplete="off">
                       <option selected>Contrato</option>
                       <option>Indefinido</option>
                       <option>Duración determinada</option>
@@ -64,7 +24,7 @@
               </div>
               <div class="col">
                 <div class="form-group col-md-12">
-                    <select id="inputState" class="form-control">
+                    <select id="workTime" name="workTime" class="form-control" [(ngModel)]="workTime" required autocomplete="off">
                       <option selected>Tiempo de jornada</option>
                       <option>Completa</option>
                       <option>Parcial</option>
@@ -78,7 +38,7 @@
             <div class="row mb-4">
                 <div class="col">
                     <div class="form-group col-md-12">
-                        <select id="inputState" class="form-control">
+                        <select id="experience" name="experience" class="form-control" [(ngModel)]="experience" required autocomplete="off">
                           <option selected>Experiencia</option>
                           <option>Inicial</option>
                           <option>Medio</option>
@@ -88,7 +48,7 @@
                 </div>
                 <div class="col">
                     <div class="form-group col-md-12">
-                        <select id="inputState" class="form-control">
+                        <select id="area" name="area" class="form-control" [(ngModel)]="area" required autocomplete="off">
                           <option selected>Zona</option>
                           <option>Queru Queru</option>
                           <option>Sarco</option>
@@ -98,7 +58,7 @@
                 </div>
                 <div class="col">
                     <div class="form-outline">
-                        <input type="text" id="nombre" class="form-control" placeholder="Dirección" />
+                        <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Dirección" [(ngModel)]="address" required autocomplete="off"/>
                       </div>
                 </div>
               </div>
@@ -106,7 +66,7 @@
           </form>
     </div>
     <div class="text-center pt-1  pb-1">
-        <button class="btn btn-primary btn-block fa-lg mb-3" type="button">Continuar</button>
+        <button class="btn btn-primary btn-block fa-lg mb-3" type="button" (click)="onCreate()">Continuar</button>
       </div>
 </div>
 
