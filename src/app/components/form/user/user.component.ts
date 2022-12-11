@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 
@@ -9,26 +9,32 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  user: User[] = []
+  
+  name: any;
+  lastName: any;
+  phone: any;
+  description: any;
+  gender: any;
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.loadUsers()
   }
 
-  loadUsers(): void {
-   this.userService.list().subscribe(
-    data =>{
-      this.user=data
-    },
-    err => {
-      console.log(err)
-    }
-   )
-   console.log(this.user)
+  onCreate(): void {
+    const user = new User(this.name, this.lastName, this.phone, this.description, this.gender)
+    this.userService.save(user).subscribe(
+      data => {
+        console.log("funciona prros")
+      },
+      err => {
+        console.log(" no funciona valimos verga")
+        
+      }
+    )
   }
   
 

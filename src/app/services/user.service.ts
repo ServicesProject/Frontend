@@ -24,7 +24,7 @@ export class UserService {
   }
 
   public save(user: User): Observable<any>{
-    return this.httpClient.post<any>(this.apiUrl, user)
+    return this.httpClient.post<any>(this.apiUrl+ 'user', user)
   }
 
   public update(id:number, user:User)
