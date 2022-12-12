@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Register } from '../models/register';
 import { User } from '../models/user';
 
 @Injectable({
@@ -25,6 +26,10 @@ export class UserService {
     return this.httpClient.post<any>(this.apiUrl+ 'user', user)
   }
 
+  public register(user: Register): Observable<any>{
+    return this.httpClient.post<any>(this.apiUrl+ 'user', user)
+  }
+
   public update(id:number, user:User)
   {
     return this.httpClient.put<any>(this.apiUrl +`user/${id}`, user)
@@ -32,6 +37,10 @@ export class UserService {
   public delete(id:number)
   {
     return this.httpClient.delete<any>(this.apiUrl +`user/${id}`)
+  }
+
+  public login(email:string,password:string){
+    return this.httpClient.post<any>(this.apiUrl+ 'token', {email,password})
   }
 
 

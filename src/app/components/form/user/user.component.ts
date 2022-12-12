@@ -24,8 +24,8 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onCreate(): void {
-    const user = new User(this.name, this.lastName, this.phone, this.description, this.gender)
+  onCompleteInformation(): void {
+    const user = new User(this.name, this.lastName, this.phone, this.description, this.gender, "pablo", "user")
     this.userService.save(user).subscribe(
       data => {
         console.log("funciona prros")

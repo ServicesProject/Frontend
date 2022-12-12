@@ -13,28 +13,43 @@
               <div class="col-lg-6">
                 <div class="card-body p-md-5 mx-md-4">
                   
-                  <form>
+                  <form (ngSubmit)="register()">
                     <div class="form-outline mb-4">
-                      <input type="email" id="email" class="form-control" placeholder="Email" />
+                      <input type="email" id="email" name="email" class="form-control" placeholder="Email" [(ngModel)]="email" required autocomplete="off"/>
     
                     </div>
                     <div class="form-outline mb-4">
-                      <input type="password" id="password" class="form-control" placeholder="Contraseña"  />
+                      <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña"  [(ngModel)]="password" required autocomplete="off"/>
                     </div>
                     <div class="form-outline mb-4">
-                        <input type="password" id="password" class="form-control" placeholder="Repetir contraseña"  />
+                        <input type="password" id="confirmpassword" name="confirmpassword" class="form-control" placeholder="Repetir contraseña"  />
                       </div>
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <!-- Checkbox -->
+                    <!-- TERMINOS Y CONDICIONES
+                      
+                      <div class="d-flex justify-content-between align-items-center mb-4">
+                        
                         <div class="form-check mb-0">
                           <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
                           <p class="cuenta">Acepto los <a href="">términos y condiciones</a></p>
                         </div>
                         
+                    </div>-->
+                    <p>Elige un rol</p>
+                    <div class="form-check " >
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="user" (change)="Onchange($event)">
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        Usuario
+                      </label>
                     </div>
-                    
+                    <div class="form-check mb-4">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="worker" (change)="Onchange($event)">
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        Contratista
+                      </label>
+                    </div>
+
                     <div class="text-center pt-1  pb-1">
-                      <button class="btn btn-primary btn-block fa-lg mb-3" type="button">Registrarse</button>
+                      <button class="btn btn-primary btn-block fa-lg mb-3" type="button" (click)="register()">Registrarse</button>
                     </div>
                     <div class="divider d-flex align-items-center ">
                         <p class="text-center  mx-3 mb-0">O</p>

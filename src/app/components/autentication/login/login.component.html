@@ -13,13 +13,13 @@
               <div class="col-lg-6">
                 <div class="card-body p-md-5 mx-md-4">
                   
-                  <form>
+                  <form (ngSubmit)="login()">
                     <div class="form-outline mb-4">
-                      <input type="email" id="email" class="form-control" placeholder="Email" />
+                      <input type="email" id="email" name="email" class="form-control" placeholder="Email" [(ngModel)]="email" required autocomplete="off"/>
     
                     </div>
                     <div class="form-outline mb-4">
-                      <input type="password" id="password" class="form-control" placeholder="Contraseña"  />
+                      <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña"  [(ngModel)]="password" required autocomplete="off"/>
                     </div>
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <!-- Checkbox -->
@@ -33,7 +33,7 @@
                     </div>
                     
                     <div class="text-center pt-1  pb-1">
-                      <button class="btn btn-primary btn-block fa-lg mb-3" type="button">Continuar</button>
+                      <button class="btn btn-primary btn-block fa-lg mb-3" type="button" (click)="login()">Continuar</button>
                     </div>
                     <div class="divider d-flex align-items-center ">
                         <p class="text-center  mx-3 mb-0">O</p>
