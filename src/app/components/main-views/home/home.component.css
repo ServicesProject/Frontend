@@ -10,7 +10,7 @@
 }
 .btn1{
     width: 20%;
-    background-color: #171738;
+    background-color: #7180B9;
     color: white;
     border: none;
     outline: none;
@@ -19,7 +19,7 @@
 }
 
 .btn1:hover{
-    background: #7180B9;
+    background: #171738;
 }
 
 img{
@@ -49,4 +49,42 @@ img{
     background-color: transparent;
     color: #171738;
     transition: all 0.4s;
+}
+
+/* -----*/
+.job h1{
+    
+    color: #171738;
+}
+.premisa{
+    color: #7180B9;
+}
+.btn3{
+    height: 60px;
+    width: 20%;
+    outline: none;
+    border: none;
+    background: #7180B9;
+    color: white;
+}
+.btn3:hover{
+    background: #171738;
+    transition: all 0.4s;
+}
+
+/* -----*/
+
+.btn4{
+    width: 30%;
+    height: 40px;
+    background-color: #171738;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.btn4:hover{
+    background: #7180B9;
 }

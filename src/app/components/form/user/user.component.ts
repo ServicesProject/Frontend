@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
+import { TokenService } from 'src/app/services/token.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -18,23 +19,28 @@ export class UserComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private tokenService: TokenService
   ) { }
 
   ngOnInit(): void {
   }
 
   onCompleteInformation(): void {
-    const user = new User(this.name, this.lastName, this.phone, this.description, this.gender, "pablo", "user")
-    this.userService.save(user).subscribe(
-      data => {
-        console.log("funciona prros")
-      },
-      err => {
-        console.log(" no funciona valimos verga")
-        
-      }
-    )
+    let info = this.tokenService.currentUserValue
+    if(info)
+    {
+      const user = new User(this.name, this.lastName, this.phone, this.description, this.gender, info.user.email, info.user.rol )
+      this.userService.save(user).subscribe(
+        data => {
+          
+        },
+        err => {
+          console.log(" no funciona valimos verga")
+          
+        }
+      )
+    }
   }
   
 
