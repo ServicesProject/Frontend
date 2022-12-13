@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,11 +12,13 @@ import { ForgotPwComponent } from './components/autentication/forgot-pw/forgot-p
 import { UserComponent } from './components/form/user/user.component';
 import { WorkerComponent } from './components/form/worker/worker.component';
 import { HomeComponent } from './components/main-views/home/home.component';
-import { UniformActivitiesComponent } from './components/main-views/uniform-activities/uniform-activities.component';
-import { OneoffActivitiesComponent } from './components/main-views/oneoff-activities/oneoff-activities.component';
-import { CombinedComponent } from './components/main-views/combined/combined.component';
 import { HeaderComponent } from './components/navigation/header/header.component';
 import { FooterComponent } from './components/navigation/footer/footer.component';
+import { UserHomeComponent } from './components/main-views/user-home/user-home.component';
+import { WorkerHomeComponent } from './components/main-views/worker-home/worker-home.component';
+import { CategoriesComponent } from './components/main-views/categories/categories.component';
+import { JwtInterceptor } from './interceptor/jwt.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -27,11 +29,11 @@ import { FooterComponent } from './components/navigation/footer/footer.component
     UserComponent,
     WorkerComponent,
     HomeComponent,
-    UniformActivitiesComponent,
-    OneoffActivitiesComponent,
-    CombinedComponent,
     HeaderComponent,
     FooterComponent,
+    UserHomeComponent,
+    WorkerHomeComponent,
+    CategoriesComponent
 
   ],
   imports: [
@@ -40,7 +42,7 @@ import { FooterComponent } from './components/navigation/footer/footer.component
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

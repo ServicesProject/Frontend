@@ -3,6 +3,7 @@ import { Login } from 'src/app/models/login';
 
 import { UserService } from 'src/app/services/user.service';
 import jwt_decode from "jwt-decode";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
   password: any
 
   constructor(
-    private loginService: UserService
+    private loginService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -25,15 +27,35 @@ export class LoginComponent implements OnInit {
     const login = new Login(this.email, this.password)
     this.loginService.login(login.email, login.password).subscribe(
       data => {
+        console.log(data);
+        
         let decode: any = jwt_decode(data.token)
+        decode = {...decode, token: data.token}
+        localStorage.setItem("datas", JSON.stringify(decode));
+        /*let info = JSON.parse(localStorage.getItem("datas")  || '{}');*/
         console.log(decode)
-        /*if(this.rol == "user"){
-          this.router.navigateByUrl("informacion/usuario")
+        if (decode.user.complete) {
+          if(decode.user.rol == 'user')
+          {
+            
+            this.router.navigateByUrl("inicio/usuario")
+          }
+          else
+          {
+            this.router.navigateByUrl("inicio/trabajador")
+          }
         }
-        else
-        {
-          this.router.navigateByUrl("informacion/trabajador")
-        }*/
+        else {
+          if(decode.user.rol == 'user')
+          {
+            
+            this.router.navigateByUrl("informacion/usuario")
+          }
+          else
+          {
+            this.router.navigateByUrl("informacion/trabajador")
+          }
+        }
       },
       err => {
         console.log(err)
