@@ -7,19 +7,19 @@
                 <div class="col-lg-6 d-flex align-items-center">
                     <div class="text-white px-3 py-4 p-md-5 mx-md-4">
                       <h1 class="mb-4 text-center inicio">Iniciar Sesión</h1>
-                      <p class="cuenta">¿No tienes cuenta? <a href="">Regístrate</a></p>
+                      <p class="cuenta">¿No tienes cuenta? <a href="registro">Regístrate</a></p>
                     </div>
                   </div>
               <div class="col-lg-6">
                 <div class="card-body p-md-5 mx-md-4">
                   
-                  <form (ngSubmit)="login()">
+                  <form (ngSubmit)="login()" [formGroup]="form">
                     <div class="form-outline mb-4">
-                      <input type="email" id="email" name="email" class="form-control" placeholder="Email" [(ngModel)]="email" required autocomplete="off"/>
+                      <input type="email" id="email" name="email" class="form-control" placeholder="Email"  formControlName="email" required autocomplete="off"/>
     
                     </div>
                     <div class="form-outline mb-4">
-                      <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña"  [(ngModel)]="password" required autocomplete="off"/>
+                      <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña"  formControlName="password" required autocomplete="off"/>
                     </div>
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <!-- Checkbox -->
@@ -33,11 +33,11 @@
                     </div>
                     
                     <div class="text-center pt-1  pb-1">
-                      <button class="btn btn-primary btn-block fa-lg mb-3" type="button" (click)="login()">Continuar</button>
+                      <button class="btn btn-primary btn-block fa-lg mb-3" type="button" [disabled]="form.invalid" (click)="login()">Continuar</button>
                     </div>
-                    <div class="divider d-flex align-items-center ">
+                    <!-- <div class="divider d-flex align-items-center ">
                         <p class="text-center  mx-3 mb-0">O</p>
-                      </div>
+                      </div>-->
                     
                   </form>
                 </div>

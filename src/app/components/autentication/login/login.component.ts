@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Login } from 'src/app/models/login';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { UserService } from 'src/app/services/user.service';
 import jwt_decode from "jwt-decode";
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -13,55 +14,63 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   email: any
+  success = '';
   password: any
+  public form!: FormGroup
 
   constructor(
     private loginService: UserService,
     private router: Router
   ) { }
 
-  ngOnInit(): void {
+  async ngOnInit(){
+    this.form = new FormGroup({
+      email:new FormControl(null,[Validators.required]),
+      password:new FormControl(null,[Validators.required])
+    })
+    let token = await localStorage.getItem('token')
+    if(token){
+      this.router.navigateByUrl('/')
+    }
   }
 
   login():void{
-    const login = new Login(this.email, this.password)
-    this.loginService.login(login.email, login.password).subscribe(
-      data => {
-        console.log(data);
-        
-        let decode: any = jwt_decode(data.token)
-        decode = {...decode, token: data.token}
-        localStorage.setItem("datas", JSON.stringify(decode));
-        /*let info = JSON.parse(localStorage.getItem("datas")  || '{}');*/
-        console.log(decode)
-        if (decode.user.complete) {
-          if(decode.user.rol == 'user')
-          {
-            
-            this.router.navigateByUrl("inicio/usuario")
-          }
-          else
-          {
-            this.router.navigateByUrl("inicio/trabajador")
+    if(!this.form.invalid){
+      this.loginService.login(this.form.get('email')?.value,this.form.get('password')?.value).subscribe(
+        data => {
+          if(data != null){
+            let decode: any = jwt_decode(data.token)
+            decode = {...decode, token: data.token}
+            localStorage.setItem("token", JSON.stringify(decode));
+            console.log(decode)
+            if (decode.user.complete) {
+              if(decode.user.rol == 'user')
+              {
+                
+                this.router.navigateByUrl("inicio/usuario")
+              }
+              else
+              {
+                this.router.navigateByUrl("inicio/trabajador")
+              }
+            }
+            else {
+              if(decode.user.rol == 'user')
+              {
+                
+                this.router.navigateByUrl("informacion/usuario")
+              }
+              else
+              {
+                this.router.navigateByUrl("informacion/trabajador")
+              }
+            }
+          }else{
+            console.log('login or password is incorrect')
           }
         }
-        else {
-          if(decode.user.rol == 'user')
-          {
-            
-            this.router.navigateByUrl("informacion/usuario")
-          }
-          else
-          {
-            this.router.navigateByUrl("informacion/trabajador")
-          }
-        }
-      },
-      err => {
-        console.log(err)
-        
-      }
-    )
+      )
+    }
   }
 
 

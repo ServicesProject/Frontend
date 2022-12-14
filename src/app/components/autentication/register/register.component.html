@@ -7,22 +7,22 @@
                 <div class="col-lg-6 d-flex align-items-center">
                     <div class="text-white px-3 py-4 p-md-5 mx-md-4">
                       <h1 class="mb-4 text-center inicio">Regístrate</h1>
-                      <p class="cuenta">¿Ya tienes una cuenta? <a href="">Inicia sesión</a></p>
+                      <p class="cuenta">¿Ya tienes una cuenta? <a href="iniciarSesion">Inicia sesión</a></p>
                     </div>
                   </div>
               <div class="col-lg-6">
                 <div class="card-body p-md-5 mx-md-4">
                   
-                  <form (ngSubmit)="register()">
+                  <form (ngSubmit)="register()" [formGroup]="form">
                     <div class="form-outline mb-4">
-                      <input type="email" id="email" name="email" class="form-control" placeholder="Email" [(ngModel)]="email" required autocomplete="off"/>
+                      <input type="email" id="email" name="email" class="form-control" placeholder="Email" formControlName="email" required autocomplete="off"/>
     
                     </div>
                     <div class="form-outline mb-4">
-                      <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña"  [(ngModel)]="password" required autocomplete="off"/>
+                      <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña"  formControlName="password" required autocomplete="off"/>
                     </div>
                     <div class="form-outline mb-4">
-                        <input type="password" id="confirmpassword" name="confirmpassword" class="form-control" placeholder="Repetir contraseña"  />
+                        <input type="password" id="repeatPassword" name="repeatPassword" class="form-control" formControlName="repeatPassword" placeholder="Repetir contraseña"  />
                       </div>
                     <!-- TERMINOS Y CONDICIONES
                       
@@ -49,11 +49,11 @@
                     </div>
 
                     <div class="text-center pt-1  pb-1">
-                      <button class="btn btn-primary btn-block fa-lg mb-3" type="button" (click)="register()">Registrarse</button>
+                      <button class="btn btn-primary btn-block fa-lg mb-3" type="button" [disabled]="form.invalid" (click)="register()">Registrarse</button>
                     </div>
-                    <div class="divider d-flex align-items-center ">
+                   <!-- <div class="divider d-flex align-items-center ">
                         <p class="text-center  mx-3 mb-0">O</p>
-                      </div>
+                      </div>-->
                     
                   </form>
                 </div>

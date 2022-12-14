@@ -18,8 +18,8 @@
     
         </ul>
         <form class="d-flex" role="search">
-          <a href="iniciarSesion">
-            <button class="btn inicio me-2" type="button" >Iniciar sesión</button>
+          <a>
+            <button class="btn inicio me-2" type="button" (click)="control()">{{getLabel()}}</button>
           </a>
          <a href="registro">
           <button class="btn registro btn-outline-secondary" type="button">Registrarse</button>

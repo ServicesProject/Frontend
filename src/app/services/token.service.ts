@@ -10,7 +10,7 @@ export class TokenService {
 
 
   public get currentUserValue(){
-    let user_string = localStorage.getItem("datas")
+    let user_string = localStorage.getItem("token")
       if(user_string !== null){
           let token: Token = JSON.parse(user_string);
           return token;
