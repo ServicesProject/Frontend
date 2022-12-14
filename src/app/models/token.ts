@@ -12,7 +12,10 @@ export class Token{
             phone: string
             description: string
             gender:string
-            complete?: boolean}
+            complete?: boolean
+            password:string
+        
+        }
     constructor(exp: Date, iat: Date, token: string, user:any ){
         this.exp = exp
         this.iat =iat

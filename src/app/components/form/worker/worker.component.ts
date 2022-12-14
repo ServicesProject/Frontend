@@ -33,7 +33,7 @@ export class WorkerComponent implements OnInit {
         console.log("funciona prros")
       },
       err => {
-        console.log(" no funciona valimos verga")
+        console.log(" no funciona")
         
       }
     )

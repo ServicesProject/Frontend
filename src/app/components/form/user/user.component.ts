@@ -28,15 +28,17 @@ export class UserComponent implements OnInit {
 
   onCompleteInformation(): void {
     let info = this.tokenService.currentUserValue
-    if(info)
+    // verificar que todos los datos esten completos con el formGroup antes de hacer esto :) te amo
+    if(info?.user.id)
     {
       const user = new User(this.name, this.lastName, this.phone, this.description, this.gender, info.user.email, info.user.rol )
-      this.userService.save(user).subscribe(
-        data => {
-          
+      user.complete =true
+      this.userService.update(info.user.id,user).subscribe(
+        data => {          
+          this.router.navigateByUrl('inicio/usuario')
         },
         err => {
-          console.log(" no funciona valimos verga")
+          console.log(" no funciona")
           
         }
       )
