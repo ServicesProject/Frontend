@@ -30,10 +30,10 @@ export class WorkerComponent implements OnInit {
     const work = new Work(this.job, this.experience, this.contract, this.area, this.address, this.workTime)
     this.workService.save(work).subscribe(
       data => {
-        console.log("funciona prros")
+        this.router.navigateByUrl('inicio/trabajador')
       },
       err => {
-        console.log(" no funciona")
+        console.log(" No funciona")
         
       }
     )
