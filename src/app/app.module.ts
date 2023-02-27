@@ -18,6 +18,9 @@ import { UserHomeComponent } from './components/main-views/user-home/user-home.c
 import { WorkerHomeComponent } from './components/main-views/worker-home/worker-home.component';
 import { CategoriesComponent } from './components/main-views/categories/categories.component';
 import { JwtInterceptor } from './interceptor/jwt.interceptor';
+import { MapComponent } from './components/map/map.component';
+
+import { GoogleMapsModule } from '@angular/google-maps';
 
 
 @NgModule({
@@ -33,7 +36,8 @@ import { JwtInterceptor } from './interceptor/jwt.interceptor';
     FooterComponent,
     UserHomeComponent,
     WorkerHomeComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    MapComponent
 
   ],
   imports: [
@@ -41,7 +45,8 @@ import { JwtInterceptor } from './interceptor/jwt.interceptor';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    GoogleMapsModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}],
   bootstrap: [AppComponent]
