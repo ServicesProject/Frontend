@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Register } from 'src/app/models/register';
+import { RegisterLender } from 'src/app/models/registerLender';
+import { LenderService } from 'src/app/services/lender.service';
 import { UserService } from 'src/app/services/user.service';
 import { ValidatorPasswordService } from 'src/app/services/validator-password.service';
 
@@ -23,6 +25,7 @@ export class RegisterComponent implements OnInit {
   
   constructor(
     private registerService: UserService,
+    private lenderService: LenderService,
     private router: Router,
     private validatorPassword: ValidatorPasswordService
    
@@ -37,18 +40,30 @@ export class RegisterComponent implements OnInit {
     }, this.validatorPassword.passwordMatch("password","repeatPassword")
 )}
 
-  register():void{
+  async register(){
     const register = new Register(this.form.get('email')?.value,this.form.get('password')?.value, this.form.get('rol')?.value)
     this.registerService.register(register).subscribe(
       data => {
+        if (register.rol === 'worker') {
+          let lender = {email: register.email}
+          this.lenderService.register(lender).subscribe(
+            data => {
+              this.router.navigateByUrl("iniciarSesion")
+            }
+          )
+          
+        }
+        else{
           this.router.navigateByUrl("iniciarSesion")
 
+        }
       },
       err => {
         console.log(err)
         
       }
     )
+    
   }
 
   Onchange(event:any){

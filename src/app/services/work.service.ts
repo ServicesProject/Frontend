@@ -21,7 +21,7 @@ export class WorkService {
     return this.httpClient.get<Work[]>(this.apiUrl +`work/${id}`)
   }
 
-  public save(work: Work): Observable<any>{
+  public create(work: Work): Observable<any>{
     return this.httpClient.post<any>(this.apiUrl+ 'work', work)
   }
 
