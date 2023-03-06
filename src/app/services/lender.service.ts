@@ -19,5 +19,9 @@ export class LenderService {
     return this.httpClient.post<any>(this.apiUrl+ 'lender', lender)
   }
 
+  public updateLender(email, lender): Observable<any>{
+    return this.httpClient.put<any>(this.apiUrl+ `lender?email=${email}`,lender)
+  }
+
 
 }

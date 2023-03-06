@@ -67,7 +67,6 @@ export class RegisterComponent implements OnInit {
   }
 
   Onchange(event:any){
-    console.log(event.target.value)
     this.rol = event.target.value
     this.form.patchValue({rol:event.target.value})
   }

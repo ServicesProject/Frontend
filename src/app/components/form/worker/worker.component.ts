@@ -40,21 +40,32 @@ export class WorkerComponent implements OnInit {
   }
 
 
-  onCreate(): void {
+  UpdateDataLender() {
     let info = this.tokenService.currentUserValue
 
-    const lender = new RegisterLender
-   
+    const lender = new RegisterLender(this.name, this.lastName, this.phone, this.description, this.gender)
+    let work = new Work(this.job, this.experience, this.contract, this.area, this.address, this.workTime)
+
+    this.lenderService.updateLender(info.user.email, lender).subscribe();
+    let worktosend = {...work,lenderEmail:info.user.email}
+    this.workService.create(worktosend).subscribe()
     
-    this.lenderService.register(lender).subscribe(
-      data => {
-        this.router.navigateByUrl('inicio/trabajador')
-      },
-      err => {
-        console.log(" No funciona")
+    // TAREA POTO :3
+    // esperar las dos llamadas que cuando se completen se navegue a la sigiuente pagina
+    // actualizar el local storage con los datos del lender actualizados una vez que el lender se termine de actualizar
+
+    // this.lenderService.register(lender).subscribe(
+    //   data => {
+    //     this.router.navigateByUrl('inicio/trabajador')
+    //   },
+    //   err => {
+    //     console.log(" No funciona")
         
-      }
-    )
+    //   }
+    // )
   }
+
+
+  
 
 }
