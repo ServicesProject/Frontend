@@ -21,6 +21,7 @@ import { JwtInterceptor } from './interceptor/jwt.interceptor';
 import { MapComponent } from './components/map/map.component';
 
 import { GoogleMapsModule } from '@angular/google-maps';
+import { LenderComponent } from './components/navigation/sidebar/lender/lender.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
     UserHomeComponent,
     WorkerHomeComponent,
     CategoriesComponent,
-    MapComponent
+    MapComponent,
+    LenderComponent
 
   ],
   imports: [
