@@ -19,7 +19,8 @@ export class WorkerComponent implements OnInit {
   phone: any;
   description: any;
   gender: any;
-
+  ci: any;
+  birthdate: Date
 
 
   job:any;
@@ -28,6 +29,11 @@ export class WorkerComponent implements OnInit {
   area: any
   address: any
   workTime: any
+  category: string
+  salary: string
+  lat:string
+  lng: string
+
 
   constructor(
     private lenderService: LenderService,
@@ -43,8 +49,8 @@ export class WorkerComponent implements OnInit {
   UpdateDataLender() {
     let info = this.tokenService.currentUserValue
 
-    const lender = new RegisterLender(this.name, this.lastName, this.phone, this.description, this.gender)
-    let work = new Work(this.job, this.experience, this.contract, this.area, this.address, this.workTime)
+    const lender = new RegisterLender(this.name, this.lastName, this.phone, this.description, this.gender, this.ci, this.birthdate)
+    let work = new Work(this.job, this.experience, this.contract, this.area, this.address, this.workTime, this.category, this.salary, this.lat, this.lng)
 
     this.lenderService.updateLender(info.user.email, lender).subscribe();
     let worktosend = {...work,lenderEmail:info.user.email}

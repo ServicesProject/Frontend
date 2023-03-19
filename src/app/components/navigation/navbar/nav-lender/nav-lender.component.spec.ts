@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LenderComponent } from './lender.component';
+import { NavLenderComponent } from './nav-lender.component';
 
-describe('LenderComponent', () => {
-  let component: LenderComponent;
-  let fixture: ComponentFixture<LenderComponent>;
+describe('NavLenderComponent', () => {
+  let component: NavLenderComponent;
+  let fixture: ComponentFixture<NavLenderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LenderComponent ]
+      declarations: [ NavLenderComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LenderComponent);
+    fixture = TestBed.createComponent(NavLenderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

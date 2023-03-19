@@ -9,7 +9,8 @@ import { HomeComponent } from './components/main-views/home/home.component';
 import { UserHomeComponent } from './components/main-views/user-home/user-home.component';
 import { WorkerHomeComponent } from './components/main-views/worker-home/worker-home.component';
 import { MapComponent } from './components/map/map.component';
-import { LenderComponent } from './components/navigation/sidebar/lender/lender.component';
+import { NavLenderComponent } from './components/navigation/navbar/nav-lender/nav-lender.component';
+
 import { AuthenticationGuard } from './guards/authentication.guard';
 
 const routes: Routes = [
@@ -21,8 +22,7 @@ const routes: Routes = [
   {path: 'inicio/usuario', component: UserHomeComponent, canActivate:[AuthenticationGuard]},
   {path: 'inicio/trabajador', component: WorkerHomeComponent, canActivate:[AuthenticationGuard]},
   {path: 'categorias', component: CategoriesComponent},
-  //borrar despues prueba
-  {path: 'sidebar', component: LenderComponent},
+  {path: 'navlender', component: NavLenderComponent},
   {path: 'mapa', component:MapComponent},
   {path: '**', redirectTo: '', pathMatch: 'full'}
 ];

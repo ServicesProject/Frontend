@@ -16,6 +16,8 @@ export class UserComponent implements OnInit {
   phone: any;
   description: any;
   gender: any;
+  ci: any;
+  birthdate: Date
 
   constructor(
     private userService: UserService,
@@ -31,7 +33,7 @@ export class UserComponent implements OnInit {
     // verificar que todos los datos esten completos con el formGroup antes de hacer esto :) te amo
     if(info?.user.id)
     {
-      const user = new User(this.name, this.lastName, this.phone, this.description, this.gender, info.user.email, info.user.rol )
+      const user = new User(this.name, this.lastName, this.phone, this.description, this.gender,this.ci, info.user.email, info.user.rol, this.birthdate )
       user.complete =true
       this.userService.update(info.user.id,user).subscribe(
         data => {          
