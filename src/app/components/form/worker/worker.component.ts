@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Lender } from 'src/app/models/lender';
 import { RegisterLender } from 'src/app/models/registerLender';
 import { Work } from 'src/app/models/work';
 import { LenderService } from 'src/app/services/lender.service';
 import { TokenService } from 'src/app/services/token.service';
 import { WorkService } from 'src/app/services/work.service';
+import { GoogleMap, MapMarker } from '@angular/google-maps';
+
 
 @Component({
   selector: 'app-worker',
@@ -31,9 +32,17 @@ export class WorkerComponent implements OnInit {
   workTime: any
   category: string
   salary: string
-  lat:string
-  lng: string
+  lat
+  lng
 
+  //Map
+  zoom = 15
+  map:any
+  center: google.maps.LatLngLiteral
+  markerPosition: google.maps.LatLngLiteral;
+  @ViewChild('map') mapElement: ElementRef
+
+  
 
   constructor(
     private lenderService: LenderService,
@@ -42,7 +51,25 @@ export class WorkerComponent implements OnInit {
     private tokenService: TokenService
   ) { }
 
+  
+
   ngOnInit(): void {
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.center = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      };
+    });  
+  }
+
+  onMapClick(event) {
+   
+    
+    this.markerPosition = event.latLng.toJSON();
+    console.log(this.markerPosition);
+    this.lat = this.markerPosition.lat
+    this.lng = this.markerPosition.lng
+
   }
 
 

@@ -15,6 +15,11 @@
             </div>
             <div class="col">
               <div class="form-outline">
+                <input type="text" id="ci" name="ci" class="form-control" placeholder="Ci" [(ngModel)]="ci" required autocomplete="off"/>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-outline">
                 <input type="text" id="phone" name="phone" class="form-control"placeholder="Celular" [(ngModel)]="phone" required autocomplete="off"/>
               </div>
             </div>
@@ -64,6 +69,21 @@
               </div>
               <div class="col">
                 <div class="form-group col-md-12">
+                    <select id="category" name="category" class="form-select" [(ngModel)]="category" required autocomplete="off">
+                      <option selected>Categoria</option>
+                      <option>Cuidado</option>
+                      <option>Reparacion</option>
+                      <option>Ropa</option>
+                    </select>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-outline">
+                  <input type="text" id="salary" name="salary" class="form-control" placeholder="salary" [(ngModel)]="salary" required autocomplete="off"/>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group col-md-12">
                     <select id="workTime" name="workTime" class="form-select" [(ngModel)]="workTime" required autocomplete="off">
                       <option selected>Tiempo de jornada</option>
                       <option>Completa</option>
@@ -74,6 +94,8 @@
                 </div>
               </div>
             </div>
+
+            
           
             <div class="row mb-4">
                 <div class="col">
@@ -96,6 +118,11 @@
                         </select>
                     </div>
                 </div>
+
+                
+                  
+              
+
                 <div class="col">
                     <div class="form-outline">
                         <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Dirección" [(ngModel)]="address" required autocomplete="off"/>
@@ -106,9 +133,16 @@
             <div class="text-center pt-1  pb-1">
               <button class="btn btn-primary btn-block fa-lg mb-3" type="button" (click)="UpdateDataLender()">Continuar</button>
             </div>
+            
         </form>
+        
   </div>
+  
 </div>
+<google-map [center]="center" [zoom]="zoom" (mapClick)="onMapClick($event)">
+  <map-marker *ngIf="markerPosition" [position]="markerPosition"></map-marker>
+</google-map>
+
 
 
 
