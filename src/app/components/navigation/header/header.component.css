@@ -5,42 +5,31 @@
 7180B9
 7FB5FF
 */
-html,body{
-    font-size: 15px;
-    line-height: 1.5;
-    box-sizing: border-box;
-    overflow: hidden;
-    top: 0;
-    left:0;
+.collapse .nav-item{
+    padding: 5px;
 }
-a{
-    text-decoration: none;
+
+.btn-outline-primary{
     color: #000000;
-}
-a:hover{
-    color: #7FB5FF;
-}
-
-ul{
-    list-style-type: none;
-}
-.navbar{
-    padding: 3rem 2rem;
-    height: 0rem;
-    min-height: 10vh;
-}
-.navbar .navbar-brand a{
-    padding: 1rem 0;
-    display: block;
-    text-decoration: none;
+    border-color: #000000;
+    border-radius: 20px;
 }
 
-.navbar-brand{
-    font-size: 2.3rem;
-    color: #7FB5FF;
+.btn-outline-primary:hover{
+    color: #FFFFFF;
+    background-color: #000000;
+    border-color: #000000;
 }
-.navbar-toggler{
-    border: none;
-    padding: 10px 6px;
-    outline: none;
+
+.btn-primary{
+    border-radius: 20px;
+    width: 130px;
+    background-color: #000000;
+    border-color: #000000;
 }
+
+.btn-primary:active{
+    background-color: #7180B9;
+    border-color: #7180B9;
+}
+

@@ -1,4 +1,125 @@
 <div class="container">
+  <form (ngSubmit)="UpdateDataLender()" class="form font1">
+    <h3 class="form_title">Datos personales</h3>
+    
+    <div class="form_container">
+
+        <div class="form_group">
+          <input type="text" id="name" name="name" class="form_input" [(ngModel)]="name" placeholder=" ">
+          <label for="name" class="form_label">Nombre:</label>
+          <span class="form_line"></span>
+        </div>
+    
+        <div class="form_group">
+          <input type="text" id="lastName" name="lastName" class="form_input"  [(ngModel)]="lastName" placeholder=" ">
+          <label for="lastName" class="form_label">Apellidos:</label>
+          <span class="form_line"></span>
+        </div>
+  
+        <div class="form_group">
+          <input type="text" id="ci" name="ci" class="form_input"  [(ngModel)]="ci" placeholder=" ">
+          <label for="ci" class="form_label">Ci:</label>
+          <span class="form_line"></span>
+        </div>
+
+        <div class="form_group">
+          <input type="text" id="phone" name="phone" class="form_input" [(ngModel)]="phone" placeholder=" ">
+          <label for="phone" class="form_label">Celular:</label>
+          <span class="form_line"></span>
+        </div>
+
+        <div class="form_group ">
+          <select id="gender" class="form_input" [(ngModel)]="gender" name="gender">
+            <option selected>Hombre</option>
+            <option >Mujer</option>
+          </select>
+          <label for="gender" class="form_label">Género:</label>
+        </div>
+
+        <div class="form_group">
+          <input type="text" id="description"  [(ngModel)]="description" name="description" class="form_input"  placeholder=" ">
+          <label for="description" class="form_label">Sobre ti:</label>
+          <span class="form_line"></span>
+        </div>
+    </div>
+
+    <h3 class="form_title_service">Datos del servicio</h3>
+
+    <div class="form_container">
+
+      <div class="form_group ">
+        <select id="category" class="form_input" [(ngModel)]="category" name="category">
+          <option>Vehículo</option>
+          <option>Domicilio</option>
+          <option>Cuidado personal</option>
+          <option>Reparación</option>
+          <option>Construcción</option>
+          <option>Vestimenta</option>
+          <option>Enseñanza</option>
+        </select>
+        <label for="category" class="form_label">Categoria:</label>
+      </div>
+      
+      <div class="form_group ">
+        <select id="job" class="form_input" [(ngModel)]="job" name="job">
+          <option>Electricista</option>
+          <option>Mecánico</option>
+        </select>
+        <label for="job" class="form_label">Oficio:</label>
+      </div>
+
+      <div class="form_group ">
+        <select id="contract" class="form_input" [(ngModel)]="contract" name="contract">
+          <option>Indefinido</option>
+          <option>Duración determinada</option>
+          <option>Autónomo</option>
+        </select>
+        <label for="contract" class="form_label">Contrato:</label>
+      </div>
+
+      <div class="form_group ">
+        <select id="workTime" class="form_input" [(ngModel)]="workTime" name="workTime">
+          <option>Completa</option>
+          <option>Parcial</option>
+          <option>Flexible</option>
+          <option>Intensiva</option>
+        </select>
+        <label for="workTime" class="form_label">Tiempo de jornada:</label>
+      </div>
+
+      <div class="form_group ">
+        <select id="experience" class="form_input" [(ngModel)]="experience" name="experience">
+          <option>Inicial</option>
+          <option>Medio</option>
+          <option>Experto</option>
+        </select>
+        <label for="experience" class="form_label">Experiencia:</label>
+      </div>
+
+      <div class="form_group ">
+        <select id="area" class="form_input" [(ngModel)]="area" name="area">
+          <option>Cochabamba</option>
+          <option>Sacaba</option>
+          <option>Quillacollo</option>
+          <option>Tiquipaya</option>
+        </select>
+        <label for="area" class="form_label">Municipio:</label>
+      </div>
+
+      
+
+      
+
+      
+
+      
+  </div>
+    
+  </form>
+</div>
+
+
+<!-- <div class="container">
   <div class="card border-0">
       <form (ngSubmit)="UpdateDataLender()">
           <h4 class="text-center">Datos personales</h4>
@@ -143,6 +264,6 @@
   <map-marker *ngIf="markerPosition" [position]="markerPosition"></map-marker>
 </google-map>
 
-
+ -->
 
 

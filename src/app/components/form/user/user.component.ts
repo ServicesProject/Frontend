@@ -19,6 +19,7 @@ export class UserComponent implements OnInit {
   ci: any;
   birthdate: Date
 
+
   constructor(
     private userService: UserService,
     private router: Router,

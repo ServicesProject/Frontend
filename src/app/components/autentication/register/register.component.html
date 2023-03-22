@@ -1,4 +1,49 @@
-<section class="h-100 gradient-form">
+<!-- AUMENTAR TERMINOS Y CONDICIONES -->
+
+<div class="container">
+  <form (ngSubmit)="register()" [formGroup]="form" class="form font1">
+    <a class="navbar-brand" href="#">
+      <img src="../../../../assets/img/logo_negro.png" alt="Nexa" width="53" height="43">
+    </a>
+    <h3 class="form_title">Registro</h3>
+    <div class="form_container">
+      <div class="form_group">
+        <input type="email" id="email" name="email" class="form_input" formControlName="email" placeholder=" ">
+        <label for="email" class="form_label">Correo:</label>
+        <span class="form_line"></span>
+      </div>
+  
+      <div class="form_group">
+        <input type="password" id="password" name="password" class="form_input" formControlName="password" placeholder=" ">
+        <label for="password" class="form_label">Contraseña:</label>
+        <span class="form_line"></span>
+      </div>
+  
+      <div class="form_group">
+        <input type="password" id="repeatPassword" name="repeatPassword"  class="form_input" formControlName="repeatPassword" placeholder=" ">
+        <label for="repeatPassword" class="form_label">Repetir contraseña:</label>
+        <span class="form_line"></span>
+      </div>
+
+      <div class="form_group">
+        <input class="form-check-input me-2" type="radio" name="user" id="user" value="user" (change)="Onchange($event)">
+        <label class="form-check-label me-2" for="user">Usuario</label>
+        <input class="form-check-input me-2" type="radio" name="user" id="worker" value="worker" (change)="Onchange($event)">
+        <label class="form-check-label me-2" for="worker">Contratista</label>
+      </div>
+
+      <button type="button" class="form_submit btn-primary btn-block" [disabled]="form.invalid" (click)="register()">Registrarse</button>
+
+    </div>
+    <p class="form_paragraph">¿Ya tienes una cuenta? <a href="iniciarSesion" class="form_link">Inicia sesión</a></p>
+  </form>
+  
+</div>
+
+
+
+
+<!-- <section class="h-100 gradient-form">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-xl-10">
@@ -24,7 +69,9 @@
                     <div class="form-outline mb-4">
                         <input type="password" id="repeatPassword" name="repeatPassword" class="form-control" formControlName="repeatPassword" placeholder="Repetir contraseña"  />
                       </div>
-                    <!-- TERMINOS Y CONDICIONES
+
+
+                     TERMINOS Y CONDICIONES
                       
                       <div class="d-flex justify-content-between align-items-center mb-4">
                         
@@ -33,17 +80,20 @@
                           <p class="cuenta">Acepto los <a href="">términos y condiciones</a></p>
                         </div>
                         
-                    </div>-->
+                    </div>
+
+
+
                     <p>Elige un rol</p>
                     <div class="form-check " >
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="user" (change)="Onchange($event)">
-                      <label class="form-check-label" for="flexRadioDefault1">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="user" value="user" (change)="Onchange($event)">
+                      <label class="form-check-label" for="user">
                         Usuario
                       </label>
                     </div>
                     <div class="form-check mb-4">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="worker" (change)="Onchange($event)">
-                      <label class="form-check-label" for="flexRadioDefault2">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="worker" value="worker" (change)="Onchange($event)">
+                      <label class="form-check-label" for="worker">
                         Contratista
                       </label>
                     </div>
@@ -51,10 +101,8 @@
                     <div class="text-center pt-1  pb-1">
                       <button class="btn btn-primary btn-block fa-lg mb-3" type="button" [disabled]="form.invalid" (click)="register()">Registrarse</button>
                     </div>
-                   <!-- <div class="divider d-flex align-items-center ">
-                        <p class="text-center  mx-3 mb-0">O</p>
-                      </div>-->
-                    
+                  
+              
                   </form>
                 </div>
               </div>
@@ -65,3 +113,6 @@
       </div>
     </div>
   </section>
+
+
+ -->

@@ -1,4 +1,118 @@
-.divider:after,
+.container{
+    display: flex;
+    min-height: 100vh;
+
+   
+}
+.form{
+    background-color: #FFFFFF;
+    margin: auto;
+    width: 90%;
+    max-width: 400px;
+    padding: 3em 3em;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px rgb(0 0 0 / 20%);
+    text-align: center;
+}
+
+
+
+.form_paragraph{
+    font-weight: 300;
+    margin-top: 3em;
+}
+
+.form_link{
+    font-weight: 400;
+    color: #000000;
+}
+
+
+.form_container{
+    margin-top: 3em;
+    display: grid;
+    gap: 2.5em;
+}
+
+.form_group{
+    position: relative;
+    --color: #000000;
+
+}
+
+.form_input{
+    width: 100%;
+    background: none;
+    color: #000000;
+    font-size: 1rem;
+    padding: .6em .3em;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--color);
+
+}
+
+.form_input_check{
+    width: 100%;
+    background: none;
+    color: #000000;
+    font-size: 1rem;
+    padding: .6em .3em;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--color);
+
+}
+
+.form_input:focus + .form_label,
+.form_input:not(:placeholder-shown) + .form_label{
+    transform: translateY(-12px) scale(.7);
+    transform-origin: left top;
+    /* color: #9dd9ff; */
+}
+
+.form_label{
+    color: var(--color);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 5px;
+    transform: translateY(10px);
+    transition: transform .5s, color .3s;
+}
+
+.form_label_check{
+    color: var(--color);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 5px;
+
+}
+
+.form_submit{
+    /* background-color: #000000; */
+    /* color: #FFFFFF; */
+    font-size: 1rem;
+    font-weight: 300;
+    padding: .5em 0;
+    border: none;
+    border-radius: 10px;
+}
+
+.form_line{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+
+}
+
+
+
+
+/* .divider:after,
 .divider:before {
 content: "";
 flex: 1;
@@ -23,6 +137,6 @@ color: black;
     border-top-right-radius: .3rem;
     border-bottom-right-radius: .3rem;
     }
-    }
+    } */
 
     

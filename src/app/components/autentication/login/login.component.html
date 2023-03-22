@@ -1,4 +1,35 @@
-<section class="h-100 gradient-form">
+<div class="container">
+  <form (ngSubmit)="login()" [formGroup]="form" class="form font1">
+    <a class="navbar-brand" href="#">
+      <img src="../../../../assets/img/logo_negro.png" alt="Nexa" width="53" height="43">
+    </a>
+    <h3 class="form_title">Iniciar sesión</h3>
+    <div class="form_container">
+      <div class="form_group">
+        <input type="email" id="email" name="email" class="form_input" formControlName="email" placeholder=" ">
+        <label for="email" class="form_label">Correo:</label>
+        <span class="form_line"></span>
+      </div>
+  
+      <div class="form_group">
+        <input type="password" id="password" name="password" class="form_input" formControlName="password" placeholder=" ">
+        <label for="password" class="form_label">Contraseña:</label>
+        <span class="form_line"></span>
+      </div>
+  
+
+      <button type="button" class="form_submit btn-primary btn-block" [disabled]="form.invalid" (click)="login()">Iniciar sesión</button>
+
+    </div>
+    <p class="form_paragraph">¿Aún no tienes cuenta? <a href="registro" class="form_link">Registrarse</a></p>
+  </form>
+  
+</div>
+
+
+
+
+<!-- <section class="h-100 gradient-form">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-xl-10">
@@ -29,10 +60,6 @@
                     <div class="text-center pt-1  pb-1">
                       <button class="btn btn-primary btn-block fa-lg mb-3" type="button" [disabled]="form.invalid" (click)="login()">Continuar</button>
                     </div>
-                    <!-- <div class="divider d-flex align-items-center ">
-                        <p class="text-center  mx-3 mb-0">O</p>
-                      </div>-->
-                    
                   </form>
                 </div>
               </div>
@@ -42,4 +69,4 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
