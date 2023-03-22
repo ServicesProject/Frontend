@@ -1,43 +1,43 @@
 <div class="container">
-  <form (ngSubmit)="UpdateDataLender()" class="form font1">
+  <form (ngSubmit)="UpdateDataLender()"  class="form font1">
     <h3 class="form_title">Datos personales</h3>
     
     <div class="form_container">
 
         <div class="form_group">
-          <input type="text" id="name" name="name" class="form_input" [(ngModel)]="name" placeholder=" ">
+          <input type="text" id="name" name="name" class="form_input"  [(ngModel)]="name" placeholder=" " required autocomplete="off">
           <label for="name" class="form_label">Nombre:</label>
           <span class="form_line"></span>
         </div>
     
         <div class="form_group">
-          <input type="text" id="lastName" name="lastName" class="form_input"  [(ngModel)]="lastName" placeholder=" ">
+          <input type="text" id="lastName" name="lastName" class="form_input"   [(ngModel)]="lastName" placeholder=" " required autocomplete="off">
           <label for="lastName" class="form_label">Apellidos:</label>
           <span class="form_line"></span>
         </div>
   
         <div class="form_group">
-          <input type="text" id="ci" name="ci" class="form_input"  [(ngModel)]="ci" placeholder=" ">
+          <input type="text" id="ci" name="ci" class="form_input"  [(ngModel)]="ci" placeholder=" " required autocomplete="off">
           <label for="ci" class="form_label">Ci:</label>
           <span class="form_line"></span>
         </div>
 
         <div class="form_group">
-          <input type="text" id="phone" name="phone" class="form_input" [(ngModel)]="phone" placeholder=" ">
+          <input type="text" id="phone" name="phone" class="form_input" [(ngModel)]="phone" placeholder=" " required autocomplete="off">
           <label for="phone" class="form_label">Celular:</label>
           <span class="form_line"></span>
         </div>
 
         <div class="form_group ">
           <select id="gender" class="form_input" [(ngModel)]="gender" name="gender">
-            <option selected>Hombre</option>
-            <option >Mujer</option>
+            <option>Hombre</option>
+            <option>Mujer</option>
           </select>
           <label for="gender" class="form_label">Género:</label>
         </div>
 
         <div class="form_group">
-          <input type="text" id="description"  [(ngModel)]="description" name="description" class="form_input"  placeholder=" ">
+          <input type="text" id="description"  [(ngModel)]="description"  name="description" class="form_input"  placeholder=" " required autocomplete="off">
           <label for="description" class="form_label">Sobre ti:</label>
           <span class="form_line"></span>
         </div>
@@ -48,7 +48,7 @@
     <div class="form_container">
 
       <div class="form_group ">
-        <select id="category" class="form_input" [(ngModel)]="category" name="category">
+        <select id="category" name="category" class="form_input" [(ngModel)]="category" >
           <option>Vehículo</option>
           <option>Domicilio</option>
           <option>Cuidado personal</option>
@@ -60,16 +60,39 @@
         <label for="category" class="form_label">Categoria:</label>
       </div>
       
-      <div class="form_group ">
-        <select id="job" class="form_input" [(ngModel)]="job" name="job">
-          <option>Electricista</option>
-          <option>Mecánico</option>
+      <!-- <div class="form_group ">
+        <select id="job" name="job" class="form_input" [(ngModel)]="job" >
+          <option  [ngValue]="job" *ngIf="category === 'Vehículo'">Mécanico</option>
+          <option *ngIf="category === 'Vehículo'">Chofer</option>
+
+          <option *ngIf="category === 'Domicilio'">Cocinero</option>
+          <option *ngIf="category === 'Domicilio'">Jardinero</option>
+          <option *ngIf="category === 'Domicilio'">Limpieza</option>
+        
+          <option *ngIf="category === 'Cuidado personal'">Enfermero</option>
+          <option *ngIf="category === 'Cuidado personal'">Niñero</option>
+          <option *ngIf="category === 'Cuidado personal'">Cuidador de mascotas</option>
+
+          <option *ngIf="category === 'Reparación'">Electricista</option>
+          <option *ngIf="category === 'Reparación'">Cerrajero</option>
+          <option *ngIf="category === 'Reparación'">Fontanero</option>
+          <option *ngIf="category === 'Reparación'">Plomero</option>
+
+          <option *ngIf="category === 'Construcción'">Albañil</option>
+          <option *ngIf="category === 'Construcción'">Carpintero</option>
+          <option *ngIf="category === 'Construcción'">Pintor</option>
+        
+          <option *ngIf="category === 'Vestimenta'">Sastre</option>
+          <option *ngIf="category === 'Vestimenta'">Costurero</option>
+
+          <option *ngIf="category === 'Enseñanza'">Tutor</option>
+
         </select>
         <label for="job" class="form_label">Oficio:</label>
-      </div>
+      </div> -->
 
       <div class="form_group ">
-        <select id="contract" class="form_input" [(ngModel)]="contract" name="contract">
+        <select id="contract" name="contract" class="form_input" [(ngModel)]="contract"  >
           <option>Indefinido</option>
           <option>Duración determinada</option>
           <option>Autónomo</option>
@@ -78,17 +101,17 @@
       </div>
 
       <div class="form_group ">
-        <select id="workTime" class="form_input" [(ngModel)]="workTime" name="workTime">
+        <select id="workTime" name="workTime" class="form_input" [(ngModel)]="workTime" >
           <option>Completa</option>
           <option>Parcial</option>
           <option>Flexible</option>
           <option>Intensiva</option>
         </select>
-        <label for="workTime" class="form_label">Tiempo de jornada:</label>
+        <label for="workTime" class="form_label">Jornada:</label>
       </div>
 
       <div class="form_group ">
-        <select id="experience" class="form_input" [(ngModel)]="experience" name="experience">
+        <select id="experience" name="experience" class="form_input" [(ngModel)]="experience" >
           <option>Inicial</option>
           <option>Medio</option>
           <option>Experto</option>
@@ -97,7 +120,7 @@
       </div>
 
       <div class="form_group ">
-        <select id="area" class="form_input" [(ngModel)]="area" name="area">
+        <select id="area"  name="area" class="form_input" [(ngModel)]="area" >
           <option>Cochabamba</option>
           <option>Sacaba</option>
           <option>Quillacollo</option>
@@ -106,15 +129,26 @@
         <label for="area" class="form_label">Municipio:</label>
       </div>
 
-      
+      <div class="form_group">
+        <input type="text" id="salary" name="salary" class="form_input" [(ngModel)]="salary" placeholder=" " required autocomplete="off">
+          <label for="salary" class="form_label">Salario minimo:</label>
+          <span class="form_line"></span>
+      </div>
 
-      
+      <div class="form_group">
+        <input type="text" id="address" name="address" class="form_input" [(ngModel)]="address" placeholder=" "  required autocomplete="off">
+          <label for="address" class="form_label">Dirección:</label>
+          <span class="form_line"></span>
+      </div>
+    </div>
 
-      
-
-      
-  </div>
+    <p>Marque su ubicación exacta de trabajo:</p>
     
+    <google-map width="100%" [center]="center" [zoom]="zoom" (mapClick)="onMapClick($event)" >
+          <map-marker *ngIf="markerPosition" [position]="markerPosition"></map-marker>
+    </google-map>
+
+    <button type="button" class="form_submit btn-primary btn-block" (click)="UpdateDataLender()">Continuar</button>
   </form>
 </div>
 

@@ -1,48 +1,48 @@
 <div class="container">
-  <form (ngSubmit)="onCompleteInformation()" class="form font1">
+  <form (ngSubmit)="onCompleteInformation()" [formGroup]="form" class="form font1">
     <h3 class="form_title">Datos personales</h3>
     
     <div class="form_container">
       
         <div class="form_group">
-          <input type="text" id="name" name="name" class="form_input" [(ngModel)]="name" placeholder=" ">
+          <input type="text" id="name" name="name" class="form_input" [(ngModel)]="name" placeholder=" "  formControlName="name" required autocomplete="off">
           <label for="name" class="form_label">Nombre:</label>
           <span class="form_line"></span>
         </div>
     
         <div class="form_group">
-          <input type="text" id="lastName" name="lastName" class="form_input"  [(ngModel)]="lastName" placeholder=" ">
+          <input type="text" id="lastName" name="lastName" class="form_input"  [(ngModel)]="lastName" placeholder=" " formControlName="lastName" required autocomplete="off">
           <label for="lastName" class="form_label">Apellidos:</label>
           <span class="form_line"></span>
         </div>
   
         <div class="form_group">
-          <input type="text" id="ci" name="ci" class="form_input"  [(ngModel)]="ci" placeholder=" ">
+          <input type="text" id="ci" name="ci" class="form_input"  [(ngModel)]="ci" placeholder=" " formControlName="ci" required autocomplete="off">
           <label for="ci" class="form_label">Ci:</label>
           <span class="form_line"></span>
         </div>
 
         <div class="form_group">
-          <input type="text" id="phone" name="phone" class="form_input" [(ngModel)]="phone" placeholder=" ">
+          <input type="text" id="phone" name="phone" class="form_input" [(ngModel)]="phone" placeholder=" " formControlName="phone" required autocomplete="off">
           <label for="phone" class="form_label">Celular:</label>
           <span class="form_line"></span>
         </div>
 
         <div class="form_group ">
-          <select id="gender" class="form_input" [(ngModel)]="gender" name="gender">
-            <option selected>Hombre</option>
+          <select id="gender" class="form_input" [(ngModel)]="gender" name="gender" formControlName="gender">
+            <option >Hombre</option>
             <option >Mujer</option>
           </select>
           <label for="gender" class="form_label">Género:</label>
         </div>
 
         <div class="form_group">
-          <input type="text" id="description"  [(ngModel)]="description" name="description" class="form_input"  placeholder=" ">
+          <input type="text" id="description"  [(ngModel)]="description" name="description" class="form_input" formControlName="description"  placeholder=" " required autocomplete="off">
           <label for="description" class="form_label">Sobre ti:</label>
           <span class="form_line"></span>
         </div>
 
-      <button type="button" class="form_submit btn-primary btn-block" (click)="onCompleteInformation()">Continuar</button>
+      <button type="button" class="form_submit btn-primary btn-block" [disabled]="form.invalid" (click)="onCompleteInformation()">Continuar</button>
 
     </div>
   </form>

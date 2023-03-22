@@ -6,6 +6,7 @@ import { LenderService } from 'src/app/services/lender.service';
 import { TokenService } from 'src/app/services/token.service';
 import { WorkService } from 'src/app/services/work.service';
 import { GoogleMap, MapMarker } from '@angular/google-maps';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -35,6 +36,8 @@ export class WorkerComponent implements OnInit {
   lat
   lng
 
+  public form!: FormGroup
+
   //Map
   zoom = 15
   map:any
@@ -42,6 +45,7 @@ export class WorkerComponent implements OnInit {
   markerPosition: google.maps.LatLngLiteral;
   @ViewChild('map') mapElement: ElementRef
 
+  
   
 
   constructor(
@@ -59,14 +63,13 @@ export class WorkerComponent implements OnInit {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
       };
-    });  
+    });
+
   }
 
   onMapClick(event) {
-   
-    
     this.markerPosition = event.latLng.toJSON();
-    console.log(this.markerPosition);
+    console.log(this.markerPosition); 
     this.lat = this.markerPosition.lat
     this.lng = this.markerPosition.lng
 
@@ -79,6 +82,7 @@ export class WorkerComponent implements OnInit {
     const lender = new RegisterLender(this.name, this.lastName, this.phone, this.description, this.gender, this.ci, this.birthdate)
     let work = new Work(this.job, this.experience, this.contract, this.area, this.address, this.workTime, this.category, this.salary, this.lat, this.lng)
 
+    
     this.lenderService.updateLender(info.user.email, lender).subscribe();
     let worktosend = {...work,lenderEmail:info.user.email}
     this.workService.create(worktosend).subscribe()
