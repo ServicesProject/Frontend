@@ -11,6 +11,14 @@
         <input type="email" id="email" name="email" class="form_input" formControlName="email" placeholder=" " required autocomplete="off">
         <label for="email" class="form_label">Correo:</label>
         <span class="form_line"></span>
+        <!-- <div *ngIf="form.get('email').invalid && (form.get('email').dirty || form.get('email').touched)">
+          <div *ngIf="form.get('email').errors.required">
+            Email is required.
+          </div>
+          <div *ngIf="form.get('email').errors.pattern">
+            Please enter a valid email.
+          </div>
+        </div> -->
       </div>
   
       <div class="form_group">

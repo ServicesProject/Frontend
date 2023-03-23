@@ -1,1 +1,39 @@
-<p>forgot-pw works!</p>
+<div class="container">
+    <form class="form font1">
+      <h3 class="form_title">Restablecer contraseña</h3>
+      <p class="form_paragraph">Ingresa tu correo para enviarte un mensaje</p>
+      <div class="form_container">
+        <div class="form_group">
+          <input type="email" id="email" name="email" class="form_input"placeholder=" ">
+          <label for="email" class="form_label">Correo:</label>
+          <span class="form_line"></span>
+        </div>
+    
+    
+        <button type="button" class="form_submit btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Enviar</button>
+  
+                <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Cambio de contraseña</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Hemos enviado un correo al email ingresado, verifica en tu bandeja de entrada
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Entendido</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+
+
+

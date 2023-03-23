@@ -10,6 +10,7 @@ import { UserHomeComponent } from './components/main-views/user-home/user-home.c
 import { WorkerHomeComponent } from './components/main-views/worker-home/worker-home.component';
 import { MapComponent } from './components/map/map.component';
 import { NavLenderComponent } from './components/navigation/navbar/nav-lender/nav-lender.component';
+import { ForgotPwComponent } from './components/autentication/forgot-pw/forgot-pw.component'
 
 import { AuthenticationGuard } from './guards/authentication.guard';
 
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'inicio/trabajador', component: WorkerHomeComponent, canActivate:[AuthenticationGuard]},
   {path: 'categorias', component: CategoriesComponent},
   {path: 'navlender', component: NavLenderComponent},
+  {path: 'restrablecer/contraseña', component: ForgotPwComponent},
   {path: 'mapa', component:MapComponent},
   {path: '**', redirectTo: '', pathMatch: 'full'}
 ];
