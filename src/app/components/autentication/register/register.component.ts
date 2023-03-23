@@ -48,16 +48,10 @@ export class RegisterComponent implements OnInit {
       data => {
         if (register.rol === 'worker') {
           let lender = {email: register.email}
-          this.lenderService.register(lender).subscribe(
-            data => {
-              this.router.navigateByUrl("iniciarSesion")
-            }
-          )
-          
+          this.lenderService.register(lender).subscribe()
         }
         else{
           this.router.navigateByUrl("iniciarSesion")
-
         }
       },
       err => {

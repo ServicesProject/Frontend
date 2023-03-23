@@ -40,8 +40,27 @@
         <label class="form-check-label me-2" for="worker">Contratista</label>
       </div>
 
-      <button type="button" class="form_submit btn-primary btn-block" [disabled]="form.invalid" (click)="register()">Registrarse</button>
+      <button type="button" class="form_submit btn-primary btn-block" [disabled]="form.invalid" (click)="register()" data-bs-toggle="modal" data-bs-target="#exampleModal">Registrarse</button>
 
+            <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Verificación de email</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Te enviamos un correo de verificación, verifica tu cuenta para acceder 
+            </div>
+            <div class="modal-footer">
+              <a href="iniciarSesion">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Entendido</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <p class="form_paragraph">¿Ya tienes una cuenta? <a href="iniciarSesion" class="form_link">Inicia sesión</a></p>
   </form>
