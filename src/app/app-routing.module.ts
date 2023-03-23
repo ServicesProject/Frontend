@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './components/autentication/login/login.component';
-import { RegisterComponent } from './components/autentication/register/register.component';
+import { LoginComponent } from './core/components/login/login.component';
+import { RegisterComponent } from './core/components/register/register.component';
 import { UserComponent } from './components/form/user/user.component';
 import { WorkerComponent } from './components/form/worker/worker.component';
-import { CategoriesComponent } from './components/main-views/categories/categories.component';
-import { HomeComponent } from './components/main-views/home/home.component';
-import { UserHomeComponent } from './components/main-views/user-home/user-home.component';
-import { WorkerHomeComponent } from './components/main-views/worker-home/worker-home.component';
-import { MapComponent } from './components/map/map.component';
-import { NavLenderComponent } from './components/navigation/navbar/nav-lender/nav-lender.component';
-import { ForgotPwComponent } from './components/autentication/forgot-pw/forgot-pw.component'
+import { HomeComponent } from './core/components/home/home.component';
+import { UserHomeComponent } from './user/components/user-home/user-home.component';
+import { WorkerHomeComponent } from './lender/components/worker-home/worker-home.component';
+import { MapComponent } from './shared/components/map/map.component';
+import { NavLenderComponent } from './lender/components/nav-lender/nav-lender.component';
+import { ForgotPwComponent } from './core/components/forgot-pw/forgot-pw.component'
 
-import { AuthenticationGuard } from './guards/authentication.guard';
+import { AuthenticationGuard } from './core/guards/authentication.guard';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -22,7 +21,6 @@ const routes: Routes = [
   {path: 'iniciarSesion', component: LoginComponent},
   {path: 'inicio/usuario', component: UserHomeComponent, canActivate:[AuthenticationGuard]},
   {path: 'inicio/trabajador', component: WorkerHomeComponent, canActivate:[AuthenticationGuard]},
-  {path: 'categorias', component: CategoriesComponent},
   {path: 'navlender', component: NavLenderComponent},
   {path: 'restrablecer/contraseña', component: ForgotPwComponent},
   {path: 'mapa', component:MapComponent},
