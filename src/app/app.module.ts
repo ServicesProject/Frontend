@@ -9,8 +9,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './core/components/login/login.component';
 import { RegisterComponent } from './core/components/register/register.component';
 import { ForgotPwComponent } from './core/components/forgot-pw/forgot-pw.component';
-import { UserComponent } from './components/form/user/user.component';
-import { WorkerComponent } from './components/form/worker/worker.component';
 import { HomeComponent } from './core/components/home/home.component';
 import { HeaderComponent } from './core/components/header/header.component';
 import { FooterComponent } from './core/components/footer/footer.component';
@@ -23,6 +21,9 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { NavUserComponent } from './user/components/nav-user/nav-user.component';
 import { NavLenderComponent } from './lender/components/nav-lender/nav-lender.component';
 
+import { FormLenderComponent } from './lender/components/form-lender/form-lender.component';
+import { FormUserComponent } from './user/components/form-user/form-user.component';
+
 
 @NgModule({
   declarations: [
@@ -30,8 +31,6 @@ import { NavLenderComponent } from './lender/components/nav-lender/nav-lender.co
     LoginComponent,
     RegisterComponent,
     ForgotPwComponent,
-    UserComponent,
-    WorkerComponent,
     HomeComponent,
     HeaderComponent,
     FooterComponent,
@@ -39,7 +38,10 @@ import { NavLenderComponent } from './lender/components/nav-lender/nav-lender.co
     WorkerHomeComponent,
     MapComponent,
     NavUserComponent,
-    NavLenderComponent
+    NavLenderComponent,
+    FormLenderComponent,
+    FormUserComponent
+    
 
   ],
   imports: [

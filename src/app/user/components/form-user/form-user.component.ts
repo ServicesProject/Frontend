@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/user';
-import { TokenService } from 'src/app/services/token.service';
-import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/user/models/user';
+import { TokenService } from 'src/app/core/services/token.service';
+import { UserService } from 'src/app/user/services/user.service';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  selector: 'app-form-user',
+  templateUrl: './form-user.component.html',
+  styleUrls: ['./form-user.component.css']
 })
-export class UserComponent implements OnInit {
-  
+export class FormUserComponent implements OnInit {
+
   name: any;
   lastName: any;
   phone: any;
@@ -56,9 +56,5 @@ export class UserComponent implements OnInit {
       )
     }
   }
-  
-
-
 
 }
-

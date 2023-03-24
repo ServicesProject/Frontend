@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Register } from 'src/app/models/register';
-import { RegisterLender } from 'src/app/models/registerLender';
-import { LenderService } from 'src/app/services/lender.service';
-import { UserService } from 'src/app/services/user.service';
-import { ValidatorPasswordService } from 'src/app/services/validator-password.service';
+import { Register } from 'src/app/core/models/register';
+import { RegisterLender } from 'src/app/lender/models/registerLender';
+import { LenderService } from 'src/app/lender/services/lender.service';
+import { UserService } from 'src/app/user/services/user.service';
+import { ValidatorPasswordService } from 'src/app/core/services/validator-password.service';
 
 
 

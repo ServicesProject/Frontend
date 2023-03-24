@@ -7,7 +7,7 @@ import {
   HttpErrorResponse
 } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
-import { TokenService } from '../../services/token.service';
+import { TokenService } from '../services/token.service';
 import { Router } from '@angular/router';
 
 @Injectable()

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { UserService } from 'src/app/services/user.service';
+import { UserService } from 'src/app/user/services/user.service';
 import jwt_decode from "jwt-decode";
 import { Router } from '@angular/router';
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TokenService } from 'src/app/services/token.service';
+import { TokenService } from 'src/app/core/services/token.service';
 
 @Component({
   selector: 'app-header',

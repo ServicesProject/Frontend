@@ -1,20 +1,18 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RegisterLender } from 'src/app/models/registerLender';
-import { Work } from 'src/app/models/work';
-import { LenderService } from 'src/app/services/lender.service';
-import { TokenService } from 'src/app/services/token.service';
-import { WorkService } from 'src/app/services/work.service';
-import { GoogleMap, MapMarker } from '@angular/google-maps';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { RegisterLender } from 'src/app/lender/models/registerLender';
+import { Work } from 'src/app/lender/models/work';
+import { LenderService } from 'src/app/lender/services/lender.service';
+import { TokenService } from 'src/app/core/services/token.service';
+import { WorkService } from 'src/app/lender/services/work.service';
 
 @Component({
-  selector: 'app-worker',
-  templateUrl: './worker.component.html',
-  styleUrls: ['./worker.component.css']
+  selector: 'app-form-lender',
+  templateUrl: './form-lender.component.html',
+  styleUrls: ['./form-lender.component.css']
 })
-export class WorkerComponent implements OnInit {
+export class FormLenderComponent implements OnInit {
 
   name: any;
   lastName: any;
@@ -23,7 +21,6 @@ export class WorkerComponent implements OnInit {
   gender: any;
   ci: any;
   birthdate: Date
-
 
   job:any;
   experience: any;
@@ -45,17 +42,12 @@ export class WorkerComponent implements OnInit {
   markerPosition: google.maps.LatLngLiteral;
   @ViewChild('map') mapElement: ElementRef
 
-  
-  
-
   constructor(
     private lenderService: LenderService,
     private workService: WorkService,
     private router: Router,
     private tokenService: TokenService
   ) { }
-
-  
 
   ngOnInit(): void {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -64,7 +56,6 @@ export class WorkerComponent implements OnInit {
         lng: position.coords.longitude,
       };
     });
-
   }
 
   onMapClick(event) {
@@ -103,6 +94,5 @@ export class WorkerComponent implements OnInit {
   }
 
 
-  
 
 }
