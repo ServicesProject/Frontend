@@ -47,7 +47,7 @@ export class FormUserComponent implements OnInit {
       user.complete =true
       this.userService.update(info.user.id,user).subscribe(
         data => {          
-          this.router.navigateByUrl('inicio/usuario')
+          this.router.navigateByUrl('usuario')
         },
         err => {
           console.log(" no funciona")

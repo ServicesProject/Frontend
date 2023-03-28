@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
 
   async ngOnInit() {
     this.form = new FormGroup({
-      email: new FormControl(null,[Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$')]),
+      email: new FormControl(null,[Validators.required]),
       password: new FormControl(null,[Validators.required]),
       repeatPassword: new FormControl(null,[Validators.required]),
       rol: new FormControl(null,[Validators.required])

@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
   async ngOnInit(){
     this.form = new FormGroup({
-      email:new FormControl(null,[Validators.required, , Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$')]),
+      email:new FormControl(null,[Validators.required]),
       password:new FormControl(null,[Validators.required])
     })
     let token = await localStorage.getItem('token')
@@ -47,22 +47,22 @@ export class LoginComponent implements OnInit {
               if(decode.user.rol == 'user')
               {
                 
-                this.router.navigateByUrl("inicio/usuario")
+                this.router.navigateByUrl("usuario")
               }
               else
               {
-                this.router.navigateByUrl("inicio/trabajador")
+                this.router.navigateByUrl("trabajador")
               }
             }
             else {
               if(decode.user.rol == 'user')
               {
                 
-                this.router.navigateByUrl("informacion/usuario")
+                this.router.navigateByUrl("usuario/completarDatos")
               }
               else
               {
-                this.router.navigateByUrl("informacion/trabajador")
+                this.router.navigateByUrl("trabajador/completarDatos")
               }
             }
           }else{

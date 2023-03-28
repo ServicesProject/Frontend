@@ -14,7 +14,6 @@ export class AuthenticationGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       const currentUser = this.tokenService.currentUserValue
-      console.log(currentUser)
       if (currentUser) {
         return true;
       }

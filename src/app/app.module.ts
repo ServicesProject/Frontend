@@ -6,51 +6,25 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './core/components/login/login.component';
-import { RegisterComponent } from './core/components/register/register.component';
-import { ForgotPwComponent } from './core/components/forgot-pw/forgot-pw.component';
-import { HomeComponent } from './core/components/home/home.component';
-import { HeaderComponent } from './core/components/header/header.component';
-import { FooterComponent } from './core/components/footer/footer.component';
-import { UserHomeComponent } from './user/components/user-home/user-home.component';
-import { WorkerHomeComponent } from './lender/components/worker-home/worker-home.component';
+
 import { JwtInterceptor } from './core/interceptor/jwt.interceptor';
-import { MapComponent } from './shared/components/map/map.component';
 
 import { GoogleMapsModule } from '@angular/google-maps';
-import { NavUserComponent } from './user/components/nav-user/nav-user.component';
-import { NavLenderComponent } from './lender/components/nav-lender/nav-lender.component';
 
-import { FormLenderComponent } from './lender/components/form-lender/form-lender.component';
-import { FormUserComponent } from './user/components/form-user/form-user.component';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    RegisterComponent,
-    ForgotPwComponent,
-    HomeComponent,
-    HeaderComponent,
-    FooterComponent,
-    UserHomeComponent,
-    WorkerHomeComponent,
-    MapComponent,
-    NavUserComponent,
-    NavLenderComponent,
-    FormLenderComponent,
-    FormUserComponent
-    
-
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    GoogleMapsModule
+    
+    // GoogleMapsModule,
+    CoreModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}],
   bootstrap: [AppComponent]
