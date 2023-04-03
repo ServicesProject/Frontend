@@ -60,9 +60,9 @@
         <label for="category" class="form_label">Categoria:</label>
       </div>
       
-      <!-- <div class="form_group ">
-        <select id="job" name="job" class="form_input" [(ngModel)]="job" >
-          <option  [ngValue]="job" *ngIf="category === 'Vehículo'">Mécanico</option>
+      <div class="form_group ">
+        <select id="job" name="job" class="form_input" [(ngModel)]="job">
+          <option *ngIf="category === 'Vehículo'" >Mécanico</option>
           <option *ngIf="category === 'Vehículo'">Chofer</option>
 
           <option *ngIf="category === 'Domicilio'">Cocinero</option>
@@ -89,8 +89,7 @@
 
         </select>
         <label for="job" class="form_label">Oficio:</label>
-      </div> -->
-
+      </div>
       <div class="form_group ">
         <select id="contract" name="contract" class="form_input" [(ngModel)]="contract"  >
           <option>Indefinido</option>
@@ -144,7 +143,7 @@
 
     <p>Marque su ubicación exacta de trabajo:</p>
     
-    <google-map width="100%" [center]="center" [zoom]="zoom" (mapClick)="onMapClick($event)" >
+    <google-map width="100%" height="300" [center]="center" [zoom]="zoom" (mapClick)="onMapClick($event)" >
           <map-marker *ngIf="markerPosition" [position]="markerPosition"></map-marker>
     </google-map>
 

@@ -1,0 +1,70 @@
+<div class="container">
+    <form  class="form font1">
+      
+      <h3 class="form_title_service">Detalle del servicio</h3>
+      <div class="text-end">
+        <a href="" class="btn btn-primary"><i class='bx bxs-edit'></i></a>
+        <a href="" class="btn btn-danger"><i class='bx bxs-trash'></i></a>
+      </div>
+      <div class="form_container">
+
+        <div class="form_group">
+            <input [value]="detailWork?.category" type="text" id="category" name="category" class="form_input"  placeholder=" "  disabled readonly>
+              <label for="category" class="form_label">Categoria:</label>
+              <span class="form_line"></span>
+        </div>
+  
+        <div class="form_group">
+            <input [value]="detailWork?.job" type="text" id="job" name="job" class="form_input"  placeholder=" "  disabled readonly>
+              <label for="job" class="form_label">Oficio:</label>
+              <span class="form_line"></span>
+        </div>
+
+        <div class="form_group">
+            <input [value]="detailWork?.contract" type="text" id="contract" name="contract" class="form_input"  placeholder=" "  disabled readonly>
+              <label for="contract" class="form_label">Contrato:</label>
+              <span class="form_line"></span>
+        </div>
+        
+        <div class="form_group">
+            <input [value]="detailWork?.workTime" type="text" id="workTime" name="workTime" class="form_input"  placeholder=" "  disabled readonly>
+              <label for="workTime" class="form_label">Jornada:</label>
+              <span class="form_line"></span>
+        </div>
+        
+        <div class="form_group">
+            <input [value]="detailWork?.experience" type="text" id="experience" name="experience" class="form_input"  placeholder=" "  disabled readonly>
+              <label for="experience" class="form_label">Experiencia:</label>
+              <span class="form_line"></span>
+        </div>
+    
+        <div class="form_group">
+            <input [value]="detailWork?.area" type="text" id="area" name="area" class="form_input"  placeholder=" "  disabled readonly>
+              <label for="area" class="form_label">Municipio:</label>
+              <span class="form_line"></span>
+        </div>
+
+        <div class="form_group">
+            <input [value]="detailWork?.salary" type="text" id="salary" name="salary" class="form_input"  placeholder=" "  disabled readonly>
+              <label for="salary" class="form_label">Salario minimo:</label>
+              <span class="form_line"></span>
+        </div>
+
+        <div class="form_group">
+            <input [value]="detailWork?.address" type="text" id="address" name="address" class="form_input"  placeholder=" "  disabled readonly>
+              <label for="address" class="form_label">Dirección:</label>
+              <span class="form_line"></span>
+        </div>
+  
+        
+      </div>
+  
+      <p>Marque su ubicación exacta de trabajo:</p>
+      
+      <google-map width="100%" height="300" [center]="center" [zoom]="zoom" >
+        <map-marker *ngIf="markerPosition" [position]="markerPosition"></map-marker>
+      </google-map>
+  
+    </form>
+  </div>
+

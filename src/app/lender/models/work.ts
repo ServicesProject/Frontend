@@ -13,6 +13,8 @@ export class Work{
 
     constructor(job:string, experience: string, contract: string, area: string, address:string,workTime:string, category: string, salary: string, lat:string,lng: string){
            this.job=job
+           console.log("this job " + this.job);
+           console.log("solo job " + job );
            this.experience=experience
            this.contract=contract
            this.area=area

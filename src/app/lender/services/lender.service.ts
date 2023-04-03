@@ -23,5 +23,9 @@ export class LenderService {
     return this.httpClient.put<any>(this.apiUrl+ `lender?email=${email}`,lender)
   }
 
+  public getOneLender(id:number){
+    return this.httpClient.get<any>(this.apiUrl+ 'lender/'+`${id}`)
+  }
+
 
 }

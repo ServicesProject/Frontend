@@ -35,4 +35,8 @@ export class WorkService {
     return this.httpClient.delete<any>(this.apiUrl +`work/${id}`)
   }
 
+  public getLenderWorks(id:number){
+    return this.httpClient.get<Work[]>(this.apiUrl+ 'lender/'+ `${id}/works`)
+  }
+
 }

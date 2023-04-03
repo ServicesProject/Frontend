@@ -16,11 +16,7 @@ export class NavLenderComponent implements OnInit {
   ngOnInit(): void {
 
     const value = localStorage.getItem('token');
-    const data = JSON.parse(value);
-    console.log(data);
-    
-
-
+    const data = JSON.parse(value)
   }
 
   async cerrarSesion(){

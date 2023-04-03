@@ -1,0 +1,26 @@
+<div class="container">
+  
+    <form class="form font1">
+      <h3 class="form_title_service">Tus servicios </h3>
+      <div class="text-end">
+        <a href="trabajador/nuevoServicio" class="btn btn-primary"><i class='bx bxs-briefcase-alt-2'></i> Añadir</a>
+      </div>
+      <div class="form_container">
+       
+        <div *ngFor="let work of workList" class="card text-center">
+            <div class="card-header">
+              {{work.category}}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{work.job}}</h5>
+              <p class="card-text">{{work.address}}</p>
+              <button  class="btn btn-primary" (click)="detailService(work)">Ver más</button>
+            </div>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+
+  

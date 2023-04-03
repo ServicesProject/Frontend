@@ -1,14 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { ViewChild, ElementRef } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-map',
-  templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css']
+  selector: 'app-map-lender',
+  templateUrl: './map-lender.component.html',
+  styleUrls: ['./map-lender.component.css']
 })
+export class MapLenderComponent implements OnInit {
 
-
-export class MapComponent implements OnInit {
   zoom = 15
   map:any
   center: google.maps.LatLngLiteral
@@ -16,7 +14,7 @@ export class MapComponent implements OnInit {
   @ViewChild('map') mapElement: ElementRef
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     navigator.geolocation.getCurrentPosition((position) => {
       this.center = {
         lat: position.coords.latitude,

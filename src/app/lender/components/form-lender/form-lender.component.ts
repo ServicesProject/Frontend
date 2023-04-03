@@ -60,7 +60,6 @@ export class FormLenderComponent implements OnInit {
 
   onMapClick(event) {
     this.markerPosition = event.latLng.toJSON();
-    console.log(this.markerPosition); 
     this.lat = this.markerPosition.lat
     this.lng = this.markerPosition.lng
 
@@ -73,9 +72,13 @@ export class FormLenderComponent implements OnInit {
     const lender = new RegisterLender(this.name, this.lastName, this.phone, this.description, this.gender, this.ci, this.birthdate)
     let work = new Work(this.job, this.experience, this.contract, this.area, this.address, this.workTime, this.category, this.salary, this.lat, this.lng)
 
+    console.log(this.job);
+    
     
     this.lenderService.updateLender(info.user.email, lender).subscribe();
     let worktosend = {...work,lenderEmail:info.user.email}
+    console.log(worktosend);
+    
     this.workService.create(worktosend).subscribe()
     
     // TAREA POTO :3
@@ -92,7 +95,6 @@ export class FormLenderComponent implements OnInit {
     //   }
     // )
   }
-
-
+ 
 
 }
