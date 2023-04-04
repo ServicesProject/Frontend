@@ -10,6 +10,7 @@ import { WorkerHomeComponent } from './components/worker-home/worker-home.compon
 import { DetailServiceComponent } from './components/detail-service/detail-service.component';
 import { InformationLenderComponent } from './components/information-lender/information-lender.component';
 import { UpdateInformationLenderComponent } from './components/update-information-lender/update-information-lender.component';
+import { UpdateServiceComponent } from './components/update-service/update-service.component';
 
 const routes: Routes = [
   {path: "", component: RouterLenderComponent, children:[
@@ -20,6 +21,8 @@ const routes: Routes = [
     {path: ":id/detalleServicio", component: DetailServiceComponent, canActivate: [AuthenticationGuard]},
     {path: "datosPersonales", component: InformationLenderComponent, canActivate: [AuthenticationGuard]},
     {path: "editarInformación", component: UpdateInformationLenderComponent, canActivate: [AuthenticationGuard]},
+    {path: ":id/actualizarServicio", component: UpdateServiceComponent, canActivate: [AuthenticationGuard]},
+  
   ]},
   {path: "completarDatos", component: FormLenderComponent, canActivate: [AuthenticationGuard]} 
 ];

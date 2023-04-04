@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { WorkService } from '../../services/work.service';
 
 @Component({
@@ -24,6 +24,7 @@ export class DetailServiceComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private workService: WorkService,
+    private router: Router
   ) {}
 
   async ngOnInit() {
@@ -45,6 +46,10 @@ export class DetailServiceComponent implements OnInit {
         console.log(err)
       }
     )
+  }
+
+  updateService(){
+    this.router.navigateByUrl(`trabajador/${this.detailWork.id}/actualizarServicio`)
   }
 
 }

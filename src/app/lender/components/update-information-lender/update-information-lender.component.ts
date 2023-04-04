@@ -28,8 +28,7 @@ export class UpdateInformationLenderComponent implements OnInit {
 
   ngOnInit(): void {
     let lender = localStorage.getItem('token')
-    this.lenderData = JSON.parse(lender);
-    console.log(this.lenderData);
+    this.lenderData = JSON.parse(lender)
     this.informationLender()
   }
 

@@ -6,6 +6,7 @@ import { Work } from 'src/app/lender/models/work';
 import { LenderService } from 'src/app/lender/services/lender.service';
 import { TokenService } from 'src/app/core/services/token.service';
 import { WorkService } from 'src/app/lender/services/work.service';
+import { forkJoin, tap } from 'rxjs';
 
 @Component({
   selector: 'app-form-lender',
@@ -75,25 +76,19 @@ export class FormLenderComponent implements OnInit {
     console.log(this.job);
     
     
-    this.lenderService.updateLender(info.user.email, lender).subscribe();
+    // this.lenderService.updateLender(info.user.email, lender).subscribe();
     let worktosend = {...work,lenderEmail:info.user.email}
-    console.log(worktosend);
-    
-    this.workService.create(worktosend).subscribe()
-    
-    // TAREA POTO :3
-    // esperar las dos llamadas que cuando se completen se navegue a la sigiuente pagina
-    // actualizar el local storage con los datos del lender actualizados una vez que el lender se termine de actualizar
+    // this.workService.create(worktosend).subscribe()
+    // this.router.navigateByUrl('trabajador');
 
-    // this.lenderService.register(lender).subscribe(
-    //   data => {
-    //     this.router.navigateByUrl('inicio/trabajador')
-    //   },
-    //   err => {
-    //     console.log(" No funciona")
-        
-    //   }
-    // )
+    forkJoin([this.lenderService.updateLender(info.user.email, lender), this.workService.create(worktosend)])
+    .pipe(
+      tap(() => {
+        this.router.navigateByUrl('trabajador');
+      })
+    )
+    .subscribe();
+    
   }
  
 

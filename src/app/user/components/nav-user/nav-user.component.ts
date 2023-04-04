@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-user',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavUserComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    const value = localStorage.getItem('token');
+    const data = JSON.parse(value)
   }
 
+  async cerrarSesion(){
+    await localStorage.clear()
+    this.router.navigateByUrl("")
+  }
 }

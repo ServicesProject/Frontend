@@ -9,6 +9,8 @@ import { RouterUserComponent } from './components/router-user/router-user.compon
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MapUserComponent } from './components/map-user/map-user.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { InformationUserComponent } from './components/information-user/information-user.component';
+import { UpdateInformationUserComponent } from './components/update-information-user/update-information-user.component';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
     UserHomeComponent,
     RouterUserComponent,
     MapUserComponent,
+    InformationUserComponent,
+    UpdateInformationUserComponent,
   ],
   imports: [
     CommonModule,

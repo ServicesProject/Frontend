@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Register } from '../../core/models/register';
 import { User } from '../models/user';
+import { UpdateUser } from '../models/update-user';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,7 @@ export class UserService {
     return this.httpClient.post<any>(this.apiUrl+ 'user', user)
   }
 
-  public update(id:number, user:User)
+  public update(id:number, user:UpdateUser)
   {
     return this.httpClient.put<any>(this.apiUrl +`user/${id}`, user)
   }

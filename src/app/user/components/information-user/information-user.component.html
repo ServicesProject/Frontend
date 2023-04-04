@@ -1,0 +1,48 @@
+<div class="container">
+    <form class="form font1">
+      <h3 class="form_title">Datos personales</h3>
+      <div class="text-end">
+        <a href="usuario/editarInformación" class="btn btn-primary"><i class='bx bxs-edit'></i></a>
+      </div>
+      <div class="form_container">
+        
+          <div class="form_group">
+            <input [value]="detailUser?.name" type="text" id="name" name="name" class="form_input"  placeholder=" "  disabled readonly>
+            <label for="name" class="form_label">Nombre:</label>
+            <span class="form_line"></span>
+          </div>
+      
+          <div class="form_group">
+            <input [value]="detailUser?.lastName" type="text" id="lastName" name="lastName" class="form_input"   placeholder=" "  disabled readonly>
+            <label for="lastName" class="form_label">Apellidos:</label>
+            <span class="form_line"></span>
+          </div>
+    
+          <div class="form_group">
+            <input [value]="detailUser?.ci" type="text" id="ci" name="ci" class="form_input"   placeholder=" " disabled readonly>
+            <label for="ci" class="form_label">Ci:</label>
+            <span class="form_line"></span>
+          </div>
+  
+          <div class="form_group">
+            <input [value]="detailUser?.phone" type="text" id="phone" name="phone" class="form_input"  placeholder=" "  disabled readonly>
+            <label for="phone" class="form_label">Celular:</label>
+            <span class="form_line"></span>
+          </div>
+
+          <div class="form_group">
+            <input [value]="detailUser?.gender" type="text" id="gender" name="gender" class="form_input"  placeholder=" "  disabled readonly>
+            <label for="gender" class="form_label">Género:</label>
+            <span class="form_line"></span>
+          </div>
+  
+  
+          <div class="form_group">
+            <input [value]="detailUser?.description" type="text" id="description"  name="description" class="form_input" placeholder=" " disabled readonly>
+            <label for="description" class="form_label">Sobre ti:</label>
+            <span class="form_line"></span>
+          </div>
+  
+      </div>
+    </form>
+  </div>
