@@ -96,35 +96,21 @@
   
       <google-map width="100%" height="300" [zoom]="zoom" [center]="center"> <map-marker [position]="center" title="Ubicación actual"></map-marker> </google-map>
 
-      <!-- <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
-          <div class="card" *ngFor="let work of workList">
-            <img src="https://verdecora.es/blog/wp-content/uploads/2021/04/como-es-conejo.jpg.webp" class="card-img-top" alt="...">
-           
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
-        </div>
-      </div>  -->
-
       <div class="grid-container">
         <div class="grid-item" *ngFor="let work of workList ">
           <div class="card">
             <img src="https://verdecora.es/blog/wp-content/uploads/2021/04/como-es-conejo.jpg.webp" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Nombre del Lender</h5>
-              <p class="card-text" style="margin:0">{{work.job}}</p>
-              <p class="card-text" >{{work.address}}</p>
-              <p class="card-text">{{work.workTime}}</p>
+              <p class="card-text" style="margin:0"><i class='bx bxs-briefcase-alt-2'></i> {{work.job}}</p>
+              <p class="card-text" style="margin:0"><i class='bx bxs-map'></i> {{work.address}}</p>
+              <p class="card-text"><i class='bx bxs-time'></i> {{work.workTime}}</p>
+              <a  class="btn btn-primary">Más información</a>
             </div>
           </div>
         </div>
       </div>
 
       
-    
-
     </form>
   </div>
