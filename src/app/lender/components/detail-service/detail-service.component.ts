@@ -48,6 +48,11 @@ export class DetailServiceComponent implements OnInit {
     )
   }
 
+  deleteService(){
+    this.workService.deleteWork(this.idWork).subscribe()
+    this.router.navigateByUrl("trabajador/administración")
+  }
+
   updateService(){
     this.router.navigateByUrl(`trabajador/${this.detailWork.id}/actualizarServicio`)
   }

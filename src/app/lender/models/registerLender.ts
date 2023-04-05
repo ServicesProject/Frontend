@@ -7,6 +7,7 @@ export class RegisterLender {
     gender:string
     ci:string
     birthdate: Date;
+    complete?: boolean 
 
     
     constructor(name: string, lastName: string, phone: string, description: string,gender:string, ci:string, birthdate: Date){

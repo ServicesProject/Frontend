@@ -50,8 +50,7 @@ export class FormUserComponent implements OnInit {
           this.router.navigateByUrl('usuario')
         },
         err => {
-          console.log(" no funciona")
-          
+          console.log("Error")
         }
       )
     }

@@ -30,7 +30,7 @@ export class WorkService {
     return this.httpClient.put<any>(this.apiUrl +`work/${id}`, work)
   }
 
-  public delete(id:number)
+  public deleteWork(id:number)
   {
     return this.httpClient.delete<any>(this.apiUrl +`work/${id}`)
   }

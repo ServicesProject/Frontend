@@ -27,5 +27,9 @@ export class LenderService {
     return this.httpClient.get<any>(this.apiUrl+ 'lender/'+`${id}`)
   }
 
+  public getAllLenders(): Observable<any[]>{
+    return this.httpClient.get<any>(this.apiUrl+ 'lender')
+  }
+
 
 }
