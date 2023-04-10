@@ -35,12 +35,21 @@
             </select>
             <label for="gender" class="form_label">Género:</label>
           </div>
+
+          <div class="form_group">
+            <input type="date" id="birthdate" [(ngModel)]="birthdate" formControlName="birthdate" name="birthdate" class="form_input">
+            <label for="birthdate" class="form_label">Fecha de nacimiento:</label>
+            <span class="form_line"></span>
+          </div>
   
           <div class="form_group">
             <input type="text" id="description"  [(ngModel)]="description" name="description" class="form_input" formControlName="description"  placeholder=" " required autocomplete="off">
             <label for="description" class="form_label">Sobre ti:</label>
             <span class="form_line"></span>
           </div>
+
+          
+
   
         <button type="button" class="form_submit btn-primary btn-block" [disabled]="form.invalid" (click)="onCompleteInformation()">Continuar</button>
   

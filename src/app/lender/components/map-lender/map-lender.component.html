@@ -99,9 +99,9 @@
       <div class="grid-container">
         <div class="grid-item" *ngFor="let work of workList ">
           <div class="card">
-            <img src="https://verdecora.es/blog/wp-content/uploads/2021/04/como-es-conejo.jpg.webp" class="card-img-top" alt="...">
+            <!-- <img src="https://verdecora.es/blog/wp-content/uploads/2021/04/como-es-conejo.jpg.webp" class="card-img-top" alt="..."> -->
             <div class="card-body">
-              <h5 class="card-title">Nombre del Lender</h5>
+              <h5 class="card-title">{{work.lender.name}}</h5>
               <p class="card-text" style="margin:0"><i class='bx bxs-briefcase-alt-2'></i> {{work.job}}</p>
               <p class="card-text" style="margin:0"><i class='bx bxs-map'></i> {{work.address}}</p>
               <p class="card-text"><i class='bx bxs-time'></i> {{work.workTime}}</p>

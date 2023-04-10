@@ -34,7 +34,8 @@ export class FormUserComponent implements OnInit {
       description: new FormControl(null,[Validators.required]),
       gender: new FormControl(null,[Validators.required]),
       ci: new FormControl(null,[Validators.required]),
-      phone: new FormControl(null,[Validators.required])
+      phone: new FormControl(null,[Validators.required]),
+      birthdate: new FormControl(null,[Validators.required]),
     })
   }
 

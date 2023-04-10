@@ -44,5 +44,9 @@ export class UserService {
     return this.httpClient.post<any>(this.apiUrl+ 'token', {email,password})
   }
 
+  public validatedEmail(email:string){
+    return this.httpClient.put<any>(this.apiUrl + 'token/validateEmail',{email})
+  }
+
 
 }

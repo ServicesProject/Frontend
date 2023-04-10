@@ -1,5 +1,4 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterLender } from 'src/app/lender/models/registerLender';
 import { Work } from 'src/app/lender/models/work';
@@ -34,7 +33,7 @@ export class FormLenderComponent implements OnInit {
   lat
   lng
 
-  public form!: FormGroup
+  
 
   //Map
   zoom = 15
@@ -57,6 +56,9 @@ export class FormLenderComponent implements OnInit {
         lng: position.coords.longitude,
       };
     });
+
+  
+
   }
 
   onMapClick(event) {
@@ -69,17 +71,10 @@ export class FormLenderComponent implements OnInit {
 
   UpdateDataLender() {
     let info = this.tokenService.currentUserValue
-
     const lender = new RegisterLender(this.name, this.lastName, this.phone, this.description, this.gender, this.ci, this.birthdate)
-    //lender.complete=true
+    lender.complete=true
     let work = new Work(this.job, this.experience, this.contract, this.area, this.address, this.workTime, this.category, this.salary, this.lat, this.lng)
-    
-   
-    // this.lenderService.updateLender(info.user.email, lender).subscribe();
     let worktosend = {...work,lenderEmail:info.user.email}
-    // this.workService.create(worktosend).subscribe()
-    // this.router.navigateByUrl('trabajador');
-
     forkJoin([this.lenderService.updateLender(info.user.email, lender), this.workService.create(worktosend)])
     .pipe(
       tap(() => {
@@ -89,6 +84,7 @@ export class FormLenderComponent implements OnInit {
     .subscribe();
     
   }
+  
  
 
 }

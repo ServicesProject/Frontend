@@ -1,27 +1,25 @@
 .container{
     display: flex;
     min-height: 100vh;
-    
-    
+
+   
 }
 .form{
     background-color: #FFFFFF;
     margin: auto;
     width: 90%;
-    max-width: 1200px;
+    max-width: 490px;
     padding: 3em 3em;
     border-radius: 10px;
     box-shadow: 5px 5px 5px 5px rgb(0 0 0 / 20%);
     text-align: center;
-    margin-bottom: 3em;
-    margin-top: 3em;
 }
 
 
 
-.form_title_service{
-    margin-top: 2em;
-    margin-bottom: 2em;
+.form_paragraph{
+    font-weight: 300;
+    margin-top: 3em;
 }
 
 .form_link{
@@ -34,12 +32,6 @@
     margin-top: 3em;
     display: grid;
     gap: 2.5em;
-    grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
-    margin-bottom: 3em;
-}
-
-.form_container >div{
-    display: flex;
 }
 
 .form_group{
@@ -76,6 +68,7 @@
 .form_input:not(:placeholder-shown) + .form_label{
     transform: translateY(-12px) scale(.7);
     transform-origin: left top;
+    /* color: #9dd9ff; */
 }
 
 .form_label{
@@ -86,10 +79,6 @@
     left: 5px;
     transform: translateY(10px);
     transition: transform .5s, color .3s;
-    max-width: 200px; /* Ancho máximo de la etiqueta */
-    overflow: hidden; /* Trunca el texto adicional */
-    text-overflow: ellipsis; /* Agrega puntos suspensivos al final del texto truncado */
-    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
 }
 
 .form_label_check{
@@ -102,13 +91,13 @@
 }
 
 .form_submit{
+    /* background-color: #000000; */
+    /* color: #FFFFFF; */
     font-size: 1rem;
     font-weight: 300;
     padding: .5em 0;
     border: none;
     border-radius: 10px;
-    margin-top: 3em;
-    width: 171px;
 }
 
 .form_line{
@@ -117,5 +106,5 @@
     left: 0;
     width: 100%;
     height: 1px;
-}
 
+}
