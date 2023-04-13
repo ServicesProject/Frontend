@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Register } from 'src/app/core/models/register';
-import { RegisterLender } from 'src/app/lender/models/registerLender';
 import { LenderService } from 'src/app/lender/services/lender.service';
 import { UserService } from 'src/app/user/services/user.service';
 import { ValidatorPasswordService } from 'src/app/core/services/validator-password.service';
@@ -36,7 +35,7 @@ export class RegisterComponent implements OnInit {
   async ngOnInit() {
     this.form = new FormGroup({
       email: new FormControl(null,[Validators.required]),
-      password: new FormControl(null,[Validators.required]),
+      password: new FormControl(null, [Validators.required]),
       repeatPassword: new FormControl(null,[Validators.required]),
       rol: new FormControl(null,[Validators.required])
     }, this.validatorPassword.passwordMatch("password","repeatPassword")

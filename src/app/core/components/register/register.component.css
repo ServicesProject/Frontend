@@ -16,11 +16,11 @@
 }
 
 
-
 .form_paragraph{
     font-weight: 300;
-    margin-top: 3em;
+   
 }
+
 
 .form_link{
     font-weight: 400;
@@ -39,6 +39,9 @@
     --color: #000000;
 
 }
+
+
+
 
 .form_input{
     width: 100%;
@@ -110,34 +113,5 @@
 }
 
 
-
-/* .divider:after,
-.divider:before {
-content: "";
-flex: 1;
-height: 1px;
-background: #eee;
-}
-
-.inicio{
-color: black;
-}
-.cuenta{
- color: black;
-}
-    
-    @media (min-width: 768px) {
-    .gradient-form {
-    height: 100vh !important;
-    }
-    }
-    @media (min-width: 769px) {
-    .gradient-custom-2 {
-    border-top-right-radius: .3rem;
-    border-bottom-right-radius: .3rem;
-    }
-    }
-
-     */
 
 

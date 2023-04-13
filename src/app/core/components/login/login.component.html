@@ -1,21 +1,20 @@
 <div class="container">
   <form (ngSubmit)="login()" [formGroup]="form" class="form font1">
-    <a class="navbar-brand" href="#">
-      <img src="../../../../assets/img/logo_negro.png" alt="Nexa" width="53" height="43">
-    </a>
+    
     <h3 class="form_title">Iniciar sesión</h3>
     <div class="form_container">
       <div class="form_group">
-        <input type="email" id="email" name="email" class="form_input" formControlName="email" placeholder=" ">
-        <label for="email" class="form_label">Correo:</label>
+        <input type="email" id="email" name="email" class="form_input" formControlName="email" placeholder=" " required autocomplete="off" >
+        <label for="email" class="form_label">Correo</label>
         <span class="form_line"></span>
       </div>
   
       <div class="form_group">
         <input type="password" id="password" name="password" class="form_input" formControlName="password" placeholder=" ">
-        <label for="password" class="form_label">Contraseña:</label>
+        <label for="password" class="form_label">Contraseña</label>
         <span class="form_line"></span>
       </div>
+      
   
 
       <button type="button" class="form_submit btn-primary btn-block" [disabled]="form.invalid" (click)="login()">Iniciar sesión</button>

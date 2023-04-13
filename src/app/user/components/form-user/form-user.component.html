@@ -6,25 +6,25 @@
         
           <div class="form_group">
             <input type="text" id="name" name="name" class="form_input" [(ngModel)]="name" placeholder=" "  formControlName="name" required autocomplete="off">
-            <label for="name" class="form_label">Nombre:</label>
+            <label for="name" class="form_label">Nombre</label>
             <span class="form_line"></span>
           </div>
       
           <div class="form_group">
             <input type="text" id="lastName" name="lastName" class="form_input"  [(ngModel)]="lastName" placeholder=" " formControlName="lastName" required autocomplete="off">
-            <label for="lastName" class="form_label">Apellidos:</label>
+            <label for="lastName" class="form_label">Apellidos</label>
             <span class="form_line"></span>
           </div>
     
           <div class="form_group">
             <input type="text" id="ci" name="ci" class="form_input"  [(ngModel)]="ci" placeholder=" " formControlName="ci" required autocomplete="off">
-            <label for="ci" class="form_label">Ci:</label>
+            <label for="ci" class="form_label">Ci</label>
             <span class="form_line"></span>
           </div>
   
           <div class="form_group">
             <input type="text" id="phone" name="phone" class="form_input" [(ngModel)]="phone" placeholder=" " formControlName="phone" required autocomplete="off">
-            <label for="phone" class="form_label">Celular:</label>
+            <label for="phone" class="form_label">Celular</label>
             <span class="form_line"></span>
           </div>
   
@@ -33,26 +33,23 @@
               <option >Hombre</option>
               <option >Mujer</option>
             </select>
-            <label for="gender" class="form_label">Género:</label>
+            <label for="gender" class="form_label">Género</label>
           </div>
 
           <div class="form_group">
             <input type="date" id="birthdate" [(ngModel)]="birthdate" formControlName="birthdate" name="birthdate" class="form_input">
-            <label for="birthdate" class="form_label">Fecha de nacimiento:</label>
+            <label for="birthdate" class="form_label">Fecha de nacimiento</label>
             <span class="form_line"></span>
           </div>
   
           <div class="form_group">
             <input type="text" id="description"  [(ngModel)]="description" name="description" class="form_input" formControlName="description"  placeholder=" " required autocomplete="off">
-            <label for="description" class="form_label">Sobre ti:</label>
+            <label for="description" class="form_label">Sobre ti</label>
             <span class="form_line"></span>
           </div>
 
           
-
-  
         <button type="button" class="form_submit btn-primary btn-block" [disabled]="form.invalid" (click)="onCompleteInformation()">Continuar</button>
-  
       </div>
     </form>
   </div>
