@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { WorkService } from '../../services/work.service';
-import { LenderService } from '../../services/lender.service';
-import { FilterWorks } from '../../models/filterWorks';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-map-lender',
@@ -11,8 +10,7 @@ import { FilterWorks } from '../../models/filterWorks';
 export class MapLenderComponent implements OnInit {
 
   workList
-  lenders
-
+  
   category
   contract
   workTime
@@ -26,7 +24,8 @@ export class MapLenderComponent implements OnInit {
   
   @ViewChild('map') mapElement: ElementRef
   constructor(
-    private workService: WorkService
+    private workService: WorkService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -49,6 +48,10 @@ export class MapLenderComponent implements OnInit {
         console.log(err)
       }
     )
+  }
+
+  detailLenderWork(work){
+    this.router.navigateByUrl(`trabajador/${work.id}/trabajo`)
   }
 
   filterWorks(){

@@ -38,7 +38,6 @@ export class ManageServiceLenderComponent implements OnInit {
   }
 
   detailService(work){
-    console.log(work);
     this.router.navigateByUrl(`trabajador/${work.id}/detalleServicio`)
   }
 

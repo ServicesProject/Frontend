@@ -14,57 +14,10 @@
         <label for="password" class="form_label">Contraseña</label>
         <span class="form_line"></span>
       </div>
-      
-  
-
       <button type="button" class="form_submit btn-primary btn-block" [disabled]="form.invalid" (click)="login()">Iniciar sesión</button>
 
     </div>
+    <hr>
     <p class="form_paragraph">¿Aún no tienes cuenta? <a href="registro" class="form_link">Registrarse</a></p>
   </form>
 </div>
-
-
-
-
-<!-- <section class="h-100 gradient-form">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-xl-10">
-          <div class="card border-0">
-            <div class="row g-0">
-                <div class="col-lg-6 d-flex align-items-center">
-                    <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                      <h1 class="mb-4 text-center inicio">Iniciar Sesión</h1>
-                      <p class="cuenta">¿No tienes cuenta? <a href="registro">Regístrate</a></p>
-                    </div>
-                  </div>
-              <div class="col-lg-6">
-                <div class="card-body p-md-5 mx-md-4">
-                  
-                  <form (ngSubmit)="login()" [formGroup]="form">
-                    <div class="form-outline mb-4">
-                      <input type="email" id="email" name="email" class="form-control" placeholder="Email"  formControlName="email" required autocomplete="off"/>
-    
-                    </div>
-                    <div class="form-outline mb-4">
-                      <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña"  formControlName="password" required autocomplete="off"/>
-                    </div>
-                    <div class="d-flex justify-content-end align-items-center mb-4">
-                      
-                        <a href="#!" class="text-body">¿Olvidaste tu contraseña?</a>
-                    </div>
-                    
-                    <div class="text-center pt-1  pb-1">
-                      <button class="btn btn-primary btn-block fa-lg mb-3" type="button" [disabled]="form.invalid" (click)="login()">Continuar</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->

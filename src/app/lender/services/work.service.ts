@@ -22,6 +22,10 @@ export class WorkService {
     return this.httpClient.get<Work[]>(this.apiUrl +`work/${id}`)
   }
 
+  public getWorkwithLender(id:number): Observable<Work[]>{
+    return this.httpClient.get<Work[]>(this.apiUrl +`work/${id}/lenderWork`)
+  }
+
   public create(work: Work): Observable<any>{
     return this.httpClient.post<any>(this.apiUrl+ 'work', work)
   }

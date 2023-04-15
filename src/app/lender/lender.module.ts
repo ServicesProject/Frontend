@@ -15,6 +15,7 @@ import { DetailServiceComponent } from './components/detail-service/detail-servi
 import { InformationLenderComponent } from './components/information-lender/information-lender.component';
 import { UpdateInformationLenderComponent } from './components/update-information-lender/update-information-lender.component';
 import { UpdateServiceComponent } from './components/update-service/update-service.component';
+import { DetailLenderWorkComponent } from './components/detail-lender-work/detail-lender-work.component';
 
 
 
@@ -31,6 +32,7 @@ import { UpdateServiceComponent } from './components/update-service/update-servi
     InformationLenderComponent,
     UpdateInformationLenderComponent,
     UpdateServiceComponent,
+    DetailLenderWorkComponent,
    
   ],
   imports: [
