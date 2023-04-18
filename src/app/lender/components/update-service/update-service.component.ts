@@ -18,6 +18,8 @@ export class UpdateServiceComponent implements OnInit {
   workTime: any
   category: string
   salary: string
+  description: any;
+
   lat
   lng
 
@@ -77,7 +79,7 @@ export class UpdateServiceComponent implements OnInit {
 
 
   UpdateWorkLender() {
-    let lenderWork = new Work(this.job, this.experience, this.contract, this.area, this.address, this.workTime, this.category, this.salary, this.lat, this.lng)
+    let lenderWork = new Work(this.job, this.experience, this.contract, this.area, this.address, this.workTime, this.category,this.description, this.salary, this.lat, this.lng)
     this.workService.update(this.idWork,lenderWork).subscribe();
     
   }

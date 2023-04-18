@@ -17,7 +17,6 @@ export class UpdateInformationUserComponent implements OnInit {
   name: any;
   lastName: any;
   phone: any;
-  description: any;
   gender: any;
   ci: any;
   birthdate: Date
@@ -44,7 +43,7 @@ export class UpdateInformationUserComponent implements OnInit {
     )
   }
   updateInformationUser(){
-    const user = new UpdateUser(this.name, this.lastName, this.phone, this.description, this.gender, this.ci, this.birthdate)
+    const user = new UpdateUser(this.name, this.lastName, this.phone, this.gender, this.ci, this.birthdate)
     this.userService.update(this.userData.user.id, user).subscribe();
     this.router.navigateByUrl('usuario/datosPersonales')
   }

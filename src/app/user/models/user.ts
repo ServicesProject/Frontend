@@ -3,7 +3,6 @@ export class User {
     name: string
     lastName: string
     phone: string
-    description: string
     gender:string
     ci:string
     birthdate: Date
@@ -11,11 +10,10 @@ export class User {
     rol: string
     complete?: boolean 
 
-    constructor(name:string, lastName: string, phone: string, description: string, gender:string, email:string, rol: string,  ci:string, birthdate: Date){
+    constructor(name:string, lastName: string, phone: string, gender:string, email:string, rol: string,  ci:string, birthdate: Date){
         this.name = name
         this.lastName = lastName
         this.phone = phone
-        this.description = description
         this.gender = gender
         this.email = email
         this.rol = rol

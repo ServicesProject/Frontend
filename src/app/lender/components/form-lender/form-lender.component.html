@@ -147,6 +147,12 @@
       </div>
     </div>
 
+    <div class="form_group">
+      <input type="text" id="description"  [(ngModel)]="description" name="description" class="form_input" formControlName="description"  placeholder=" " required autocomplete="off">
+      <label for="description" class="form_label">descripcion</label>
+      <span class="form_line"></span>
+    </div>
+
     <p>Marque su ubicación exacta de trabajo:</p>
     
     <google-map width="100%" height="300" [center]="center" [zoom]="zoom" (mapClick)="onMapClick($event)" >

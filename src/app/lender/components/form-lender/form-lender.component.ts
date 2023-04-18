@@ -17,7 +17,7 @@ export class FormLenderComponent implements OnInit {
   name: any;
   lastName: any;
   phone: any;
-  description: any;
+  
   gender: any;
   ci: any;
   birthdate: Date
@@ -30,6 +30,8 @@ export class FormLenderComponent implements OnInit {
   workTime: any
   category: string
   salary: string
+  description: any
+
   lat
   lng
 
@@ -73,7 +75,7 @@ export class FormLenderComponent implements OnInit {
     let info = this.tokenService.currentUserValue
     const lender = new RegisterLender(this.name, this.lastName, this.phone, this.description, this.gender, this.ci, this.birthdate)
     lender.complete=true
-    let work = new Work(this.job, this.experience, this.contract, this.area, this.address, this.workTime, this.category, this.salary, this.lat, this.lng)
+    let work = new Work(this.job, this.experience, this.contract, this.area, this.address, this.workTime, this.category,this.description, this.salary, this.lat, this.lng)
     let worktosend = {...work,lenderEmail:info.user.email}
     forkJoin([this.lenderService.updateLender(info.user.email, lender), this.workService.create(worktosend)])
     .pipe(
