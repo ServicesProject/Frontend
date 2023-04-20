@@ -46,20 +46,18 @@
           <label for="experience" class="form_label">Experiencia:</label>
         </div>
   
-        <div class="form_group ">
-          <select id="area"  name="area" class="form_input" [(ngModel)]="area" (change)="filterWorks()" >
-            <option>Cochabamba</option>
-            <option>Sacaba</option>
-            <option>Quillacollo</option>
-            <option>Tiquipaya</option>
-          </select>
-          <label for="area" class="form_label">Municipio:</label>
-        </div>
+       
   
        
       </div>
   
-      <google-map width="100%" height="300" [zoom]="zoom" [center]="center"> <map-marker [position]="center" title="Ubicación actual"></map-marker> </google-map>
+      <google-map width="100%" height="300" [zoom]="zoom" [center]="center"> 
+        <map-marker [position]="center" title="Ubicación actual"></map-marker>
+        <map-circle [center]="center" [radius]="radius" [draggable]="true"></map-circle>
+        <map-marker *ngFor="let work of workList" [position]="work.ubication"></map-marker>
+      </google-map>
+      <input type="number" name="distance" [(ngModel)]="distance" placeholder="Distancia en metros">
+      <button (click)="setRadius()">Mostrar</button>
 
       <div class="grid-container">
         <div class="grid-item" *ngFor="let work of workList">
