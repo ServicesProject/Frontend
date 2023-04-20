@@ -54,10 +54,10 @@
       <google-map width="100%" height="300" [zoom]="zoom" [center]="center"> 
         <map-marker [position]="center" title="Ubicación actual"></map-marker>
         <map-circle [center]="center" [radius]="radius" [draggable]="true"></map-circle>
-        <map-marker *ngFor="let work of workList" [position]="work.ubication"></map-marker>
+        <map-marker *ngFor="let work of workList" [position]="work.ubication" [title]="work.lender.name"></map-marker>
       </google-map>
       <input type="number" name="distance" [(ngModel)]="distance" placeholder="Distancia en metros">
-      <button (click)="setRadius()">Mostrar</button>
+      <button (click)="setRadius(); filterWorks()">Mostrar</button>
 
       <div class="grid-container">
         <div class="grid-item" *ngFor="let work of workList">

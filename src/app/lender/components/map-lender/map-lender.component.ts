@@ -24,6 +24,7 @@ export class MapLenderComponent implements OnInit {
   circle: google.maps.Circle;
   center: google.maps.LatLngLiteral
   distance
+  
  
   @ViewChild('map') mapElement: ElementRef
   constructor(
@@ -122,15 +123,41 @@ export class MapLenderComponent implements OnInit {
     }
   
     this.workService.FilterWorksintheMap(worktoSend).subscribe(resp=> {
-      // let filteredworksbyradius = this.filterByMap(resp)
+      let worklist= this.convertJStoLatleng(resp)
+       this.workList = this.filterByMap(worklist)
       
-      // this.workList=filteredworksbyradius
-      this.workList= this.convertJStoLatleng(resp)
       console.log(this.workList);
     })
   }
-  filterByMap(works) {
-
+  filterByMap(workList) {
+    const filteredList = [];
+    const R = 6371e3; // radio de la Tierra en metros
+  
+    for (const work of workList) {
+      const lat1 = this.center.lat;
+      const lon1 = this.center.lng;
+      const lat2 = work.ubication.lat;
+      const lon2 = work.ubication.lng;
+  
+      const φ1 = lat1 * Math.PI / 180; // convertir latitud a radianes
+      const φ2 = lat2 * Math.PI / 180;
+      const Δφ = (lat2 - lat1) * Math.PI / 180;
+      const Δλ = (lon2 - lon1) * Math.PI / 180;
+  
+      const a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+                Math.cos(φ1) * Math.cos(φ2) *
+                Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  
+      const d = R * c; // distancia en metros
+  
+      if (d <= this.radius) {
+        filteredList.push(work);
+      }
+    }
+  
+    // actualiza la lista de trabajos en el mapa con la lista filtrada
+    return filteredList
   }
 
 }
