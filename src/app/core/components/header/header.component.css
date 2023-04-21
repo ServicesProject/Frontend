@@ -1,35 +1,41 @@
-/*  COLORES DE PAGINA
-171738
-2E1760
-3423A6
-7180B9
-7FB5FF
-*/
-.collapse .nav-item{
-    padding: 5px;
-}
+.navbar {
+    height: 104px;
+    padding: 30px 50px;
+  }
 
-.btn-outline-primary{
-    color: #000000;
-    border-color: #000000;
-    border-radius: 20px;
-}
+  .navbar-nav a {
+    padding: 9px 20px;
+  }
 
-.btn-outline-primary:hover{
-    color: #FFFFFF;
-    background-color: #000000;
-    border-color: #000000;
-}
+  .navbar-brand {
+    margin-right: 0 !important;
+  }
+  
+  .navbar-nav {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .form-inline {
+    display: flex;
+    justify-content: flex-end;
+  }
 
-.btn-primary{
-    border-radius: 20px;
-    width: 130px;
-    background-color: #000000;
-    border-color: #000000;
-}
+  .nav-link {
+    font-size: 12px;
+  }
 
-.btn-primary:active{
-    background-color: #7180B9;
-    border-color: #7180B9;
-}
-
+  .btn {
+    background-color: black;
+    padding: 12px 25px;
+    color: white;
+    font-size: 12px;
+    
+  }
+  
+  @media (min-width: 992px) {
+    .navbar-collapse {
+      justify-content: flex-start;
+    }
+  }
