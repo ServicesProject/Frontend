@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { WorkService } from '../../services/work.service';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-detail-lender-work',
@@ -11,12 +12,31 @@ export class DetailLenderWorkComponent implements OnInit {
   idWork
   information
 
+  userId
+  workId
+  lenderEmail
+  state
+ 
+  userData
+
+   //Map
+   zoom = 15
+   map:any
+   center: google.maps.LatLngLiteral
+   markerPosition: google.maps.LatLngLiteral;
+   @ViewChild('map') mapElement: ElementRef
+ 
+   @ViewChild('mapa') mapa: any;
+
   constructor(
     private route: ActivatedRoute,
     private workService: WorkService,
+    private notificationService: NotificationService
   ) { }
 
   ngOnInit(): void {
+    let user = localStorage.getItem('token')
+    this.userData = JSON.parse(user)
     this.idWork = this.route.snapshot.paramMap.get('id')
     this.informationLenderWork()
   }
@@ -30,6 +50,13 @@ export class DetailLenderWorkComponent implements OnInit {
         console.log(err)
       }
     )
+  }
+
+  sendRequest(){
+   let message = `El usuario ${this.userData.user.name} ${this.userData.user.lastName} requiere tu servicio `
+   const notificacion = { message: message, workId: this.idWork, userId: this.userData.user.id, lenderEmail: this.information.lender.email, state: 'pendiente'};
+   this.notificationService.sendNotification(notificacion).subscribe()
+    
   }
 
 }

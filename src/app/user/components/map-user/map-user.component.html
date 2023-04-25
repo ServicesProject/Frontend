@@ -17,37 +17,7 @@
           </select>
           <label for="category" class="form_label">Categoria:</label>
         </div>
-        
-        <!-- <div class="form_group ">
-          <select id="job" name="job" class="form_input">
-            <option  [ngValue]="job" *ngIf="category === 'Vehículo'">Mécanico</option>
-            <option *ngIf="category === 'Vehículo'">Chofer</option>
-  
-            <option *ngIf="category === 'Domicilio'">Cocinero</option>
-            <option *ngIf="category === 'Domicilio'">Jardinero</option>
-            <option *ngIf="category === 'Domicilio'">Limpieza</option>
-          
-            <option *ngIf="category === 'Cuidado personal'">Enfermero</option>
-            <option *ngIf="category === 'Cuidado personal'">Niñero</option>
-            <option *ngIf="category === 'Cuidado personal'">Cuidador de mascotas</option>
-  
-            <option *ngIf="category === 'Reparación'">Electricista</option>
-            <option *ngIf="category === 'Reparación'">Cerrajero</option>
-            <option *ngIf="category === 'Reparación'">Fontanero</option>
-            <option *ngIf="category === 'Reparación'">Plomero</option>
-  
-            <option *ngIf="category === 'Construcción'">Albañil</option>
-            <option *ngIf="category === 'Construcción'">Carpintero</option>
-            <option *ngIf="category === 'Construcción'">Pintor</option>
-          
-            <option *ngIf="category === 'Vestimenta'">Sastre</option>
-            <option *ngIf="category === 'Vestimenta'">Costurero</option>
-  
-            <option *ngIf="category === 'Enseñanza'">Tutor</option>
-  
-          </select>
-          <label for="job" class="form_label">Oficio:</label>
-        </div> -->
+       
   
         <div class="form_group ">
           <select id="contract" name="contract" class="form_input" [(ngModel)]="contract" (change)="filterWorks()" >
@@ -77,20 +47,18 @@
           <label for="experience" class="form_label">Experiencia:</label>
         </div>
   
-        <div class="form_group ">
-          <select id="area"  name="area" class="form_input" [(ngModel)]="area" (change)="filterWorks()" >
-            <option>Cochabamba</option>
-            <option>Sacaba</option>
-            <option>Quillacollo</option>
-            <option>Tiquipaya</option>
-          </select>
-          <label for="area" class="form_label">Municipio:</label>
-        </div>
+       
   
         
       </div>
   
-      <google-map width="100%" height="300" [zoom]="zoom" [center]="center"> <map-marker [position]="center" title="Ubicación actual"></map-marker> </google-map>
+      <google-map width="100%" height="300" [zoom]="zoom" [center]="center"> 
+        <map-marker [position]="center" title="Ubicación actual"></map-marker>
+        <map-circle [center]="center" [radius]="radius" [draggable]="true"></map-circle>
+        <map-marker *ngFor="let work of workList" [position]="work.ubication" [title]="work.lender.name"></map-marker>
+      </google-map>
+      <input type="number" name="distance" [(ngModel)]="distance" placeholder="Distancia en metros">
+      <button (click)="setRadius(); filterWorks()">Mostrar</button>
    
       <div class="grid-container">
         <div class="grid-item" *ngFor="let work of workList">
@@ -99,9 +67,9 @@
             <div class="card-body">
               <h5 class="card-title">{{work.lender.name}} {{work.lender.lastName}}</h5>
               <p class="card-text" style="margin:0"><i class='bx bxs-briefcase-alt-2'></i> {{work.job}}</p>
-              <p class="card-text" style="margin:0"><i class='bx bxs-map'></i> {{work.address}}</p>
-              <p class="card-text"><i class='bx bxs-time'></i> {{work.workTime}}</p>
-              <a  class="btn btn-primary">Más información</a>
+              <p class="card-text" style="margin:0"><i class='bx bxs-time'></i> {{work.workTime}}</p>
+              <p class="card-text"><i class='bx bxs-calendar'></i> Publicado: {{work.creationDate}}</p>
+              <button  class="btn btn-primary" (click)="detailLenderWork(work)">Más información</button>
             </div>
           </div>
         </div>

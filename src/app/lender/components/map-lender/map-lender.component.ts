@@ -16,7 +16,7 @@ export class MapLenderComponent implements OnInit {
   contract
   workTime
   experience
-  area
+
  
   zoom = 15
   map: google.maps.Map;
