@@ -5,10 +5,13 @@ a.navbar-brand{
   
   .nav-item a.nav-link{
     padding: 30px 15px 25px;
+    text-decoration: none; 
+  border-bottom: 2px solid transparent;
   }
   
   .nav-item a.nav-link:hover {
-    color: red; /* Cambia el color de la letra cuando se hace hover */
+    color: #DB3E32; /* Cambia el color de la letra cuando se hace hover */
     text-decoration: none; /* Elimina la línea subrayada por defecto */
-    border-bottom: 2px solid red; /* Agrega una línea abajo */
+    border-bottom: 2px solid #DB3E32; /* Agrega una línea abajo */
   }
+

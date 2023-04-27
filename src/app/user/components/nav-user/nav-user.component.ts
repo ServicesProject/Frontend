@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/lender/services/notification.service';
 
 @Component({
   selector: 'app-nav-user',
@@ -8,17 +9,45 @@ import { Router } from '@angular/router';
 })
 export class NavUserComponent implements OnInit {
 
+  data
+  detailNotification
+
   constructor(
-    private router: Router
+    private router: Router,
+    private notificationService: NotificationService
   ) { }
 
   ngOnInit(): void {
-    const value = localStorage.getItem('token');
-    const data = JSON.parse(value)
+    let value = localStorage.getItem('token');
+     this.data = JSON.parse(value)
+     this.informationNotifications()
   }
 
   async cerrarSesion(){
     await localStorage.clear()
     this.router.navigateByUrl("")
   }
+
+  informationNotifications(){
+    this.notificationService.listUserNotification(this.data.user.id).subscribe(
+      data => {
+        this.detailNotification = data
+      },
+      err => {
+        console.log(err)
+      }
+    )
+  }
+
+  Notification(notification){
+    this.notificationService.changeState(notification.id, 'recibido', 'Ambas partes estan de acuerdo').subscribe(
+      data => {
+        this.detailNotification = this.detailNotification.filter(notice => notice.id !== notification.id)
+      },
+      err => {
+        console.log(err)
+      }
+    );
+  }
+
 }

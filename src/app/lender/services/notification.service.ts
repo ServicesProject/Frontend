@@ -16,5 +16,17 @@ export class NotificationService {
   public sendNotification(notification: Notification): Observable<any>{
     return this.httpClient.post<any>(this.apiUrl+ 'notification', notification)
   }
+
+  public listUserNotification(id: number): Observable<any>{
+    return this.httpClient.get<any>(this.apiUrl+ `notification/${id}/user`)
+  }
+
+  public lisLenderNotification(email: string): Observable<any>{
+    return this.httpClient.get<any>(this.apiUrl+ `notification/${email}/lender`)
+  }
+  public changeState(id:number, newState:string, text:string){
+    return this.httpClient.put<any>(this.apiUrl +`notification/${id}/state`, {state:newState, message:text})
+  }
+
   
 }

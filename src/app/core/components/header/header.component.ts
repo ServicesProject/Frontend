@@ -17,27 +17,6 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    //this.getLabel();
+
   }
-
-  // getLabel(){
-  //   if(this.tokenService.currentUserValue)
-  //   {
-  //     this.buttonLabel = 'Cerrar Sesión'
-  //     return  'Cerrar Sesión'
-  //   }
-  //   this.buttonLabel = 'Iniciar Sesión'
-  //   return 'Iniciar Sesión'
-  // }
-
-  // control(){
-  //   if(this.buttonLabel === 'Iniciar Sesión'){
-  //     this.router.navigateByUrl('iniciarSesion')
-  //   }
-  //   else{
-  //     localStorage.clear()
-  //     this.router.navigateByUrl('/')
-  //   }
-  // }
-
 }

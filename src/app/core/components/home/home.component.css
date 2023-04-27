@@ -1,0 +1,165 @@
+/* primer container */
+.container-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 730px;
+    background-color: #3D8B67;
+    margin-bottom: 100px;
+
+  }
+  
+  .half {
+    width: 50%;
+  }
+  
+  .centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  h1 {
+    font-size: 56px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #FFFFFF;
+  }
+
+  h1 .name{
+    color: black;
+  }
+  
+  p {
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+    max-width: 510px;
+    color: #FFFFFF;
+  }
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .btn{
+    padding: 16px 28px 15px;
+    background-color: black;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  img {
+    width: 730px;
+    max-width: 100%; 
+  }
+  
+  @media (max-width: 768px) {
+    .half {
+      width: 100%;
+      height: 50%;
+    }
+  
+    .centered {
+      height: 100%;
+      text-align: center;
+    }
+  
+    h1 {
+      font-size: 42px;
+    }
+  
+    p {
+      font-size: 20px;
+    }
+  
+    .button-container {
+      align-items: center;
+    }
+  }
+
+ /* segundo container */
+
+ .choose {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  .text-believe, .text-paragrapf {
+    text-align: center;
+  }
+
+  .text-believe{
+    margin: 0px 0px 10px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #6C757D;
+    opacity: 0.5;
+  }
+
+  .text-paragraph{
+    margin: 0px 0px 15px;
+    font-size: 38px;
+    letter-spacing: -0.01rem;
+    max-width: 1000px;
+    text-align: center;
+    line-height: 1.2;
+    font-weight: 600;
+    text-transform: none;
+    font-family: 'Poppins', sans-serif;
+  }
+  .resaltado{
+    color: #DB3E32;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  
+
+/* tercer container */
+
+.card-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 50px;
+  }
+  
+  .card {
+    width: 393px;
+    height: 157px;
+    
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 30px;
+  }
+  
+  .card-content {
+    display: flex;
+  }
+  
+  .card-left {
+    width: 25%;
+    box-sizing: border-box;
+    font-size: 40px;
+    color: #DB3E32;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+  
+  .card-right {
+    width: 75%;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .titulos-card{
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+   font-weight: 600;
+  }
