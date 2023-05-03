@@ -45,7 +45,7 @@ export class MapUserComponent implements OnInit {
         center: this.center,
       });
     }
-    this.getAllWork()
+    
   }
 
   convertJStoLatleng(works){
@@ -100,7 +100,7 @@ export class MapUserComponent implements OnInit {
   }
 
   detailLenderWork(work){
-    this.router.navigateByUrl(`trabajador/${work.id}/trabajo`)
+    this.router.navigateByUrl(`usuario/${work.id}/trabajo`)
   }
 
 
@@ -127,8 +127,6 @@ export class MapUserComponent implements OnInit {
     this.workService.FilterWorksintheMap(worktoSend).subscribe(resp=> {
       let worklist= this.convertJStoLatleng(resp)
        this.workList = this.filterByMap(worklist)
-      
-      console.log(this.workList);
     })
   }
 

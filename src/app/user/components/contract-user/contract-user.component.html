@@ -1,0 +1,23 @@
+<div class="container">
+  
+    <form class="form font1">
+      <h3 class="form_title_service">Tus contratos</h3>
+      <div class="form_container">
+       
+        <div *ngFor="let notification of listNotificationWithWork" class="card text-center">
+            <div class="card-header">
+              {{notification.work.job}}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"> Contratista: {{notification.work.lender.name}} {{notification.work.lender.lastName}}</h5>
+              <p class="card-text" style="margin:0">Contrato: {{notification.work.contract}}</p>
+              <p class="card-text">Jornada: {{notification.work.workTime}}</p>
+              <button  class="btn btn-primary" (click)="detailService(notification)">Ver más</button>
+            </div>
+            <div class="card-footer text-muted">
+                Estado: {{notification.state}}
+            </div>
+        </div>
+      </div>
+    </form>
+  </div>

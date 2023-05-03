@@ -11,6 +11,7 @@ import { MapUserComponent } from './components/map-user/map-user.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { InformationUserComponent } from './components/information-user/information-user.component';
 import { UpdateInformationUserComponent } from './components/update-information-user/update-information-user.component';
+import { ContractUserComponent } from './components/contract-user/contract-user.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { UpdateInformationUserComponent } from './components/update-information-
     MapUserComponent,
     InformationUserComponent,
     UpdateInformationUserComponent,
+    ContractUserComponent,
   ],
   imports: [
     CommonModule,

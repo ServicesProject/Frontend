@@ -8,7 +8,6 @@ import { WorkerHomeComponent } from './components/worker-home/worker-home.compon
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { RouterLenderComponent } from './components/router-lender/router-lender.component';
-import { MapLenderComponent } from './components/map-lender/map-lender.component';
 import { AddServiceLenderComponent } from './components/add-service-lender/add-service-lender.component';
 import { ManageServiceLenderComponent } from './components/manage-service-lender/manage-service-lender.component';
 import { DetailServiceComponent } from './components/detail-service/detail-service.component';
@@ -16,6 +15,8 @@ import { InformationLenderComponent } from './components/information-lender/info
 import { UpdateInformationLenderComponent } from './components/update-information-lender/update-information-lender.component';
 import { UpdateServiceComponent } from './components/update-service/update-service.component';
 import { DetailLenderWorkComponent } from './components/detail-lender-work/detail-lender-work.component';
+import { ContractLenderComponent } from './components/contract-lender/contract-lender.component';
+import { InformationWorkAndUserComponent } from './components/information-work-and-user/information-work-and-user.component';
 
 
 
@@ -25,7 +26,6 @@ import { DetailLenderWorkComponent } from './components/detail-lender-work/detai
     FormLenderComponent,
     WorkerHomeComponent,
     RouterLenderComponent,
-    MapLenderComponent,
     AddServiceLenderComponent,
     ManageServiceLenderComponent,
     DetailServiceComponent,
@@ -33,6 +33,8 @@ import { DetailLenderWorkComponent } from './components/detail-lender-work/detai
     UpdateInformationLenderComponent,
     UpdateServiceComponent,
     DetailLenderWorkComponent,
+    ContractLenderComponent,
+    InformationWorkAndUserComponent,
    
   ],
   imports: [

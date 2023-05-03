@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MapLenderComponent } from './map-lender.component';
+import { ContractUserComponent } from './contract-user.component';
 
-describe('MapLenderComponent', () => {
-  let component: MapLenderComponent;
-  let fixture: ComponentFixture<MapLenderComponent>;
+describe('ContractUserComponent', () => {
+  let component: ContractUserComponent;
+  let fixture: ComponentFixture<ContractUserComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MapLenderComponent ]
+      declarations: [ ContractUserComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MapLenderComponent);
+    fixture = TestBed.createComponent(ContractUserComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

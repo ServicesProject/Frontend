@@ -28,5 +28,13 @@ export class NotificationService {
     return this.httpClient.put<any>(this.apiUrl +`notification/${id}/state`, {state:newState, message:text})
   }
 
+  public listAcceptedContracts(id: number): Observable<any>{
+    return this.httpClient.get<any>(this.apiUrl+ `notification/${id}/state/accepted`)
+  }
+
+  public listAcceptLenderContracts(email: string): Observable<any>{
+    return this.httpClient.get<any>(this.apiUrl+ `notification/${email}/state/accepted/lenders`)
+  }
+
   
 }

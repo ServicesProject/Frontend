@@ -21,7 +21,7 @@ export class ManageServiceLenderComponent implements OnInit {
   ngOnInit(): void {
     let lender = localStorage.getItem('token')
     this.userData = JSON.parse(lender);
-    console.log(this.userData);
+    
     this.getLenderServices()
 
   }

@@ -46,6 +46,8 @@ export class NavLenderComponent implements OnInit {
     this.notificationService.changeState(notification.id, 'aceptado', `El contratista ${this.data.user.name} ${this.data.user.lastName} ha aceptado el trabajo`).subscribe(
       data => {
         this.detailNotification = this.detailNotification.filter(notice => notice.id !== notification.id)
+        
+        
       },
       err => {
         console.log(err)

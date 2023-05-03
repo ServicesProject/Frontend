@@ -1,0 +1,104 @@
+<div class="container">
+    <form class="form font1">
+        <h3 class="form_title">Informacion personal del solicitante</h3>
+        <div class="form_container">
+            <div class="form_group">
+                <input [value]="dataUser?.name" type="text" id="name" name="name" class="form_input"  placeholder=" "  disabled readonly>
+                <label for="name" class="form_label">Nombre</label>
+                <span class="form_line"></span>
+            </div>
+            <div class="form_group">
+                <input [value]="dataUser?.lastName" type="text" id="lastName" name="lastName" class="form_input"  placeholder=" "  disabled readonly>
+                <label for="lastName" class="form_label">Apellido</label>
+                <span class="form_line"></span>
+            </div>
+
+            <div class="form_group">
+                <input [value]="dataUser?.ci" type="text" id="lastName" name="lastName" class="form_input"  placeholder=" "  disabled readonly>
+                <label for="lastName" class="form_label">Número de CI</label>
+                <span class="form_line"></span>
+            </div>
+            <div class="form_group">
+                <input [value]="dataUser?.phone" type="text" id="phone" name="phone" class="form_input"  placeholder=" "  disabled readonly>
+                <label for="phone" class="form_label">Celular</label>
+                <span class="form_line"></span>
+            </div>
+            <div class="form_group">
+                <input [value]="dataUser?.gender" type="text" id="gender" name="gender" class="form_input"  placeholder=" "  disabled readonly>
+                <label for="gender" class="form_label">Género</label>
+                <span class="form_line"></span>
+            </div>
+
+            <div class="form_group">
+                <input [value]="dataUser?.birthdate" type="date" id="birthdate" name="birthdate" class="form_input" disabled readonly>
+                <label for="birthdate" class="form_label">Fecha de nacimiento:</label>
+                <span class="form_line"></span>
+            </div>
+
+        </div>
+
+
+      <h3 class="form_title_service">Detalles de tu servicio</h3>
+      <div class="form_container">
+
+        <div class="form_group">
+            <input [value]="dataWork?.category" type="text" id="category" name="category" class="form_input"  placeholder=" "  disabled readonly>
+            <label for="category" class="form_label">Categoria</label>
+            <span class="form_line"></span>
+        </div>
+
+        <div class="form_group">
+            <input [value]="dataWork?.job" type="text" id="job" name="job" class="form_input"  placeholder=" "  disabled readonly>
+            <label for="job" class="form_label">Servicio</label>
+            <span class="form_line"></span>
+        </div>
+
+        <div class="form_group">
+            <input [value]="dataWork?.experience" type="text" id="experience" name="experience" class="form_input"  placeholder=" "  disabled readonly>
+            <label for="experience" class="form_label">Experiencia</label>
+            <span class="form_line"></span>
+        </div>
+
+        <div class="form_group">
+            <input [value]="dataWork?.workTime" type="text" id="workTime" name="workTime" class="form_input"  placeholder=" "  disabled readonly>
+            <label for="workTime" class="form_label">Jornada</label>
+            <span class="form_line"></span>
+        </div>
+
+        <div class="form_group">
+            <input [value]="dataWork?.contract" type="text" id="contract" name="contract" class="form_input"  placeholder=" "  disabled readonly>
+            <label for="contract" class="form_label">Contrato</label>
+            <span class="form_line"></span>
+        </div>
+
+        <div class="form_group">
+            <input [value]="dataWork?.salary" type="text" id="salary" name="salary" class="form_input"  placeholder=" "  disabled readonly>
+            <label for="salary" class="form_label">Salario minimo</label>
+            <span class="form_line"></span>
+        </div>
+
+        <div class="form_group">
+            <input [value]="dataWork?.address" type="text" id="address" name="address" class="form_input"  placeholder=" "  disabled readonly>
+            <label for="address" class="form_label">Direccion</label>
+            <span class="form_line"></span>
+        </div>
+
+        <div class="form_group">
+            <input [value]="dataWork?.description" type="text" id="description" name="description" class="form_input"  placeholder=" "  disabled readonly>
+            <label for="description" class="form_label">Descripcion</label>
+            <span class="form_line"></span>
+        </div>
+
+      </div>
+
+      <p>Ubicación exacta de trabajo:</p>
+      
+      <google-map width="100%" height="300" [center]="center" [zoom]="zoom" >
+        <map-marker *ngIf="markerPosition" [position]="markerPosition"></map-marker>
+      </google-map>
+
+    
+    </form>
+
+  </div>
+
