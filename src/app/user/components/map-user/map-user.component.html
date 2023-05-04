@@ -59,6 +59,10 @@
       </google-map>
       <input type="number" name="distance" [(ngModel)]="distance" placeholder="Distancia en metros">
       <button (click)="setRadius(); filterWorks()">Mostrar</button>
+
+      <div *ngIf="workList?.length === 0" class="alert alert-primary" role="alert">
+        No hay resultados encontrados.
+      </div>
    
       <div class="grid-container">
         <div class="grid-item" *ngFor="let work of workList">

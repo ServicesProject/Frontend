@@ -36,5 +36,9 @@ export class NotificationService {
     return this.httpClient.get<any>(this.apiUrl+ `notification/${email}/state/accepted/lenders`)
   }
 
+  public listOneUserWithContracts(id: number, workId:number): Observable<any>{
+    return this.httpClient.get<any>(this.apiUrl+ `notification/user/${id}/service/${workId}`)
+  }
+
   
 }

@@ -36,7 +36,7 @@ export class ContractUserComponent implements OnInit {
   }
 
   detailService(notification){
-    this.router.navigateByUrl(`usuario/${notification.work.id}/trabajo`)
+    this.router.navigateByUrl(`usuario/${notification.work.id}/trabajo?vigente=${notification.state==="terminado"? false:true}`)
   }
   
 

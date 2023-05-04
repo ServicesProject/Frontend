@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { WorkService } from '../../services/work.service';
 import { NotificationService } from '../../services/notification.service';
 
@@ -11,6 +11,8 @@ import { NotificationService } from '../../services/notification.service';
 export class DetailLenderWorkComponent implements OnInit {
   idWork
   information
+  contract
+  vigente
 
   userId
   workId
@@ -31,14 +33,22 @@ export class DetailLenderWorkComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private workService: WorkService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    
   ) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     let user = localStorage.getItem('token')
+    // this.vigente = await this.route.snapshot.queryParams['vigente'];
+    this.route.queryParams.subscribe((params: Params) => {
+      this.vigente = params['vigente'];
+      console.log(this.vigente); 
+    });
     this.userData = JSON.parse(user)
     this.idWork = this.route.snapshot.paramMap.get('id')
-    this.informationLenderWork()
+    await this.informationLenderWork()
+    await this.controlContracts()
+  
   }
 
   informationLenderWork(){
@@ -53,10 +63,31 @@ export class DetailLenderWorkComponent implements OnInit {
   }
 
   sendRequest(){
-   let message = `El usuario ${this.userData.user.name} ${this.userData.user.lastName} requiere tu servicio `
+   let message = `El usuario ${this.userData.user.name} ${this.userData.user.lastName} requiere tu servicio de ${this.information.job}`
    const notificacion = { message: message, workId: this.idWork, userId: this.userData.user.id, lenderEmail: this.information.lender.email, state: 'pendiente'};
    this.notificationService.sendNotification(notificacion).subscribe()
-    
+  }
+
+  controlContracts(){
+    this.notificationService.listOneUserWithContracts(this.userData.user.id, this.idWork).subscribe(
+      data => {
+        this.contract = data
+      },
+      err => {
+        console.log(err)
+      }
+    )
+  }
+
+  endContract(){
+    this.notificationService.changeState(this.contract.id, 'terminado', `El trabajo finalizo`).subscribe(
+      data => {
+        this.contract = data
+      },
+      err => {
+        console.log(err)
+      }
+    );
   }
 
 }

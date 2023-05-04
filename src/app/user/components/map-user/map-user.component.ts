@@ -23,7 +23,7 @@ export class MapUserComponent implements OnInit {
   radius: number;
   circle: google.maps.Circle;
   center: google.maps.LatLngLiteral
-  distance
+  distance = 1000
   
   
   @ViewChild('map') mapElement: ElementRef
@@ -32,19 +32,26 @@ export class MapUserComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit(): void {
-    navigator.geolocation.getCurrentPosition((position) => {
+  async ngOnInit() {
+    
+    await navigator.geolocation.getCurrentPosition((position) => {
       this.center = {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
       };
-    });
+    },(error) => {
+      console.log("Error al obtener la ubicación:", error);
+    },
+    // { enableHighAccuracy: true, timeout: 10000 })
+    );
     if (this.mapElement?.nativeElement) {
       this.map = new google.maps.Map(this.mapElement.nativeElement, {
         zoom: this.zoom,
-        center: this.center,
+        center: this.center
       });
     }
+    this.setRadius()
+    this.filterWorks()
     
   }
 

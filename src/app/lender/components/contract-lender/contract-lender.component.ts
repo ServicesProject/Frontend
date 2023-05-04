@@ -19,6 +19,8 @@ export class ContractLenderComponent implements OnInit {
     let lender = localStorage.getItem('token')
     this.userData = JSON.parse(lender);
     this.getAcceptedContract()
+    
+    
   }
 
   getAcceptedContract(){
