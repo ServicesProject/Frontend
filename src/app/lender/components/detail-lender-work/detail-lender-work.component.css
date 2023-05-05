@@ -69,7 +69,7 @@
     left: 5px;
     transform: translateY(10px);
     transition: transform .5s, color .3s;
-    max-width: 200px; /* Ancho máximo de la etiqueta */
+    max-width: 300px; /* Ancho máximo de la etiqueta */
     overflow: hidden; /* Trunca el texto adicional */
     text-overflow: ellipsis; /* Agrega puntos suspensivos al final del texto truncado */
     white-space: nowrap; /* Evita que el texto se divida en varias líneas */

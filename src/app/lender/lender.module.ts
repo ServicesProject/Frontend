@@ -17,6 +17,7 @@ import { UpdateServiceComponent } from './components/update-service/update-servi
 import { DetailLenderWorkComponent } from './components/detail-lender-work/detail-lender-work.component';
 import { ContractLenderComponent } from './components/contract-lender/contract-lender.component';
 import { InformationWorkAndUserComponent } from './components/information-work-and-user/information-work-and-user.component';
+import {  StarRatingConfigService, StarRatingModule } from 'angular-star-rating';
 
 
 
@@ -43,6 +44,7 @@ import { InformationWorkAndUserComponent } from './components/information-work-a
     FormsModule,
     ReactiveFormsModule,
     GoogleMapsModule,
+    StarRatingModule
   ]
 })
 export class LenderModule { }

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JwtInterceptor } from './core/interceptor/jwt.interceptor';
 import { CoreModule } from './core/core.module';
+import { StarRatingConfigService } from 'angular-star-rating';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { CoreModule } from './core/core.module';
     // GoogleMapsModule,
     CoreModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}],
+
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}, StarRatingConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

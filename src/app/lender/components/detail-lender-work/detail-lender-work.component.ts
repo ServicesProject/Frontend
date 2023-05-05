@@ -5,6 +5,7 @@ import { NotificationService } from '../../services/notification.service';
 import { RatingService } from 'src/app/user/services/rating.service';
 import { Rating } from 'src/app/user/models/rating';
 
+
 @Component({
   selector: 'app-detail-lender-work',
   templateUrl: './detail-lender-work.component.html',
@@ -32,7 +33,7 @@ export class DetailLenderWorkComponent implements OnInit {
 
    //rating
    message
-   point
+   point = 0
  
 
 
@@ -49,7 +50,7 @@ export class DetailLenderWorkComponent implements OnInit {
     this.userData = JSON.parse(user)
     this.route.queryParams.subscribe((params: Params) => {
       this.vigente = params['vigente'];
-      console.log(this.vigente); 
+       
     });
     
     this.idWork = this.route.snapshot.paramMap.get('id')
@@ -58,6 +59,10 @@ export class DetailLenderWorkComponent implements OnInit {
   
   }
 
+  updateRating(event: any) {
+    this.point = event.rating;
+  }
+  
   informationLenderWork(){
     this.workService.getWorkwithLender(this.idWork).subscribe(
       data => {
@@ -100,6 +105,9 @@ export class DetailLenderWorkComponent implements OnInit {
         console.log(err)
       }
     );
+
+    let rating = new Rating(this.userData.user.id, this.information.id, this.point, this.message)
+    this.ratingService.createRating(rating).subscribe()
   }
 
   addRating(){

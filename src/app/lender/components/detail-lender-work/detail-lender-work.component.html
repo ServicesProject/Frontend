@@ -97,7 +97,7 @@
 
      
 
-      <button class="btn-secondary" *ngIf="contract === null"  (click)="sendRequest()" data-bs-toggle="modal" data-bs-target="#exampleModal">Contratar</button>
+      <button class="btn-secondary" *ngIf="contract === null || contract?.state === 'terminado'"  (click)="sendRequest()" data-bs-toggle="modal" data-bs-target="#exampleModal">Contratar</button>
       <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -107,7 +107,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Hemos enviado la peticion de solicitud de trabajo, por favor espera la respuesta del trabajador
+                    Enviamos la solicitud de trabajo, por favor espera la respuesta del prestador
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Entendido</button>
@@ -116,9 +116,20 @@
             </div>
         </div>
       
-        <div *ngIf="contract !== null && vigente === 'true'" >
+        
+
+        <div *ngIf="contract !== null && vigente === 'true' && contract?.state !== 'terminado'" >
             <p>Calificación del servicio</p>
-            <button class="btn-secondary" (click)="endContract()">Finalizar contrato</button>
+
+            <star-rating  [starType]="'svg'" [rating]="0" (starClickChange)="updateRating($event)"></star-rating>
+
+            <div class="form_group">
+                <input type="text" id="message" name="message" class="form_input" [(ngModel)]="message" placeholder=" " required autocomplete="off">
+                  <label for="message" class="form_label">Comentario del servicio (opcional)</label>
+                  <span class="form_line"></span>
+              </div>
+
+            <button class="btn-secondary" (click)="endContract()" [disabled]="point===0">Finalizar contrato</button>
         </div>
 
         <div *ngIf="contract !== null && vigente === 'false'" >
