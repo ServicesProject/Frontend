@@ -2,6 +2,8 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { WorkService } from '../../services/work.service';
 import { NotificationService } from '../../services/notification.service';
+import { RatingService } from 'src/app/user/services/rating.service';
+import { Rating } from 'src/app/user/models/rating';
 
 @Component({
   selector: 'app-detail-lender-work',
@@ -27,24 +29,29 @@ export class DetailLenderWorkComponent implements OnInit {
    center: google.maps.LatLngLiteral
    markerPosition: google.maps.LatLngLiteral;
    @ViewChild('map') mapElement: ElementRef
+
+   //rating
+   message
+   point
  
-   @ViewChild('mapa') mapa: any;
+
 
   constructor(
     private route: ActivatedRoute,
     private workService: WorkService,
     private notificationService: NotificationService,
+    private ratingService: RatingService
     
   ) { }
 
   async ngOnInit() {
     let user = localStorage.getItem('token')
-    // this.vigente = await this.route.snapshot.queryParams['vigente'];
+    this.userData = JSON.parse(user)
     this.route.queryParams.subscribe((params: Params) => {
       this.vigente = params['vigente'];
       console.log(this.vigente); 
     });
-    this.userData = JSON.parse(user)
+    
     this.idWork = this.route.snapshot.paramMap.get('id')
     await this.informationLenderWork()
     await this.controlContracts()
@@ -55,6 +62,11 @@ export class DetailLenderWorkComponent implements OnInit {
     this.workService.getWorkwithLender(this.idWork).subscribe(
       data => {
         this.information = data
+        this.center = {
+          lat: Number(this.information?.lat),
+          lng: Number(this.information?.lng)
+        };
+        this.markerPosition = this.center;
       },
       err => {
         console.log(err)
@@ -88,6 +100,11 @@ export class DetailLenderWorkComponent implements OnInit {
         console.log(err)
       }
     );
+  }
+
+  addRating(){
+    let rating = new Rating(this.userData.user.id, this.information.id, this.point, this.message)
+    this.ratingService.createRating(rating).subscribe()
   }
 
 }

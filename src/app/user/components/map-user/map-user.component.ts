@@ -11,7 +11,6 @@ export class MapUserComponent implements OnInit {
 
   workList
   lenders
-
   category
   contract
   workTime
@@ -42,7 +41,7 @@ export class MapUserComponent implements OnInit {
     },(error) => {
       console.log("Error al obtener la ubicación:", error);
     },
-    // { enableHighAccuracy: true, timeout: 10000 })
+    
     );
     if (this.mapElement?.nativeElement) {
       this.map = new google.maps.Map(this.mapElement.nativeElement, {

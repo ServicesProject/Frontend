@@ -24,6 +24,17 @@ export class AddServiceLenderComponent implements OnInit {
   lat
   lng
 
+  jobs = {
+    'Vehículo': ['Mécanico', 'Chofer'],
+    'Domicilio': ['Cocinero', 'Jardinero', 'Limpieza'],
+    'Cuidado personal': ['Enfermero', 'Niñero', 'Cuidador de mascotas'],
+    'Reparación': ['Electricista', 'Cerrajero', 'Fontanero', 'Plomero'],
+    'Construcción': ['Albañil', 'Carpintero', 'Pintor'],
+    'Vestimenta': ['Sastre', 'Costurero'],
+    'Enseñanza': ['Tutor']
+  };
+  categorySelected
+
   public form!: FormGroup
 
    //Map
@@ -42,6 +53,10 @@ export class AddServiceLenderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if (this.jobs && this.jobs[0]) {
+      this.job = this.jobs[0].value;
+    }
+
     navigator.geolocation.getCurrentPosition((position) => {
       this.center = {
         lat: position.coords.latitude,

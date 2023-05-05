@@ -17,7 +17,6 @@ export class FormLenderComponent implements OnInit {
   name: any;
   lastName: any;
   phone: any;
-  
   gender: any;
   ci: any;
   birthdate: Date
@@ -31,11 +30,19 @@ export class FormLenderComponent implements OnInit {
   category: string
   salary: string
   description: any
-
   lat
   lng
 
-  
+  jobs = {
+    'Vehículo': ['Mécanico', 'Chofer'],
+    'Domicilio': ['Cocinero', 'Jardinero', 'Limpieza'],
+    'Cuidado personal': ['Enfermero', 'Niñero', 'Cuidador de mascotas'],
+    'Reparación': ['Electricista', 'Cerrajero', 'Fontanero', 'Plomero'],
+    'Construcción': ['Albañil', 'Carpintero', 'Pintor'],
+    'Vestimenta': ['Sastre', 'Costurero'],
+    'Enseñanza': ['Tutor']
+  };
+  categorySelected
 
   //Map
   zoom = 15
@@ -52,15 +59,16 @@ export class FormLenderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if (this.jobs && this.jobs[0]) {
+      this.job = this.jobs[0].value;
+    }
+
     navigator.geolocation.getCurrentPosition((position) => {
       this.center = {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
       };
     });
-
-  
-
   }
 
   onMapClick(event) {
@@ -75,7 +83,7 @@ export class FormLenderComponent implements OnInit {
     let info = this.tokenService.currentUserValue
     const lender = new RegisterLender(this.name, this.lastName, this.phone, this.description, this.gender, this.ci, this.birthdate)
     lender.complete=true
-    let work = new Work(this.job, this.experience, this.contract, this.area, this.address, this.workTime, this.category,this.description, this.salary, this.lat, this.lng)
+    let work = new Work(this.job, this.experience, this.contract, this.area, this.address, this.workTime, this.category,this.salary,this.description,this.lat, this.lng)
     let worktosend = {...work,lenderEmail:info.user.email}
     forkJoin([this.lenderService.updateLender(info.user.email, lender), this.workService.create(worktosend)])
     .pipe(

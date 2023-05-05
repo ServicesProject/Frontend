@@ -40,7 +40,7 @@ export class DetailServiceComponent implements OnInit {
           lat: Number(this.detailWork.lat),
           lng: Number(this.detailWork.lng)
         };
-        
+        this.markerPosition = this.center; 
       },
       err => {
         console.log(err)

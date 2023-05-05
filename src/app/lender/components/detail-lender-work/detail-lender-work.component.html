@@ -13,6 +13,11 @@
                 <span class="form_line"></span>
             </div>
             <div class="form_group">
+                <input [value]="information?.lender.ci" type="text" id="ci" name="ci" class="form_input"  placeholder=" "  disabled readonly>
+                <label for="ci" class="form_label">Carnet de identidad</label>
+                <span class="form_line"></span>
+            </div>
+            <div class="form_group">
                 <input [value]="information?.lender.phone" type="text" id="phone" name="phone" class="form_input"  placeholder=" "  disabled readonly>
                 <label for="phone" class="form_label">Celular</label>
                 <span class="form_line"></span>
@@ -22,6 +27,12 @@
                 <label for="gender" class="form_label">Género</label>
                 <span class="form_line"></span>
             </div>
+
+            <div class="form_group">
+                <input [value]="information?.lender.birthdate" type="date" id="birthdate"  name="birthdate" class="form_input" disabled readonly>
+                <label for="birthdate" class="form_label">Fecha de nacimiento</label>
+                <span class="form_line"></span>
+              </div>
         </div>
 
 
@@ -104,8 +115,7 @@
             </div>
             </div>
         </div>
-        {{contract === null}}
-        {{vigente === "true"}}
+      
         <div *ngIf="contract !== null && vigente === 'true'" >
             <p>Calificación del servicio</p>
             <button class="btn-secondary" (click)="endContract()">Finalizar contrato</button>

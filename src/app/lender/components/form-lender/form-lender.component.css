@@ -24,6 +24,11 @@
     margin-bottom: 2em;
 }
 
+p{
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
 .form_link{
     font-weight: 400;
     color: #000000;
@@ -34,7 +39,7 @@
     margin-top: 3em;
     display: grid;
     gap: 2.5em;
-    grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+    grid-template-columns: repeat(4, minmax(150px,1fr));
     margin-bottom: 3em;
 }
 
@@ -92,6 +97,8 @@
     white-space: nowrap; /* Evita que el texto se divida en varias líneas */
 }
 
+
+
 .form_label_check{
     color: var(--color);
     cursor: pointer;
@@ -119,3 +126,37 @@
     height: 1px;
 }
 
+.btn{
+    padding: 12px 24px;
+    color: #FFFFFF;
+    background-color: #000000;
+}
+
+.btn:hover{
+    color: #FFFFFF;
+    background-color: #3D8B67
+}
+
+@media screen and (max-width: 767px) {
+    .form_container {
+        grid-template-columns: repeat(1, minmax(150px,1fr));
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .form_container {
+        grid-template-columns: repeat(2, minmax(150px,1fr));
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .form_container {
+        grid-template-columns: repeat(3, minmax(150px,1fr));
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .form_container {
+        grid-template-columns: repeat(4, minmax(150px,1fr));
+    }
+}

@@ -3,6 +3,18 @@
       
       <h3 class="form_title_service">Mapa</h3>
   
+      <google-map width="100%" height="400" [zoom]="zoom" [center]="center"> 
+        <map-marker [position]="center" title="Ubicación actual"></map-marker>
+        <map-circle [center]="center" [radius]="radius" [draggable]="true"></map-circle>
+        <map-marker *ngFor="let work of workList" [position]="work.ubication" [title]="work.lender.name"></map-marker>
+      </google-map>
+      <div class="filter-button">
+        <p>Ingresa el valor en metros:</p>
+        <input type="number" name="distance" [(ngModel)]="distance" placeholder="Distancia en metros">
+        <button class="btn filter-map" (click)="setRadius(); filterWorks()">Mostrar</button>
+      </div>
+      
+
       <div class="form_container">
   
         <div class="form_group ">
@@ -52,13 +64,7 @@
         
       </div>
   
-      <google-map width="100%" height="300" [zoom]="zoom" [center]="center"> 
-        <map-marker [position]="center" title="Ubicación actual"></map-marker>
-        <map-circle [center]="center" [radius]="radius" [draggable]="true"></map-circle>
-        <map-marker *ngFor="let work of workList" [position]="work.ubication" [title]="work.lender.name"></map-marker>
-      </google-map>
-      <input type="number" name="distance" [(ngModel)]="distance" placeholder="Distancia en metros">
-      <button (click)="setRadius(); filterWorks()">Mostrar</button>
+      
 
       <div *ngIf="workList?.length === 0" class="alert alert-primary" role="alert">
         No hay resultados encontrados.
@@ -67,12 +73,17 @@
       <div class="grid-container">
         <div class="grid-item" *ngFor="let work of workList">
           <div class="card">
-            <!-- <img src="https://verdecora.es/blog/wp-content/uploads/2021/04/como-es-conejo.jpg.webp" class="card-img-top" alt="..."> -->
+            <div class="card-header">
+              {{work.category}}
+            </div>
             <div class="card-body">
               <h5 class="card-title">{{work.lender.name}} {{work.lender.lastName}}</h5>
-              <p class="card-text" style="margin:0"><i class='bx bxs-briefcase-alt-2'></i> {{work.job}}</p>
-              <p class="card-text" style="margin:0"><i class='bx bxs-time'></i> {{work.workTime}}</p>
-              <p class="card-text"><i class='bx bxs-calendar'></i> Publicado: {{work.creationDate}}</p>
+              <div class="card-text">
+                <p style="margin:0"><i class='bx bxs-briefcase-alt-2'></i> {{work.job}}</p>
+                <p style="margin:0"><i class='bx bxs-time'></i> {{work.workTime}}</p>
+                <p><i class='bx bxs-calendar'></i> Publicado: {{work.creationDate}}</p>
+              </div>
+              
               <button  class="btn btn-primary" (click)="detailLenderWork(work)">Más información</button>
             </div>
           </div>

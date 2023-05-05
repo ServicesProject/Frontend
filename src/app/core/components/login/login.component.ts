@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
       password:new FormControl(null,[Validators.required])
     })
     let token = await localStorage.getItem('token')
+   
     if(token){
       this.router.navigateByUrl('/')
     }

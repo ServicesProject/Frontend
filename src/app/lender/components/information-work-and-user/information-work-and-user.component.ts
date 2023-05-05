@@ -52,6 +52,11 @@ export class InformationWorkAndUserComponent implements OnInit {
     this.workService.details(this.idWork).subscribe(
       data => {
         this.dataWork = data
+        this.center = {
+          lat: Number(this.dataWork.lat),
+          lng: Number(this.dataWork.lng)
+        };
+        this.markerPosition = this.center;
       },
       err => {
         console.log(err)

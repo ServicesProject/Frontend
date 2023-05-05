@@ -3,7 +3,7 @@
     <form class="form font1">
       <h3 class="form_title_service">Tus servicios </h3>
       <div class="text-end">
-        <a href="trabajador/nuevoServicio" class="btn btn-primary"><i class='bx bxs-briefcase-alt-2'></i> Añadir</a>
+        <a href="trabajador/nuevoServicio" class="btn add-service"><i class='bx bxs-briefcase-alt-2'></i> Añadir</a>
       </div>
       <div class="form_container">
        
@@ -13,8 +13,13 @@
             </div>
             <div class="card-body">
               <h5 class="card-title">{{work.job}}</h5>
-              <p class="card-text">{{work.address}}</p>
-              <button  class="btn btn-primary" (click)="detailService(work)">Ver más</button>
+              <div class="card-text">
+                <p  style="margin:0"><i class='bx bx-time-five' ></i> Jornada: {{work.workTime}}</p>
+                <p style="margin:0"><i class='bx bx-note'></i> Contrato: {{work.contract}}</p>
+                <p><i class='bx bx-dollar-circle' ></i> Salario mínimo: {{work.salary}}</p>
+              </div>
+             
+              <button  class="btn more-information" (click)="detailService(work)">Ver más</button>
             </div>
         </div>
       </div>

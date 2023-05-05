@@ -4,33 +4,34 @@
       <h3 class="form_title_service">Detalle del servicio</h3>
       <div class="text-end">
         <button (click)="updateService()" class="btn btn-primary"><i class='bx bxs-edit'></i></button>
-        <button type="button" class="btn btn-danger"><i class='bx bxs-trash' data-bs-toggle="modal" data-bs-target="#exampleModal"></i></button>
+        <button type="button" class="btn btn-danger"><i class='bx bxs-trash' data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></button>
 
-        <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminación del servicio</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              Estas a punto de eliminar el servicio de {{detailWork.job}}
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button (click)="deleteService()" type="button" class="btn btn-danger" data-bs-dismiss="modal">Eliminar</button>
-            </div>
+   
+          <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Eliminación del servicio</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ¿Estás seguro de eliminar el servicio {{detailWork?.job}}?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button (click)="deleteService()" type="button" class="btn btn-danger" data-bs-dismiss="modal">Eliminar</button>
           </div>
         </div>
       </div>
+    </div>
 
       </div>
       <div class="form_container">
 
         <div class="form_group">
             <input [value]="detailWork?.category" type="text" id="category" name="category" class="form_input"  placeholder=" "  disabled readonly>
-              <label for="category" class="form_label">Categoria</label>
+              <label for="category" class="form_label">Categoría</label>
               <span class="form_line"></span>
         </div>
   
@@ -66,7 +67,7 @@
 
         <div class="form_group">
             <input [value]="detailWork?.salary" type="text" id="salary" name="salary" class="form_input"  placeholder=" "  disabled readonly>
-              <label for="salary" class="form_label">Salario minimo</label>
+              <label for="salary" class="form_label">Salario mínimo</label>
               <span class="form_line"></span>
         </div>
 
@@ -76,13 +77,12 @@
               <span class="form_line"></span>
         </div>
 
-        <div class="form_group">
+        <div class="form_group ">
           <input [value]="detailWork?.description" type="text" id="description" name="description" class="form_input"  placeholder=" "  disabled readonly>
-            <label for="description" class="form_label">Descripcion</label>
+            <label for="description" class="form_label">Descripción del servicio</label>
             <span class="form_line"></span>
-      </div>
+        </div>
   
-        
       </div>
   
       <p>Ubicación exacta de trabajo:</p>

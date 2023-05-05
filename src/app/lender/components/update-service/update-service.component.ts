@@ -19,12 +19,24 @@ export class UpdateServiceComponent implements OnInit {
   category: string
   salary: string
   description: any;
-
   lat
   lng
 
+  jobs =  {
+    'Vehículo': ['Mécanico', 'Chofer'],
+    'Domicilio': ['Cocinero', 'Jardinero', 'Limpieza'],
+    'Cuidado personal': ['Enfermero', 'Niñero', 'Cuidador de mascotas'],
+    'Reparación': ['Electricista', 'Cerrajero', 'Fontanero', 'Plomero'],
+    'Construcción': ['Albañil', 'Carpintero', 'Pintor'],
+    'Vestimenta': ['Sastre', 'Costurero'],
+    'Enseñanza': ['Tutor']
+  };
+  categorySelected
+
   idWork
   detailWork
+
+
 
    //Map
    zoom = 15
@@ -40,6 +52,9 @@ export class UpdateServiceComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if (this.jobs && this.jobs[0]) {
+      this.job = this.jobs[0].value;
+    }
 
     this.idWork = this.route.snapshot.paramMap.get('id')
     this.informationService()
@@ -49,6 +64,7 @@ export class UpdateServiceComponent implements OnInit {
         lng: position.coords.longitude,
       };
     });
+    
   }
 
   onMapClick(event) {
@@ -63,12 +79,25 @@ export class UpdateServiceComponent implements OnInit {
     this.workService.details(this.idWork).subscribe(
       data => {
         this.detailWork = data
-        console.log(this.detailWork);
+      
+        this.job = this.jobs[this.detailWork.category]?.find((job) => job === this.detailWork.job);
+        this.category = this.detailWork.category
+        this.area = this.detailWork.area
+        this.address = this.detailWork.address
+        this.contract = this.detailWork.contract
+        this.salary = this.detailWork.salary
+        this.workTime = this.detailWork.workTime
+        this.experience = this.detailWork.experience
+        this.description = this.detailWork.description
+        this.salary = this.detailWork.salary
+        this.lat = this.detailWork.lat
+        this.lng = this.detailWork.lng
         
         this.center = {
           lat: Number(this.detailWork.lat),
           lng: Number(this.detailWork.lng)
         };
+        this.markerPosition = this.center;
         
       },
       err => {
@@ -79,9 +108,15 @@ export class UpdateServiceComponent implements OnInit {
 
 
   UpdateWorkLender() {
-    let lenderWork = new Work(this.job, this.experience, this.contract, this.area, this.address, this.workTime, this.category,this.description, this.salary, this.lat, this.lng)
+    let lenderWork = new Work(this.job, this.experience, this.contract, this.area, this.address, this.workTime, this.category,this.salary,this.description,this.lat, this.lng)
+    console.log(lenderWork);
+    
     this.workService.update(this.idWork,lenderWork).subscribe();
     
+  }
+
+  updateData(){
+    this.router.navigateByUrl(`trabajador/${this.idWork}/detalleServicio`);
   }
 
 }

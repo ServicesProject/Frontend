@@ -13,9 +13,34 @@
     text-align: center;
 }
 
+.card-text {
+    text-align: left;
+    margin-left: 60px;
+  }
 
+.add-service{
+    background-color: #3D8B67;
+    color: #FFFFFF;
+    padding: 12px 24px;
+}
 
+.card-header{
+    background-color: #FFFFFF;
+    
+}
 
+.card {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px) rotateX(1deg);
+  }
+
+.more-information{
+    background-color: #000000;
+    color: #FFFFFF;
+}
 .form_title_service{
     margin-top: 1em;
     margin-bottom: 1em;

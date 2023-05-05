@@ -6,7 +6,7 @@
       <div class="form_container">
   
         <div class="form_group ">
-          <select [value]="detailWork?.category" id="category" name="category" class="form_input" [(ngModel)]="category" >
+          <select [value]="detailWork?.category" id="category" name="category" class="form_input" [(ngModel)]="category">
             <option>Vehículo</option>
             <option>Domicilio</option>
             <option>Cuidado personal</option>
@@ -15,47 +15,23 @@
             <option>Vestimenta</option>
             <option>Enseñanza</option>
           </select>
-          <label for="category" class="form_label">Categoria:</label>
+          <label for="category" class="form_label">Categoría</label>
         </div>
-        
-        <div class="form_group ">
-          <select [value]="detailWork?.job"  id="job" name="job" class="form_input" [(ngModel)]="job" >
-            <option *ngIf="category === 'Vehículo'" >Mécanico</option>
-            <option *ngIf="category === 'Vehículo'">Chofer</option>
-  
-            <option *ngIf="category === 'Domicilio'">Cocinero</option>
-            <option *ngIf="category === 'Domicilio'">Jardinero</option>
-            <option *ngIf="category === 'Domicilio'">Limpieza</option>
-          
-            <option *ngIf="category === 'Cuidado personal'">Enfermero</option>
-            <option *ngIf="category === 'Cuidado personal'">Niñero</option>
-            <option *ngIf="category === 'Cuidado personal'">Cuidador de mascotas</option>
-  
-            <option *ngIf="category === 'Reparación'">Electricista</option>
-            <option *ngIf="category === 'Reparación'">Cerrajero</option>
-            <option *ngIf="category === 'Reparación'">Fontanero</option>
-            <option *ngIf="category === 'Reparación'">Plomero</option>
-  
-            <option *ngIf="category === 'Construcción'">Albañil</option>
-            <option *ngIf="category === 'Construcción'">Carpintero</option>
-            <option *ngIf="category === 'Construcción'">Pintor</option>
-          
-            <option *ngIf="category === 'Vestimenta'">Sastre</option>
-            <option *ngIf="category === 'Vestimenta'">Costurero</option>
-  
-            <option *ngIf="category === 'Enseñanza'">Tutor</option>
-  
+        <div class="form_group">
+          <select id="job" name="job" class="form_input" [(ngModel)]="job" >
+            <option *ngFor="let j of jobs[category]" [value]="j">{{j}}</option>
           </select>
-          <label for="job" class="form_label">Oficio:</label>
+          <label for="job" class="form_label">Oficio</label>
         </div>
   
-        <div class="form_group ">
+  
+        <div class="form_group">
           <select [value]="detailWork?.contract" id="contract" name="contract" class="form_input" [(ngModel)]="contract"  >
             <option>Indefinido</option>
             <option>Duración determinada</option>
             <option>Autónomo</option>
           </select>
-          <label for="contract" class="form_label">Contrato:</label>
+          <label for="contract" class="form_label">Contrato</label>
         </div>
   
         <div class="form_group ">
@@ -65,7 +41,7 @@
             <option>Flexible</option>
             <option>Intensiva</option>
           </select>
-          <label for="workTime" class="form_label">Jornada:</label>
+          <label for="workTime" class="form_label">Jornada</label>
         </div>
   
         <div class="form_group ">
@@ -74,7 +50,7 @@
             <option>Medio</option>
             <option>Experto</option>
           </select>
-          <label for="experience" class="form_label">Experiencia:</label>
+          <label for="experience" class="form_label">Experiencia</label>
         </div>
   
         <div class="form_group ">
@@ -84,24 +60,24 @@
             <option>Quillacollo</option>
             <option>Tiquipaya</option>
           </select>
-          <label for="area" class="form_label">Municipio:</label>
+          <label for="area" class="form_label">Municipio</label>
         </div>
   
         <div class="form_group">
           <input [value]="detailWork?.salary" type="text" id="salary" name="salary" class="form_input" [(ngModel)]="salary" placeholder=" " required autocomplete="off">
-            <label for="salary" class="form_label">Salario minimo:</label>
+            <label for="salary" class="form_label">Salario mínimo</label>
             <span class="form_line"></span>
         </div>
   
         <div class="form_group">
           <input [value]="detailWork?.address" type="text" id="address" name="address" class="form_input" [(ngModel)]="address" placeholder=" "  required autocomplete="off">
-            <label for="address" class="form_label">Dirección:</label>
+            <label for="address" class="form_label">Dirección</label>
             <span class="form_line"></span>
         </div>
 
         <div class="form_group">
           <input [value]="detailWork?.description" type="text" id="description" name="description" class="form_input" [(ngModel)]="description" placeholder=" "  required autocomplete="off">
-            <label for="description" class="form_label">Descripcion</label>
+            <label for="description" class="form_label">Descripción del servicio</label>
             <span class="form_line"></span>
         </div>
       </div>
@@ -113,8 +89,27 @@
       </google-map>
   
       
-     <button type="button" class="form_submit btn-primary btn-block" (click)="UpdateWorkLender()">Continuar</button>
+     <button type="button" class="form_submit btn-primary"  data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="UpdateWorkLender()">Continuar</button>
     
+        <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Servicio modificado</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            El servicio se actualizó correctamente.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="updateData()"  data-bs-dismiss="modal">Entendido</button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
     </form>
   </div>
 
