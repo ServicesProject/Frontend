@@ -37,8 +37,32 @@
 
 
       <h3 class="form_title_service">Detalles del servicio</h3>
-      <div class="form_container">
+      <star-rating [starType]="'svg'" [rating]="poinsOnetWork?.averagePoints" readonly></star-rating>
 
+      <!-- Botón para abrir el modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#scrollableModal">Comentarios</button>
+
+<!-- Modal desplazable -->
+<div class="modal fade" id="scrollableModal" tabindex="-1" aria-labelledby="scrollableModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="scrollableModalLabel">Modal desplazable</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        ggg
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+     
+      <div class="form_container">
         <div class="form_group">
             <input [value]="information?.category" type="text" id="category" name="category" class="form_input"  placeholder=" "  disabled readonly>
             <label for="category" class="form_label">Categoria</label>

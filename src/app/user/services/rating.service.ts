@@ -16,4 +16,14 @@ export class RatingService {
   public createRating(rating: Rating): Observable<any>{
     return this.httpClient.post<any>(this.apiUrl+ 'rating', rating)
   }
+
+  public averagePointsForWork(id:number): Observable<any>{
+    return this.httpClient.get<any>(this.apiUrl+ `rating/${id}/average-points`)
+  }
+
+  public messagesForWork(id:number): Observable<any>{
+    return this.httpClient.get<any>(this.apiUrl+ `rating/${id}/messages`)
+  }
+
+
 }
