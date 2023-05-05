@@ -35,6 +35,7 @@ export class DetailLenderWorkComponent implements OnInit {
    message
    point = 0
    poinsOnetWork
+   messagesUser
 
 
   constructor(
@@ -52,17 +53,14 @@ export class DetailLenderWorkComponent implements OnInit {
       this.vigente = params['vigente'];
        
     });
-    
     this.idWork = this.route.snapshot.paramMap.get('id')
     await this.informationLenderWork()
     await this.controlContracts()
-
     await this.ratingService.averagePointsForWork(this.idWork).subscribe(result => {
       this.poinsOnetWork = result;
     });
+    await this.messagesFromUsers()
 
-    
-  
   }
 
   updateRating(event: any) {
@@ -121,7 +119,16 @@ export class DetailLenderWorkComponent implements OnInit {
     this.ratingService.createRating(rating).subscribe()
   }
 
- 
+  messagesFromUsers(){
+    this.ratingService.messagesForWork(this.idWork).subscribe(
+      data => {
+        this.messagesUser = data
+      },
+      err => {
+        console.log(err)
+      }
+    )
+  }
   
 
 

@@ -47,11 +47,22 @@
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="scrollableModalLabel">Modal desplazable</h5>
+        <h5 class="modal-title" id="scrollableModalLabel">Opiniones</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
       <div class="modal-body">
-        ggg
+        <div *ngIf="messagesUser?.length === 0" class="alert alert-primary" role="alert">
+            Aún no tiene comentarios.
+          </div>
+
+        <div *ngFor="let detail of messagesUser" class="card" >
+            <div class="card-body">
+              <h5 class="card-title"><i class='bx bx-user'></i> {{detail.user.name}} {{detail.user.lastName}}</h5>
+              <star-rating [starType]="'svg'" [rating]="detail?.point" readonly></star-rating>
+              <p class="card-text">{{detail?.message}}</p>
+              
+            </div>
+          </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
