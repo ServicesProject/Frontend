@@ -8,31 +8,37 @@
         
           <div class="form_group">
             <input [value]="detailUser?.name" type="text" id="name" name="name" class="form_input"  placeholder=" "  disabled readonly>
-            <label for="name" class="form_label">Nombre:</label>
+            <label for="name" class="form_label">Nombre</label>
             <span class="form_line"></span>
           </div>
       
           <div class="form_group">
             <input [value]="detailUser?.lastName" type="text" id="lastName" name="lastName" class="form_input"   placeholder=" "  disabled readonly>
-            <label for="lastName" class="form_label">Apellidos:</label>
+            <label for="lastName" class="form_label">Apellidos</label>
             <span class="form_line"></span>
           </div>
     
           <div class="form_group">
             <input [value]="detailUser?.ci" type="text" id="ci" name="ci" class="form_input"   placeholder=" " disabled readonly>
-            <label for="ci" class="form_label">Ci:</label>
+            <label for="ci" class="form_label">Carnet de identidad</label>
             <span class="form_line"></span>
           </div>
   
           <div class="form_group">
             <input [value]="detailUser?.phone" type="text" id="phone" name="phone" class="form_input"  placeholder=" "  disabled readonly>
-            <label for="phone" class="form_label">Celular:</label>
+            <label for="phone" class="form_label">Celular</label>
             <span class="form_line"></span>
           </div>
 
           <div class="form_group">
             <input [value]="detailUser?.gender" type="text" id="gender" name="gender" class="form_input"  placeholder=" "  disabled readonly>
-            <label for="gender" class="form_label">Género:</label>
+            <label for="gender" class="form_label">Género</label>
+            <span class="form_line"></span>
+          </div>
+
+          <div class="form_group">
+            <input [value]="detailUser?.birthdate" type="date" id="birthdate" name="birthdate" class="form_input" disabled readonly>
+            <label for="birthdate" class="form_label">Fecha de nacimiento</label>
             <span class="form_line"></span>
           </div>
   

@@ -18,7 +18,7 @@
       <div class="form_container">
   
         <div class="form_group ">
-          <select id="category" name="category" class="form_input" [(ngModel)]="category" (change)="filterWorks()">
+          <select id="category" name="category" class="form_input" [(ngModel)]="category" (change)="filterWorks()" (change)="categorySelected = true">
             <option>Vehículo</option>
             <option>Domicilio</option>
             <option>Cuidado personal</option>
@@ -30,6 +30,13 @@
           <label for="category" class="form_label">Categoria:</label>
         </div>
        
+        <div class="form_group">
+          <select id="job" name="job" class="form_input" [(ngModel)]="job" >
+            <option *ngIf="!categorySelected" value="" disabled>Por favor, selecciona una categoría primero</option>
+            <option *ngFor="let j of jobs[category]" [value]="j">{{j}}</option>
+          </select>
+          <label for="job" class="form_label">Oficio</label>
+        </div>
   
         <div class="form_group ">
           <select id="contract" name="contract" class="form_input" [(ngModel)]="contract" (change)="filterWorks()" >
@@ -57,14 +64,8 @@
             <option>Experto</option>
           </select>
           <label for="experience" class="form_label">Experiencia:</label>
-        </div>
-  
-       
-  
-        
+        </div> 
       </div>
-  
-      
 
       <div *ngIf="workList?.length === 0" class="alert alert-primary" role="alert">
         No hay resultados encontrados.
@@ -79,12 +80,12 @@
             <div class="card-body">
               <h5 class="card-title">{{work.lender.name}} {{work.lender.lastName}}</h5>
               <div class="card-text">
-                <p style="margin:0"><i class='bx bxs-briefcase-alt-2'></i> {{work.job}}</p>
-                <p style="margin:0"><i class='bx bxs-time'></i> {{work.workTime}}</p>
-                <p><i class='bx bxs-calendar'></i> Publicado: {{work.creationDate}}</p>
+                <p style="margin:0"><i class='bx bx-briefcase-alt-2'></i> {{work.job}}</p>
+                <p style="margin:0"><i class='bx bx-time' ></i> {{work.workTime}}</p>
+                <p><i class='bx bx-calendar'></i> Publicado: {{work.creationDate}}</p>
               </div>
               
-              <button  class="btn btn-primary" (click)="detailLenderWork(work)">Más información</button>
+              <button  class="btn more-information" (click)="detailLenderWork(work)">Más información</button>
             </div>
           </div>
         </div>

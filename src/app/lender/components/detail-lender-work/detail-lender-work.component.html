@@ -1,6 +1,6 @@
 <div class="container">
     <form class="form font1">
-        <h3 class="form_title">Informacion personal</h3>
+        <h3 class="form_title">Información personal</h3>
         <div class="form_container">
             <div class="form_group">
                 <input [value]="information?.lender.name" type="text" id="name" name="name" class="form_input"  placeholder=" "  disabled readonly>
@@ -40,7 +40,7 @@
       <star-rating [starType]="'svg'" [rating]="poinsOnetWork?.averagePoints" readonly></star-rating>
 
       <!-- Botón para abrir el modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#scrollableModal">Comentarios</button>
+<button type="button" class="btn comments" data-bs-toggle="modal" data-bs-target="#scrollableModal">Comentarios</button>
 
 <!-- Modal desplazable -->
 <div class="modal fade" id="scrollableModal" tabindex="-1" aria-labelledby="scrollableModalLabel" aria-hidden="true">
@@ -58,7 +58,7 @@
         <div *ngFor="let detail of messagesUser" class="card" >
             <div class="card-body">
               <h5 class="card-title"><i class='bx bx-user'></i> {{detail.user.name}} {{detail.user.lastName}}</h5>
-              <star-rating [starType]="'svg'" [rating]="detail?.point" readonly></star-rating>
+              <star-rating  [starType]="'svg'" [rating]="detail?.point" readonly></star-rating>
               <p class="card-text">{{detail?.message}}</p>
               
             </div>
@@ -124,7 +124,7 @@
 
       </div>
 
-      <p>Ubicación exacta de trabajo:</p>
+      <p>Ubicación exacta de trabajo</p>
       
       <google-map width="100%" height="300" [center]="center" [zoom]="zoom" >
         <map-marker *ngIf="markerPosition" [position]="markerPosition"></map-marker>
@@ -151,10 +151,10 @@
             </div>
         </div>
       
-        
-
         <div *ngIf="contract !== null && vigente === 'true' && contract?.state !== 'terminado'" >
-            <p>Calificación del servicio</p>
+            <h3 class="qualification font1">Calificación del servicio</h3>
+            
+            
 
             <star-rating  [starType]="'svg'" [rating]="0" (starClickChange)="updateRating($event)"></star-rating>
 
@@ -164,7 +164,11 @@
                   <span class="form_line"></span>
               </div>
 
-            <button class="btn-secondary" (click)="endContract()" [disabled]="point===0">Finalizar contrato</button>
+              <div class="file-word">
+                Modelo de contrato
+                <button class="file-button" (click)="descargar()"><i class='bx bxs-download'></i>Descargar</button>
+            </div>
+            <button class="btn finish-contract" (click)="endContract()" [disabled]="point===0">Finalizar contrato</button>
         </div>
 
         <div *ngIf="contract !== null && vigente === 'false'" >

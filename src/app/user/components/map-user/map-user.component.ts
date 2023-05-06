@@ -11,11 +11,23 @@ export class MapUserComponent implements OnInit {
 
   workList
   lenders
+
   category
   contract
   workTime
   experience
-  
+  job
+
+  jobs = {
+    'Vehículo': ['Mécanico', 'Chofer'],
+    'Domicilio': ['Cocinero', 'Jardinero', 'Limpieza'],
+    'Cuidado personal': ['Enfermero', 'Niñero', 'Cuidador de mascotas'],
+    'Reparación': ['Electricista', 'Cerrajero', 'Fontanero', 'Plomero'],
+    'Construcción': ['Albañil', 'Carpintero', 'Pintor'],
+    'Vestimenta': ['Sastre', 'Costurero'],
+    'Enseñanza': ['Tutor']
+  };
+  categorySelected
 
   zoom = 15
   map: google.maps.Map;
@@ -32,7 +44,9 @@ export class MapUserComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    
+    if (this.jobs && this.jobs[0]) {
+      this.job = this.jobs[0].value;
+    }
     await navigator.geolocation.getCurrentPosition((position) => {
       this.center = {
         lat: position.coords.latitude,
@@ -124,6 +138,10 @@ export class MapUserComponent implements OnInit {
 
     if(this.contract){
       worktoSend = {...worktoSend, contract:this.contract}
+    }
+
+    if(this.job){
+      worktoSend = {...worktoSend, job:this.job}
     }
 
     if(this.category){

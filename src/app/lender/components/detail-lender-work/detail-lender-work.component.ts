@@ -4,7 +4,7 @@ import { WorkService } from '../../services/work.service';
 import { NotificationService } from '../../services/notification.service';
 import { RatingService } from 'src/app/user/services/rating.service';
 import { Rating } from 'src/app/user/models/rating';
-
+import { saveAs } from 'file-saver'; 
 
 @Component({
   selector: 'app-detail-lender-work',
@@ -36,6 +36,9 @@ export class DetailLenderWorkComponent implements OnInit {
    point = 0
    poinsOnetWork
    messagesUser
+
+   //contract
+   informacion: string = 'Aquí va tu información';
 
 
   constructor(
@@ -131,6 +134,24 @@ export class DetailLenderWorkComponent implements OnInit {
   }
   
 
+  descargar() {
+    const contenido = `
+      <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+        <head>
+          <meta charset='utf-8'>
+          <title>Información Descargada</title>
+        </head>
+        <body>
+          <div>${this.informacion}</div>
+        </body>
+      </html>`;
+
+    const blob = new Blob(['\ufeff', contenido], {
+      type: 'application/msword'
+    });
+
+    saveAs(blob, 'contrato-de-servicio.doc'); // Descarga el archivo con el nombre "informacion.doc"
+  }
 
 
 }

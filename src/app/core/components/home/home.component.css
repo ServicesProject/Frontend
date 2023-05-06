@@ -3,15 +3,30 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     height: 730px;
-    background-color: #3D8B67;
+    background-color: #7180B9;
     margin-bottom: 100px;
 
+  }
+
+  .half:last-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .half img {
+    width: 100%; /* Ocupa el ancho completo del contenedor */
+    height: 100%; /* Ocupa la altura completa del contenedor */
+    object-fit: cover; /* Ajusta el tamaño de la imagen para llenar el contenedor */
   }
   
   .half {
     width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .centered {
@@ -44,8 +59,8 @@
     flex-direction: column;
     align-items: flex-start;
   }
-  .btn{
-    padding: 16px 28px 15px;
+  .beggining{
+    padding: 12px 24px;
     background-color: black;
     color: white;
     font-family: 'Poppins', sans-serif;
@@ -105,7 +120,7 @@
 
   .text-paragraph{
     margin: 0px 0px 15px;
-    font-size: 38px;
+    font-size: 30px;
     letter-spacing: -0.01rem;
     max-width: 1000px;
     text-align: center;
@@ -115,7 +130,7 @@
     font-family: 'Poppins', sans-serif;
   }
   .resaltado{
-    color: #DB3E32;
+    color: #3423A6;
     font-family: 'Montserrat', sans-serif;
   }
 
@@ -147,7 +162,7 @@
     width: 25%;
     box-sizing: border-box;
     font-size: 40px;
-    color: #DB3E32;
+    color: #3423A6;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
   }
@@ -162,4 +177,57 @@
     font-size: 20px;
     font-family: 'Montserrat', sans-serif;
    font-weight: 600;
+  }
+
+  /* tercer container */
+
+  .whatwedo {
+    display: flex;
+    flex-wrap: wrap;
+ 
+  }
+
+  .part {
+    width: 50%;
+    margin-top: 50px;
+    box-sizing: border-box;
+  }
+
+  .part img {
+    width: 100%;
+    height: auto;
+  }
+
+  .title{
+    font-size: 26px;
+    margin-left: 70px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+  }
+  .secondary-text{
+    font-size: 17px;
+    margin-left: 70px;
+    margin-top: 25px;
+    font-family: 'Poppins', sans-serif;
+  }
+  .points-view{
+    margin-left: 70px;
+    margin-top: 25px;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .btn-whatwedo{
+    padding: 8px 16px;
+    background-color: #000000;
+    border: none;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 70px;
+    margin-top: 25px;
+  }
+
+  @media screen and (max-width: 600px) {
+    .part {
+      width: 100%;
+    }
   }

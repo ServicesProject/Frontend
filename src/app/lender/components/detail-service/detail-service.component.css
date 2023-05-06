@@ -9,7 +9,7 @@
     max-width: 1200px;
     padding: 3em 3em;
     border-radius: 10px;
-    box-shadow: 5px 5px 5px 5px rgb(0 0 0 / 20%);
+    
     text-align: center;
 }
 
@@ -20,7 +20,7 @@
 
 
 .form_title_service{
-    margin-top: 1em;
+    
     margin-bottom: 1em;
 }
 
