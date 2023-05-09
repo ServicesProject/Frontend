@@ -13,9 +13,12 @@
               {{notification.work.job}}
             </div>
             <div class="card-body">
-              <h5 class="card-title"> Usuario: {{notification.user.name}} {{notification.user.lastName}}</h5>
-              <p class="card-text"style="margin:0">Celular: {{notification.user.phone}}</p>
-              <p class="card-text" >Contrato: {{notification.work.contract}}</p>
+              <h5 class="card-title"> Cliente: {{notification.user.name}} {{notification.user.lastName}}</h5>
+              <div class="card-text">
+                <p style="margin:0"><i class='bx bx-dollar-circle' ></i> Salario mínimo: {{notification.work.salary}}</p>
+                <p><i class='bx bx-note'></i> Contrato: {{notification.work.contract}}</p>
+              </div>
+              
               
               <button  class="btn btn-primary" (click)="detailService(notification)">Ver más</button>
             </div>

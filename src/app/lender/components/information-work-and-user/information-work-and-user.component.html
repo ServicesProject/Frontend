@@ -1,6 +1,6 @@
 <div class="container">
     <form class="form font1">
-        <h3 class="form_title">Informacion personal del solicitante</h3>
+        <h3 class="form_title">Información personal del cliente</h3>
         <div class="form_container">
             <div class="form_group">
                 <input [value]="dataUser?.name" type="text" id="name" name="name" class="form_input"  placeholder=" "  disabled readonly>
@@ -96,7 +96,10 @@
       <google-map width="100%" height="300" [center]="center" [zoom]="zoom" >
         <map-marker *ngIf="markerPosition" [position]="markerPosition"></map-marker>
       </google-map>
-
+      <div class="file-word" *ngIf="contract !== null && vigente === 'true' && contract?.state !== 'terminado'" >
+        Modelo de contrato
+        <button class="file-button" (click)="descargar()"><i class='bx bxs-download'></i>Descargar</button>
+    </div>
     
     </form>
 

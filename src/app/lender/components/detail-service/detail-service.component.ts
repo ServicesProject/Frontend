@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WorkService } from '../../services/work.service';
+import { RatingService } from 'src/app/user/services/rating.service';
 
 @Component({
   selector: 'app-detail-service',
@@ -19,17 +20,26 @@ export class DetailServiceComponent implements OnInit {
   markerPosition: google.maps.LatLngLiteral;
   @ViewChild('map') mapElement: ElementRef
 
+  //rating
+  poinsOnetWork
+  messagesUser
+
   @ViewChild('mapa') mapa: any;
 
   constructor(
     private route: ActivatedRoute,
     private workService: WorkService,
-    private router: Router
+    private router: Router,
+    private ratingService: RatingService
   ) {}
 
   async ngOnInit() {
     this.idWork = this.route.snapshot.paramMap.get('id')
     this.informationService()
+    await this.ratingService.averagePointsForWork(this.idWork).subscribe(result => {
+      this.poinsOnetWork = result;
+    });
+    await this.messagesFromUsers()
   }
 
   informationService(){
@@ -56,5 +66,17 @@ export class DetailServiceComponent implements OnInit {
   updateService(){
     this.router.navigateByUrl(`trabajador/${this.detailWork.id}/actualizarServicio`)
   }
+
+  messagesFromUsers(){
+    this.ratingService.messagesForWork(this.idWork).subscribe(
+      data => {
+        this.messagesUser = data
+      },
+      err => {
+        console.log(err)
+      }
+    )
+  }
+  
 
 }

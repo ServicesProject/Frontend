@@ -115,6 +115,9 @@
 .card{
     margin-bottom: 16px;
 }
+.card-text{
+    margin: 15px;
+}
 
 p{
     margin: 35px;

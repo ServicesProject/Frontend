@@ -12,16 +12,11 @@
     
     text-align: center;
 }
-
+.card-text{
+    margin: 15px;
+}
 .btn{
     margin-left: 10px;
-}
-
-
-
-.form_title_service{
-    
-    margin-bottom: 1em;
 }
 
 .form_link{
@@ -41,14 +36,20 @@
 .form_container >div{
     display: flex;
 }
-
+.comments{
+    background-color: #000000;
+    color: #FFFFFF;
+    margin-top: 8px;
+    width: 260px;
+    margin-right: 10px;
+}
 .form_group{
     position: relative;
     --color: #000000;
-    
-
 }
-
+.card{
+    margin-bottom: 16px;
+}
 .form_input{
     width: 100%;
     background: none;

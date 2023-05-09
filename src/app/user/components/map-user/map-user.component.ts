@@ -185,4 +185,16 @@ export class MapUserComponent implements OnInit {
     return filteredList
   }
 
+  resetFilters() {
+    // Restablecer los valores de los filtros a su estado inicial
+    this.category = null;
+    this.job = null;
+    this.contract = null;
+    this.workTime = null;
+    this.experience = null;
+
+    // Volver a aplicar los filtros
+    this.filterWorks();
+  }
+
 }

@@ -9,11 +9,13 @@
     max-width: 900px;
     padding: 3em 3em;
     border-radius: 10px;
-    box-shadow: 5px 5px 5px 5px rgb(0 0 0 / 20%);
+    
     text-align: center;
 }
 
-
+.file-word{
+    margin-top: 25px;
+} 
 .form_container{
     margin-top: 3em;
     display: grid;

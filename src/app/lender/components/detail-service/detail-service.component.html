@@ -2,10 +2,45 @@
     <form  class="form font1">
       
       <h3 class="form_title_service">Detalle del servicio</h3>
+      <star-rating [starType]="'svg'" [rating]="poinsOnetWork?.averagePoints" readonly></star-rating>
+
+      <!-- Botón para abrir el modal -->
+<button type="button" class="btn comments" data-bs-toggle="modal" data-bs-target="#scrollableModal">Comentarios</button>
+
+<!-- Modal desplazable -->
+<div class="modal fade" id="scrollableModal" tabindex="-1" aria-labelledby="scrollableModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="scrollableModalLabel">Opiniones</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="messagesUser?.length === 0" class="alert alert-primary" role="alert">
+            Aún no tiene comentarios.
+          </div>
+
+        <div *ngFor="let detail of messagesUser" class="card" >
+            <div class="card-body">
+              <h5 class="card-title"><i class='bx bx-user'></i> {{detail.user.name}} {{detail.user.lastName}}</h5>
+              <star-rating  [starType]="'svg'" [rating]="detail?.point" readonly></star-rating>
+              <p class="card-text">{{detail?.message}}</p>
+              
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
       <div class="text-end">
         <button (click)="updateService()" class="btn btn-primary"><i class='bx bxs-edit'></i></button>
         <button type="button" class="btn btn-danger"><i class='bx bxs-trash' data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></button>
 
+        
    
           <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

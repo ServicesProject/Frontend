@@ -1,7 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { UserService } from 'src/app/user/services/user.service';
 import { WorkService } from 'src/app/lender/services/work.service'
+import { saveAs } from 'file-saver'; 
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-information-work-and-user',
@@ -15,6 +17,9 @@ export class InformationWorkAndUserComponent implements OnInit {
   dataUser
   dataWork
 
+  contract
+  vigente
+
   //Map
   zoom = 15
   map:any
@@ -22,16 +27,24 @@ export class InformationWorkAndUserComponent implements OnInit {
   markerPosition: google.maps.LatLngLiteral;
   @ViewChild('map') mapElement: ElementRef
 
+  
+   //contract
+   informacion: string = 'Aquí va tu información';
+
   constructor( 
     private route: ActivatedRoute,
     private userService: UserService,
-    private workService: WorkService
+    private workService: WorkService,
+    private notificationService: NotificationService
     ) { }
 
   ngOnInit(): void {
     this.idWork = this.route.snapshot.paramMap.get('idWork')
     this.idUser = this.route.snapshot.paramMap.get('idUser')
-
+    this.route.queryParams.subscribe((params: Params) => {
+      this.vigente = params['vigente'];
+       
+    });
     this.informationUser()
     this.informationWork()
  
@@ -57,6 +70,37 @@ export class InformationWorkAndUserComponent implements OnInit {
           lng: Number(this.dataWork.lng)
         };
         this.markerPosition = this.center;
+      },
+      err => {
+        console.log(err)
+      }
+    )
+  }
+
+  descargar() {
+    const contenido = `
+      <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+        <head>
+          <meta charset='utf-8'>
+          <title>Información Descargada</title>
+        </head>
+        <body>
+          <div>${this.informacion}</div>
+        </body>
+      </html>`;
+
+    const blob = new Blob(['\ufeff', contenido], {
+      type: 'application/msword'
+    });
+
+    saveAs(blob, 'contrato-de-servicio.doc'); // Descarga el archivo con el nombre "informacion.doc"
+  }
+
+
+  controlContracts(){
+    this.notificationService.listOneUserWithContracts(this.idUser, this.idWork).subscribe(
+      data => {
+        this.contract = data
       },
       err => {
         console.log(err)

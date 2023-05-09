@@ -35,7 +35,7 @@ export class ContractLenderComponent implements OnInit {
   }
 
   detailService(notification){
-    this.router.navigateByUrl(`trabajador/servicio/${notification.work.id}/solicitante/${notification.user.id}`)
+    this.router.navigateByUrl(`trabajador/servicio/${notification.work.id}/solicitante/${notification.user.id}?vigente=${notification.state==="terminado"? false:true}`)
   }
 
 }

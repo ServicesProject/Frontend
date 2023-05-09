@@ -13,10 +13,14 @@
         <input type="number" name="distance" [(ngModel)]="distance" placeholder="Distancia en metros">
         <button class="btn filter-map" (click)="setRadius(); filterWorks()">Mostrar</button>
       </div>
-      
 
+      <div class="resetFilter d-flex justify-content-end">
+        <span class="resetFilter-text">Limpiar filtros</span>
+        <button class="btn btn-primary brush" (click)="resetFilters()"><i class='bx bx-brush-alt'></i></button>
+      </div>
+      
       <div class="form_container">
-  
+       
         <div class="form_group ">
           <select id="category" name="category" class="form_input" [(ngModel)]="category" (change)="filterWorks()" (change)="categorySelected = true">
             <option>Vehículo</option>

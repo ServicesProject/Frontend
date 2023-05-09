@@ -13,6 +13,18 @@
     text-align: center;
 }
 
+.card-text{
+    text-align: left;
+    margin-left: 25px;
+}
+
+.card {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px) rotateX(1deg);
+  }
 
 
 
@@ -31,7 +43,7 @@
     display: grid;
     margin-top: 1em;
     gap: 2.5em;
-    grid-template-columns: repeat(2, minmax(150px, 1fr));
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
 }
 
 .form_container >div{

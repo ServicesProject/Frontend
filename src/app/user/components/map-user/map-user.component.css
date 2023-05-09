@@ -159,6 +159,10 @@ input[type="number"] {
     margin-top: 3em;
     width: 171px;
 }
+.resetFilter-text {
+  margin-top: 5px;
+  margin-right: 5px;
+}
 
 .form_line{
     position: absolute;
