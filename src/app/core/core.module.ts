@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ValidatedEmailComponent } from './components/validated-email/validated-email.component';
+import { ModelContractComponent } from './components/model-contract/model-contract.component';
 
 
 
@@ -22,6 +23,7 @@ import { ValidatedEmailComponent } from './components/validated-email/validated-
     LoginComponent,
     RegisterComponent,
     ValidatedEmailComponent,
+    ModelContractComponent,
   ],
   imports: [
     CommonModule,
