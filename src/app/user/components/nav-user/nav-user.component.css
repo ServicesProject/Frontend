@@ -14,3 +14,17 @@ a.navbar-brand{
     text-decoration: none; /* Elimina la línea subrayada por defecto */
     border-bottom: 2px solid #DB3E32; /* Agrega una línea abajo */
   }
+  .notification-list {
+    width: 500px;
+  }
+
+.card{
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #dee2e6; 
+}
+.dropdown-menu{
+  margin: 0;
+  padding: 0;
+}

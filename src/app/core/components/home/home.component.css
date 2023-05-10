@@ -17,9 +17,9 @@
   }
 
   .half img {
-    width: 100%; /* Ocupa el ancho completo del contenedor */
-    height: 100%; /* Ocupa la altura completa del contenedor */
-    object-fit: cover; /* Ajusta el tamaño de la imagen para llenar el contenedor */
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; 
   }
   
   .half {
@@ -63,6 +63,11 @@
     padding: 12px 24px;
     background-color: black;
     color: white;
+    font-family: 'Poppins', sans-serif;
+  }
+   .beggining:hover{
+    background-color: #FFFFFF;
+    color: #000000;
     font-family: 'Poppins', sans-serif;
   }
 
@@ -153,6 +158,14 @@
     border-radius: 5px;
     padding: 30px;
   }
+
+  .card {
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
   
   .card-content {
     display: flex;
@@ -178,6 +191,11 @@
     font-family: 'Montserrat', sans-serif;
    font-weight: 600;
   }
+  .card-all-explaination {
+    text-align: center;
+    margin: 0 auto;
+  }
+  
 
   /* cuarto container */
 
@@ -271,57 +289,66 @@
 
     /* sexto coinatiner */
 
-    /* .categories {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  
+     .stepsForAplication{
+      margin-bottom: 50px;
+     }
+   .stepsToFollow{
+    height: 370px;
+    width: 370px;
+   }
+
+   .steps{
+    padding: 88px 48px 80px;
+    justify-content: center;
     
-    .top-row,
-    .bottom-row {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-    
-    .category {
-      width: 286px;
-      height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      position: relative;
-      margin: 15px;
-     
-    }
-    
-    .category i {
-      font-size: 80px;
-    }
-    
-    .text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-    }
-    
-    .category:hover {
-      background-color: #7FB5FF
-    }
-    
-    .category:hover i {
-      display: none;
-    }
-    
-    .category:hover .text {
-      opacity: 1;
-      color: #FFFFFF;
-      font-family: 'Poppins', sans-serif;
-      font-size: 15px; 
-    }
-     */
+    display: flex;
+   }
+
+   .card-title-steps{
+    margin: 15px 0px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+   }
+   .card-all-explaination{
+    color: #000000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+   }
+
+   /* septimo container */
+
    
+  .part-us {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+  }
+
+  .part {
+    width: 50%;
+    margin-top: 50px;
+    box-sizing: border-box;
+  }
+
+  img.second-image {
+    width: 100%;
+    height: auto;
+    margin-left: 70px;
+  }
+
+  .title-us{
+    font-size: 26px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+  }
+  .secondary-text-us{
+    font-size: 17px;
+    
+    margin-top: 25px;
+    font-family: 'Poppins', sans-serif;
+  }
+  .points-view-us{
+    margin-top: 25px;
+    font-family: 'Poppins', sans-serif;
+  }
