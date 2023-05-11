@@ -1,6 +1,6 @@
 .container{
     display: flex;
-    min-height: 90vh;
+    min-height:80vh;
 }
 .form{
     background-color: #FFFFFF;

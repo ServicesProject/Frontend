@@ -1,4 +1,199 @@
 .carousel-item {
   height: 730px;
   object-fit: cover;
+  
+}
+
+h5 {
+  font-size: 35px;
+  color: #FFFFFF;
+}
+
+p {
+  font-size: 20px; 
+  color: #FFFFFF;
+}
+
+
+/* segunda parte */
+
+.whatwedo {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.part {
+  width: 50%;
+  margin-top: 50px;
+  box-sizing: border-box;
+}
+
+.part img {
+  width: 100%;
+  height: auto;
+}
+
+.first-title{
+  font-size: 26px;
+  margin-left: 70px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+.secondary-text{
+  font-size: 17px;
+  margin-left: 70px;
+  margin-top: 25px;
+  font-family: 'Poppins', sans-serif;
+}
+.points-view{
+  margin-left: 70px;
+  margin-top: 25px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-whatwedo{
+  padding: 8px 16px;
+  background-color: #000000;
+  border: none;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  margin-left: 70px;
+  margin-top: 25px;
+}
+/* tercera parte */
+
+
+.card-row {
+  background: linear-gradient(to right, #3423A6, #7180B9, #7FB5FF);
+  display: flex;
+  justify-content: center;
+  padding: 72px 56px;
+  
+}
+
+.category {
+  text-align: center;
+  padding: 8px 15px 0px;
+  width: 300px;
+  height: 112px;
+  background-color: transparent; 
+  border: none;
+}
+
+.icon-category{
+  font-size: 56px; 
+  color: #FFFFFF;
+}
+
+.card-text-category {
+  color: #FFFFFF;
+  margin: 8px 0px;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+/* cuarta parte */
+
+
+.part-us {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+
+.part {
+  width: 50%;
+  margin-top: 50px;
+  box-sizing: border-box;
+}
+
+img.second-image {
+  width: 100%;
+  height: auto;
+  margin-left: 70px;
+}
+
+.title-us{
+  font-size: 26px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+.secondary-text-us{
+  font-size: 17px;
+  
+  margin-top: 25px;
+  font-family: 'Poppins', sans-serif;
+}
+.points-view-us{
+  margin-top: 25px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* quinta parte */
+
+.last-information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(to right, #3423A6, #7180B9, #7FB5FF);
+  height: 700px;
+}
+
+h3.section-title {
+  font-size: 42px;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+p.section-description {
+  font-size: 25px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+
+}
+
+.important-information {
+  width: 289px;
+  height: 313px;
+  background-color: transparent;
+  text-align: center;
+  padding: 25px;
+  margin: 15px;
+    position: relative;
+    border-style: solid;
+    border-width: 3px;
+    border-color: hsla(0, 0%, 100%, .2);
+    border-radius: 4px;
+    box-shadow: 0 0 7px 2px rgba(0, 0, 0, .2);
+}
+
+.card-title-information {
+  font-size: 23px;
+  color: #FFFFFF;
+}
+
+p.card-description {
+  font-size: 14px;
+  margin: 8px;
+}
+
+.section-divider-line {
+  display: inline-block;
+  width: 100px;
+  height: 3px;
+  background-color: #ff1774;
+}
+
+.icon-information{
+  font-size: 96px; 
+  color: #FFFFFF;
 }
