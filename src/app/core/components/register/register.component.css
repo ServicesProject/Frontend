@@ -114,7 +114,17 @@ hr{
     height: 1px;
 
 }
+.error-message{
+    color: #DB3E32;
+}
 
+.btn-primary{
+    background-color: #000000;
+    color: #FFFFFF;
+}
 
-
-
+.btn-primary:disabled{
+    background-color: #000000;
+    color: #FFFFFF;
+    opacity: 0.1;
+}

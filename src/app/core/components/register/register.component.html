@@ -9,19 +9,27 @@
         <input type="email" id="email" name="email" class="form_input" formControlName="email" placeholder=" " required autocomplete="off" required>
         <label for="email" class="form_label">Correo</label>
         <span class="form_line"></span>
+        <div class="error-message" *ngIf="form.get('email').touched && form.get('email').hasError('email')">
+          Ingresa un correo electrónico válido.
+        </div>
       </div>
 
       <div class="form_group">
         <input type="password" id="password" name="password" class="form_input" formControlName="password" placeholder=" ">
         <label for="password" class="form_label">Contraseña</label>
         <span class="form_line"></span>
-
+        <div *ngIf="form.get('password').errors?.pattern && form.get('password').touched" class="error-message">
+          Ingresa una contraseña válida con mínimo 6 caracteres y al menos un símbolo.
+        </div>
       </div>
   
       <div class="form_group">
         <input type="password" id="repeatPassword" name="repeatPassword"  class="form_input" formControlName="repeatPassword" placeholder=" ">
         <label for="repeatPassword" class="form_label">Repetir contraseña</label>
         <span class="form_line"></span>
+        <div *ngIf="form.errors?.passwordMismatch && form.get('repeatPassword').touched" class="alert alert-danger">
+          Ingresa la misma contraseña.
+        </div>
       </div>
 
       <div class="form_group">
