@@ -31,7 +31,6 @@ export class FormUserComponent implements OnInit {
     this.form = new FormGroup({
       name: new FormControl(null,[Validators.required]),
       lastName: new FormControl(null,[Validators.required]),
-      
       gender: new FormControl(null,[Validators.required]),
       ci: new FormControl(null,[Validators.required]),
       phone: new FormControl(null,[Validators.required]),

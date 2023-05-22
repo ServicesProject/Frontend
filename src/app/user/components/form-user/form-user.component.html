@@ -18,7 +18,7 @@
     
           <div class="form_group">
             <input type="text" id="ci" name="ci" class="form_input"  [(ngModel)]="ci" placeholder=" " formControlName="ci" required autocomplete="off">
-            <label for="ci" class="form_label">Ci</label>
+            <label for="ci" class="form_label">Carnet de identidad</label>
             <span class="form_line"></span>
           </div>
   
@@ -42,10 +42,8 @@
             <span class="form_line"></span>
           </div>
   
-          
-
-          
-        <button type="button" class="form_submit btn-primary btn-block" [disabled]="form.invalid" (click)="onCompleteInformation()">Continuar</button>
+        
       </div>
+      <button type="button" class="form_submit btn-primary btn-block" [disabled]="form.invalid" (click)="onCompleteInformation()">Continuar</button>
     </form>
   </div>

@@ -110,3 +110,14 @@ hr{
     height: 1px;
 
 }
+
+.btn-primary{
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.btn-primary:disabled{
+    background-color: #000000;
+    color: #FFFFFF;
+    opacity: 0.1;
+}

@@ -3,7 +3,7 @@
 <div class="container">
   <form (ngSubmit)="register()" [formGroup]="form" class="form font1">
   
-    <h3 class="form_title">Crea una cuenta</h3>
+    <h3 class="form_title">Regístrate</h3>
     <div class="form_container">
       <div class="form_group">
         <input type="email" id="email" name="email" class="form_input" formControlName="email" placeholder=" " required autocomplete="off" required>
@@ -27,7 +27,7 @@
         <input type="password" id="repeatPassword" name="repeatPassword"  class="form_input" formControlName="repeatPassword" placeholder=" ">
         <label for="repeatPassword" class="form_label">Repetir contraseña</label>
         <span class="form_line"></span>
-        <div *ngIf="form.errors?.passwordMismatch && form.get('repeatPassword').touched" class="alert alert-danger">
+        <div *ngIf="form.errors?.passwordMismatch && form.get('repeatPassword').touched" class="error-message">
           Ingresa la misma contraseña.
         </div>
       </div>
@@ -44,14 +44,14 @@
     
             <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog ">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Verificación de email</h1>
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Verificación de correo electrónico</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              Te enviamos un correo de verificación, verifica tu cuenta para acceder 
+              Hemos enviado un correo de verificación a tu dirección de correo. Por favor, procede a verificar tu cuenta para poder acceder.
             </div>
             <div class="modal-footer">
               <a href="iniciarSesion">

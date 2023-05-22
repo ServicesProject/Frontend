@@ -15,7 +15,9 @@
         <span class="form_line"></span>
       </div>
       <button type="button" class="form_submit btn-primary btn-block" [disabled]="form.invalid" (click)="login()">Iniciar sesión</button>
-
+      <div *ngIf="showError" class="alert alert-danger" role="alert">
+        Correo electrónico o contraseña no son correctos
+      </div>
     </div>
     <hr>
     <p class="form_paragraph">¿Aún no tienes cuenta? <a href="registro" class="form_link">Registrarse</a></p>

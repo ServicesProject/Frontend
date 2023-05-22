@@ -143,3 +143,9 @@ p{
 .finish-contract:disabled{
     opacity: 0.2;
 }
+.btn-contratar{
+    background-color: #000000;
+    color: #FFFFFF;
+    margin-top: 3em;
+    width: 280px;
+}

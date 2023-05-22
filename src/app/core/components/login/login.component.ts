@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   email: any
   success = '';
   password: any
+  public showError = false;
   public form!: FormGroup
 
   constructor(
@@ -68,6 +69,7 @@ export class LoginComponent implements OnInit {
             }
           }else{
             console.log('login or password is incorrect')
+            this.showError = true;
           }
         }
       )

@@ -128,3 +128,11 @@ hr{
     color: #FFFFFF;
     opacity: 0.1;
 }
+
+h1#exampleModalLabel.modal-title.fs-5{
+    font-family: 'Poppins', sans-serif;
+}
+
+div.modal-body{
+    font-family: 'Poppins', sans-serif;
+}

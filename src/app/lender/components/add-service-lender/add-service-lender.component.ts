@@ -25,13 +25,16 @@ export class AddServiceLenderComponent implements OnInit {
   lng
 
   jobs = {
-    'Vehículo': ['Mécanico', 'Chofer'],
-    'Domicilio': ['Cocinero', 'Jardinero', 'Limpieza'],
-    'Cuidado personal': ['Enfermero', 'Niñero', 'Cuidador de mascotas'],
+    'Vehículo': ['Mécanico', 'Chofer','Renta de vehículo'],
+    'Domicilio': ['Cocinero', 'Jardinero', 'Limpieza', 'Diseño de interiores'],
+    'Salud': ['Enfermero'],
+    'Cuidado': ['Adultos', 'Niños', 'Mascotas'],
     'Reparación': ['Electricista', 'Cerrajero', 'Fontanero', 'Plomero'],
     'Construcción': ['Albañil', 'Carpintero', 'Pintor'],
     'Vestimenta': ['Sastre', 'Costurero'],
-    'Enseñanza': ['Tutor']
+    'Viaje': ['Agencia de viajes'],
+    'Enseñanza': ['Tutor'],
+    'Eventos': ['Funeraria','Organización de eventos']
   };
   categorySelected
 
