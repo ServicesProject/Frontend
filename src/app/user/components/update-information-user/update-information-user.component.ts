@@ -44,7 +44,18 @@ export class UpdateInformationUserComponent implements OnInit {
   }
   updateInformationUser(){
     const user = new UpdateUser(this.name, this.lastName, this.phone, this.gender, this.ci, this.birthdate)
-    this.userService.update(this.userData.user.id, user).subscribe();
+    this.userService.update(this.userData.user.id, user).subscribe(
+      async data => {
+        const token = await localStorage.getItem('token')
+        const token2 = JSON.parse(token)
+        token2.user = data
+        localStorage.setItem("token", JSON.stringify(token2));
+
+      },
+      err => {
+        console.log(err)
+      }
+    );
     this.router.navigateByUrl('usuario/datosPersonales')
   }
 

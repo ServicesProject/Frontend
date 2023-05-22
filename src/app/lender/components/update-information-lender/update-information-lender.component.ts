@@ -45,7 +45,18 @@ export class UpdateInformationLenderComponent implements OnInit {
 
   updateInformationLender(){
     const lender = new RegisterLender(this.name, this.lastName, this.phone, this.description, this.gender, this.ci, this.birthdate)
-    this.lenderService.updateLender(this.lenderData.user.email, lender).subscribe();
+    this.lenderService.updateLender(this.lenderData.user.email, lender).subscribe(
+      async data => {
+        const token = await localStorage.getItem('token')
+        const token2 = JSON.parse(token)
+        token2.user = data
+        localStorage.setItem("token", JSON.stringify(token2));
+
+      },
+      err => {
+        console.log(err)
+      }
+    );
     this.router.navigateByUrl('trabajador/datosPersonales')
   }
 

@@ -44,7 +44,6 @@ export class LoginComponent implements OnInit {
             let decode: any = jwt_decode(data.token)
             decode = {...decode, token: data.token}
             localStorage.setItem("token", JSON.stringify(decode));
-            console.log(decode)
             if (decode.user.complete) {
               if(decode.user.rol == 'user')
               {

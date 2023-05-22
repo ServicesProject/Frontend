@@ -78,15 +78,9 @@ export class AddServiceLenderComponent implements OnInit {
 
   UpdateDataLender() {
     let info = this.tokenService.currentUserValue
-
-    
     let work = new Work(this.job, this.experience, this.contract, this.area, this.address, this.workTime, this.category, this.salary, this.description, this.lat, this.lng)
-
-    
     let worktosend = {...work,lenderEmail:info.user.email}
     this.workService.create(worktosend).subscribe()
-    
-   
   }
 
 
