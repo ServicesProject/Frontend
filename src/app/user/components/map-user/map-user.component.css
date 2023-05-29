@@ -14,10 +14,18 @@
 }
 
 .more-information{
-  background-color: #3D8B67;
+  background-color: #7FB5FF;
   color: #FFFFFF;
 }
-
+.brush{
+  background-color: #3423A6;
+  border: none;
+}
+.alert-primary{
+  background-color: #7180B9;
+  color: #FFFFFF;
+  border: none;
+}
 input[type="number"] {
     padding: 8px;
     border: none;

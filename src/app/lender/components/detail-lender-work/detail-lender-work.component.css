@@ -21,7 +21,14 @@
     grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
 }
 
-
+.visual-only {
+    pointer-events: none;
+  }
+  .alert-primary{
+    background-color: #7180B9;
+    color: #FFFFFF;
+    border: none;
+  }
 
 .form_container >div{
     display: flex;

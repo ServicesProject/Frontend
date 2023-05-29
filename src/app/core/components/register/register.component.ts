@@ -65,5 +65,8 @@ export class RegisterComponent implements OnInit {
     this.rol = event.target.value
     this.form.patchValue({rol:event.target.value})
   }
+  async gotologin(){
+        this.router.navigateByUrl("iniciarSesion")
+  }
 
 }

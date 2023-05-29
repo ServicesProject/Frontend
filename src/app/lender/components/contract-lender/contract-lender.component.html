@@ -4,9 +4,7 @@
       <h3 class="form_title_service">Tus contratos</h3>
       <div class="form_container">
 
-        <div *ngIf="listNotificationWorkUser?.length === 0" class="alert alert-primary" role="alert">
-          Aún no tienes contratos.
-        </div>
+        
 
         <div *ngFor="let notification of listNotificationWorkUser" class="card text-center">
             <div class="card-header"> Servicio ofrecido:
@@ -26,6 +24,9 @@
                 Estado: {{notification.state === 'recibido' ? 'aceptado': notification.state}}
             </div>
         </div>
+      </div>
+      <div *ngIf="listNotificationWorkUser?.length === 0" class="alert alert-primary" role="alert">
+        Aún no tienes contratos.
       </div>
     </form>
   </div>

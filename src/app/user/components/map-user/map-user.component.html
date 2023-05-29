@@ -9,9 +9,10 @@
         <map-marker *ngFor="let work of workList" [position]="work.ubication" [title]="work.lender.name"></map-marker>
       </google-map>
       <div class="filter-button">
-        <p>Ingresa el valor en metros:</p>
-        <input type="number" name="distance" [(ngModel)]="distance" placeholder="Distancia en metros">
-        <button class="btn filter-map" (click)="setRadius(); filterWorks()">Mostrar</button>
+        <p>Selecciona el rango de valor en metros:</p>
+        <input type="range" name="distance" [(ngModel)]="distance" min="0" max="10000" step="10" style="background-color: #7FB5FF;">
+        <span>{{ distance }} metros</span>
+        <button class="btn filter-map" style="margin-left: 10px; background-color: #7FB5FF;"  (click)="setRadius(); filterWorks()">Mostrar</button>
       </div>
 
       <div class="resetFilter d-flex justify-content-end">
@@ -89,7 +90,7 @@
               <div class="card-text">
                 <p style="margin:0"><i class='bx bx-briefcase-alt-2'></i> {{work.job}}</p>
                 <p style="margin:0"><i class='bx bx-time' ></i> {{work.workTime}}</p>
-                <p><i class='bx bx-calendar'></i> Publicado: {{work.creationDate}}</p>
+                <p><i class='bx bx-calendar'></i> Publicado: {{work.creationDate | date: 'dd/MM/yyyy' }}</p>
               </div>
               
               <button  class="btn more-information" (click)="detailLenderWork(work)">Más información</button>

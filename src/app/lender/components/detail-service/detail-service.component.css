@@ -15,6 +15,14 @@
 .card-text{
     margin: 15px;
 }
+.visual-only {
+    pointer-events: none;
+  }
+  .alert-primary{
+    background-color: #7180B9;
+    color: #FFFFFF;
+    border: none;
+  }
 .btn{
     margin-left: 10px;
 }

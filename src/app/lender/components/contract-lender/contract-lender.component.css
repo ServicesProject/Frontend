@@ -12,7 +12,11 @@
     box-shadow: 5px 5px 5px 5px rgb(0 0 0 / 20%);
     text-align: center;
 }
-
+.alert-primary{
+    background-color: #7180B9;
+    color: #FFFFFF;
+    border: none;
+  }
 .card-text{
     text-align: left;
     margin-left: 25px;

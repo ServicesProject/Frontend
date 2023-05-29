@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TokenService } from 'src/app/core/services/token.service';
 import { Work } from '../../models/work';
 import { WorkService } from '../../services/work.service';
+import { GoogleMap } from '@angular/google-maps';
 
 @Component({
   selector: 'app-add-service-lender',

@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AddServiceLenderComponent } from './add-service-lender.component';
 
 describe('AddServiceLenderComponent', () => {
@@ -8,7 +8,8 @@ describe('AddServiceLenderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddServiceLenderComponent ]
+      declarations: [ AddServiceLenderComponent ],
+      imports: [HttpClientTestingModule],
     })
     .compileComponents();
 

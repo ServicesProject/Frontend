@@ -13,7 +13,11 @@
     text-align: center;
 }
 
-
+.alert-primary{
+    background-color: #7180B9;
+    color: #FFFFFF;
+    border: none;
+  }
 
 .form_title_service{
     margin-top: 1em;

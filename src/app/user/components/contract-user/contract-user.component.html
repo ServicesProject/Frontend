@@ -4,9 +4,7 @@
       <h3 class="form_title_service">Tus contratos</h3>
       <div class="form_container">
 
-        <div *ngIf="listNotificationWithWork?.length === 0" class="alert alert-primary" role="alert">
-          Aún no tienes contratos.
-        </div>
+        
        
         <div *ngFor="let notification of listNotificationWithWork" class="card text-center">
             <div class="card-header">
@@ -26,5 +24,9 @@
             </div>
         </div>
       </div>
+      <div *ngIf="listNotificationWithWork?.length === 0" class="alert alert-primary" role="alert">
+        Aún no tienes contratos.
+      </div>
+      
     </form>
   </div>
