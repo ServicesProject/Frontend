@@ -199,6 +199,8 @@ export class DetailLenderWorkComponent implements OnInit {
   }
 
   sendRequest(){
+    console.log(this.userData);
+    
    let message = `El usuario ${this.userData.user.name} ${this.userData.user.lastName} requiere tu servicio de ${this.information.job}`
    const notificacion = { message: message, workId: this.idWork, userId: this.userData.user.id, lenderEmail: this.information.lender.email, state: 'pendiente'};
    this.notificationService.sendNotification(notificacion).subscribe()
@@ -226,7 +228,13 @@ export class DetailLenderWorkComponent implements OnInit {
     );
 
     let rating = new Rating(this.userData.user.id, this.information.id, this.point, this.message)
-    this.ratingService.createRating(rating).subscribe()
+    this.ratingService.createRating(rating).subscribe(
+      ()=>{
+        this.ratingService.averagePointsForWork(this.idWork).subscribe(result => {
+          this.poinsOnetWork = result;
+        });
+      }
+    )
   }
 
   addRating(){

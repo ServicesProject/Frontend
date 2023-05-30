@@ -57,7 +57,7 @@
         <div *ngFor="let detail of messagesUser" class="card" >
             <div class="card-body">
               <h5 class="card-title"><i class='bx bx-user'></i> {{detail.user.name}} {{detail.user.lastName}}</h5>
-              <star-rating  [starType]="'svg'" [rating]="detail?.point" readonly></star-rating>
+              <star-rating  [starType]="'svg'" [rating]="detail?.point"></star-rating>
               <p class="card-text">{{detail?.message}}</p>
               
             </div>

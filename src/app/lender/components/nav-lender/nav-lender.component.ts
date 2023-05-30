@@ -13,6 +13,7 @@ export class NavLenderComponent implements OnInit {
 
   data
   detailNotification
+  times
 
   constructor(
     private router: Router,
@@ -23,7 +24,18 @@ export class NavLenderComponent implements OnInit {
 
     let value = localStorage.getItem('token');
      this.data = JSON.parse(value)
-     this.informationNotifications()
+     this.times=setInterval(()=>{
+      this.informationNotifications()
+    },5000)
+     
+  }
+
+  ngOnDestroy(){
+    if(this.times){
+      console.log('entra');
+      
+      this.times.unsusbcribe()
+    }
   }
 
   async cerrarSesion(){

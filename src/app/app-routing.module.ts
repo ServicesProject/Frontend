@@ -7,6 +7,7 @@ import { ForgotPwComponent } from './core/components/forgot-pw/forgot-pw.compone
 import { AuthenticationGuard } from './core/guards/authentication.guard';
 import { ValidatedEmailComponent } from './core/components/validated-email/validated-email.component';
 
+
 const routes: Routes = [
   {path: "", component: HomeComponent},
 

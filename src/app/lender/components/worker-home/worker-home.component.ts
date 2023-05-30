@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-worker-home',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorkerHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private viewportScroller: ViewportScroller
+  ) { }
 
   ngOnInit(): void {
+    this.viewportScroller.scrollToPosition([0,0])
   }
 
 }

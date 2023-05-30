@@ -49,9 +49,6 @@ export class RegisterComponent implements OnInit {
           let lender = {email: register.email}
           this.lenderService.register(lender).subscribe()
         }
-        else{
-          this.router.navigateByUrl("iniciarSesion")
-        }
       },
       err => {
         console.log(err)

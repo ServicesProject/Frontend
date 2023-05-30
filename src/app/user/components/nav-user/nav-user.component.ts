@@ -11,16 +11,27 @@ export class NavUserComponent implements OnInit {
 
   data
   detailNotification
-
+  times
   constructor(
     private router: Router,
     private notificationService: NotificationService
   ) { }
 
   ngOnInit(): void {
+
     let value = localStorage.getItem('token');
      this.data = JSON.parse(value)
-     this.informationNotifications()
+     this.times=setInterval(()=>{
+      this.informationNotifications()
+    },5000)
+  }
+
+  ngOnDestroy(){
+    if(this.times){
+      console.log('entra');
+      
+      this.times.unsusbcribe()
+    }
   }
 
   async cerrarSesion(){

@@ -17,7 +17,12 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     let token = localStorage.getItem('token')
     this.data = JSON.parse(token);
-    
+    if(this.data.user.rol === 'user'){
+      this.router.navigateByUrl("usuario")
+    }
+    if(this.data.user.rol === 'worker'){
+      this.router.navigateByUrl("trabajador")
+    }
   }
 
  

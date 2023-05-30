@@ -3,6 +3,7 @@
       
       <h3 class="form_title_service">Detalle del servicio</h3>
       <star-rating [starType]="'svg'" [rating]="poinsOnetWork?.averagePoints" class="visual-only"></star-rating>
+      
 
       <!-- Botón para abrir el modal -->
 <button type="button" class="btn comments" data-bs-toggle="modal" data-bs-target="#scrollableModal">Comentarios</button>
@@ -37,7 +38,7 @@
 </div>
 
       <div class="text-end">
-        <button (click)="updateService()" class="btn btn-primary"><i class='bx bxs-edit'></i></button>
+        <button (click)="updateService()" class="btn btn-primary" style="background-color: #7FB5FF; border: none;"><i class='bx bxs-edit'></i></button>
         <button type="button" class="btn btn-danger"><i class='bx bxs-trash' data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></button>
 
         

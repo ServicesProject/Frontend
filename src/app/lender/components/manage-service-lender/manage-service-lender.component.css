@@ -1,6 +1,6 @@
 .container{
     display: flex;
-    min-height: 90vh;
+    min-height: 80vh;
 }
 .form{
     background-color: #FFFFFF;
@@ -13,10 +13,10 @@
     text-align: center;
 }
 
-/* .card-text {
+.card-text {
     text-align: left;
-    margin-left: 40px;
-  } */
+    margin-left: 10px;
+  } 
 
 .add-service{
     background-color: #7180B9;

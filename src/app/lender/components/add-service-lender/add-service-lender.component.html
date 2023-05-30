@@ -91,9 +91,6 @@
       <google-map width="100%" height="300" [center]="center" [zoom]="zoom" (mapClick)="onMapClick($event)" >
             <map-marker *ngIf="markerPosition" [position]="markerPosition"></map-marker>
       </google-map>
-  
-      <a href="trabajador/administración">
         <button type="button" class="form_submit btn" (click)="UpdateDataLender()">Continuar</button>
-      </a>
     </form>
   </div>
