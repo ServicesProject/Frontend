@@ -13,6 +13,21 @@ p {
   color: #FFFFFF;
 }
 
+@media screen and (max-width: 768px) {
+  .carousel-item {
+    height: 400px;
+    object-fit: cover;
+  }
+
+  .carousel-caption h5 {
+    font-size: 25px;
+    color: #FFFFFF;
+  }
+  .carousel-caption p {
+    font-size: 16px;
+    color: #FFFFFF;
+  }
+}
 
 
 /* segunda parte */
@@ -25,7 +40,7 @@ p {
 }
 
 .part {
-  width: 50%;
+  width: 100%;
   margin-top: 50px;
   box-sizing: border-box;
 }
@@ -62,6 +77,29 @@ p {
   margin-left: 70px;
   margin-top: 25px;
 }
+
+@media screen and (max-width: 768px) {
+  .whatwedo {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .part {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+  
+  .first-title, .secondary-text {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .btn-whatwedo, .points-view {
+    margin-left: 0;
+    text-align: start;
+  }
+}
 /* tercera parte */
 
 
@@ -70,13 +108,13 @@ p {
   display: flex;
   justify-content: center;
   padding: 72px 56px;
-  
+  flex-wrap: wrap;
 }
 
 .category {
   text-align: center;
   padding: 8px 15px 0px;
-  width: 300px;
+  width:  300px;
   height: 112px;
   background-color: transparent; 
   border: none;
@@ -130,6 +168,38 @@ img.second-image {
 .points-view-us{
   margin-top: 25px;
   font-family: 'Poppins', sans-serif;
+}
+
+
+@media screen and (max-width: 768px) {
+  .part-us {
+    flex-direction: column-reverse;
+  }
+
+  .part {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  img.second-image {
+    margin-left: 0;
+  }
+
+  .title-us {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .secondary-text-us {
+    font-size: 16px;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .points-view-us {
+    margin-top: 20px;
+    text-align: center;
+  }
 }
 
 /* quinta parte */
@@ -196,4 +266,31 @@ p.card-description {
 .icon-information{
   font-size: 96px; 
   color: #FFFFFF;
+}
+
+@media screen and (max-width: 768px) {
+  .last-information {
+    height: auto;
+    padding: 50px 0;
+  }
+  
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .important-information {
+    width: 100%;
+    margin: 15px 0;
+  }
+
+  h3.section-title {
+    font-size: 30px;
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+  
+  p.section-description {
+    font-size: 20px;
+  }
 }

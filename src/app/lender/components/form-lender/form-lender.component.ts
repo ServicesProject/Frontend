@@ -91,7 +91,19 @@ export class FormLenderComponent implements OnInit {
     forkJoin([this.lenderService.updateLender(info.user.email, lender), this.workService.create(worktosend)])
     .pipe(
       tap(() => {
-        this.router.navigateByUrl('trabajador');
+      const token = localStorage.getItem('token');
+      const token2 = JSON.parse(token);
+      console.log(token2);
+      let userToSave = {
+        ...lender,
+        id: token2.user.id,
+        email:token2.user.email
+      }
+      token2.user = userToSave;
+      console.log(token2);
+      
+      localStorage.setItem('token', JSON.stringify(token2));
+        // this.router.navigateByUrl('trabajador');
       })
     )
     .subscribe();

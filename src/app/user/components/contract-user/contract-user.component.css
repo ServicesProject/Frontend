@@ -60,3 +60,11 @@
       grid-template-columns: 1fr;
     }
   }
+
+  .btn-primary{
+    background-color: #7180B9;
+  }
+  .card-header, .card-footer{
+    background-color: #FFFFFF;
+    
+}

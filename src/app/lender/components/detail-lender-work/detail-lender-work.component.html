@@ -12,16 +12,7 @@
                 <label for="lastName" class="form_label">Apellido</label>
                 <span class="form_line"></span>
             </div>
-            <div class="form_group">
-                <input [value]="information?.lender.ci" type="text" id="ci" name="ci" class="form_input"  placeholder=" "  disabled readonly>
-                <label for="ci" class="form_label">Carnet de identidad</label>
-                <span class="form_line"></span>
-            </div>
-            <div class="form_group">
-                <input [value]="information?.lender.phone" type="text" id="phone" name="phone" class="form_input"  placeholder=" "  disabled readonly>
-                <label for="phone" class="form_label">Celular</label>
-                <span class="form_line"></span>
-            </div>
+    
             <div class="form_group">
                 <input [value]="information?.lender.gender" type="text" id="gender" name="gender" class="form_input"  placeholder=" "  disabled readonly>
                 <label for="gender" class="form_label">Género</label>
@@ -39,7 +30,7 @@
       <star-rating [starType]="'svg'" [rating]="poinsOnetWork?.averagePoints" class="visual-only"></star-rating>
 
       <!-- Botón para abrir el modal -->
-<button type="button" class="btn comments" data-bs-toggle="modal" data-bs-target="#scrollableModal">Comentarios</button>
+<button type="button" class="btn comments" data-bs-toggle="modal" (click)="messagesFromUsers()" data-bs-target="#scrollableModal">Comentarios</button>
 
 <!-- Modal desplazable -->
 <div class="modal fade" id="scrollableModal" tabindex="-1" aria-labelledby="scrollableModalLabel" aria-hidden="true">
@@ -131,7 +122,7 @@
 
      
 
-      <button class="btn-contratar" *ngIf="contract === null || contract?.state === 'terminado'"  (click)="sendRequest()" data-bs-toggle="modal" data-bs-target="#exampleModal">Contratar</button>
+      <button class="btn contratar" *ngIf="contract === null || contract?.state === 'terminado'"  (click)="sendRequest()" data-bs-toggle="modal" data-bs-target="#exampleModal">Contratar</button>
       <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -141,7 +132,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Enviamos la solicitud de trabajo, por favor espera la respuesta del prestador
+                  Enviamos la solicitud de trabajo al prestador de servicios. Una vez aceptada o rechazada tu solicitud te haremos saber mediante una notificacion en nuestro sistema.
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Entendido</button>
@@ -151,10 +142,12 @@
         </div>
       
         <div *ngIf="contract !== null && vigente === 'true' && contract?.state !== 'terminado'" >
-            <h3 class="qualification font1">Calificación del servicio</h3>
+          <div class="file-word">
+            Modelo de contrato
+            <button class="file-button" (click)="descargar()"><i class='bx bxs-download'></i>Descargar</button>
+        </div>
+          <h3 class="qualification font1">Finalizar y calificar el servicio</h3>
             
-            
-
             <star-rating  [starType]="'svg'" [rating]="0" (starClickChange)="updateRating($event)"></star-rating>
 
             <div class="form_group">
@@ -163,12 +156,27 @@
                   <span class="form_line"></span>
               </div>
 
-              <div class="file-word">
-                Modelo de contrato
-                <button class="file-button" (click)="descargar()"><i class='bx bxs-download'></i>Descargar</button>
+              
+            <button type="button" class="btn finish-contract" data-bs-toggle="modal" data-bs-target="#staticBackdrop"  [disabled]="point===0">Finalizar contrato</button>
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Finalizar contrato</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    ¿Estás seguro de finalizar el contrato?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" (click)="endContract()" data-bs-dismiss="modal" class="btn btn-danger">Finalizar</button>
+                  </div>
+                </div>
+              </div>
             </div>
-            <button class="btn finish-contract" (click)="endContract()" [disabled]="point===0">Finalizar contrato</button>
-        </div>
+          </div>
 
         <div *ngIf="contract !== null && vigente === 'false'" >
             <div class="alert alert-danger" role="alert">

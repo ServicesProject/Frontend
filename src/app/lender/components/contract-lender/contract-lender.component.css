@@ -1,6 +1,6 @@
 .container{
     display: flex;
-    min-height:80vh;
+    min-height:75vh;
 }
 .form{
     background-color: #FFFFFF;
@@ -30,7 +30,10 @@
     transform: translateY(-5px) rotateX(1deg);
   }
 
-
+  .card-header, .card-footer{
+    background-color: #FFFFFF;
+    
+}
 
 .form_title_service{
     margin-top: 1em;
@@ -52,6 +55,9 @@
 
 .form_container >div{
     display: flex;
+}
+.btn-primary{
+  background-color: #7180B9;
 }
 
 

@@ -46,7 +46,12 @@ export class FormUserComponent implements OnInit {
       const user = new User(this.name, this.lastName, this.phone, this.gender, info.user.email, info.user.rol,this.ci, this.birthdate)
       user.complete =true
       this.userService.update(info.user.id,user).subscribe(
-        data => {          
+        async data => { 
+        const token = await localStorage.getItem('token')
+        const token2 = JSON.parse(token)
+        token2.user = data
+        localStorage.setItem("token", JSON.stringify(token2));   
+              
           this.router.navigateByUrl('usuario')
         },
         err => {
