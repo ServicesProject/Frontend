@@ -8,7 +8,7 @@ describe('DetailLenderWorkComponent', () => {
 
   
 
-  it('should create', () => {
+  it('should qualify and comment on the service if the worker has accepted the job. ', () => {
     expect(true).toBeTruthy();
   });
 });

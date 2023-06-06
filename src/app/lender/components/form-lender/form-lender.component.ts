@@ -103,7 +103,7 @@ export class FormLenderComponent implements OnInit {
       console.log(token2);
       
       localStorage.setItem('token', JSON.stringify(token2));
-        // this.router.navigateByUrl('trabajador');
+        this.router.navigateByUrl('trabajador');
       })
     )
     .subscribe();

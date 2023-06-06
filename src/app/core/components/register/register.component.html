@@ -1,5 +1,5 @@
-<!-- AUMENTAR TERMINOS Y CONDICIONES -->
 
+<div class="all-page">
 <div class="container">
   <form (ngSubmit)="register()" [formGroup]="form" class="form font1">
   
@@ -39,6 +39,14 @@
         <label class="form-check-label me-2" for="worker">Contratista</label>
       </div>
 
+      <!-- <div class="form_group">
+        <select class="form-select" name="user" (change)="Onchange($event)">
+          <option value="user">Usuario</option>
+          <option value="worker">Contratista</option>
+        </select>
+      </div> -->
+      
+
       <button type="button" class="form_submit btn-primary btn-block" [disabled]="form.invalid" (click)="register()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Registrarse</button>
       
       <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -63,4 +71,5 @@
     <p class="form_paragraph">¿Ya tienes una cuenta? <a href="iniciarSesion" class="form_link">Inicia sesión</a></p>
   </form>
   
+</div>
 </div>

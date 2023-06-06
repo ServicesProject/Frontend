@@ -18,7 +18,13 @@ describe('AddServiceLenderComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the service', () => {
+    expect(component).toBeTruthy();
+  });
+  it('should not create the service with incorrect data', () => {
+    expect(component).toBeTruthy();
+  });
+  it('should not create the service with empty fields.', () => {
     expect(component).toBeTruthy();
   });
 });

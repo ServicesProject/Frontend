@@ -1,3 +1,7 @@
+.all-page{
+    background: linear-gradient(to right, #0B2447, #576CBC, #7FB5FF);
+}
+
 .container{
     display: flex;
     min-height: 100vh;

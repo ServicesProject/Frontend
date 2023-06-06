@@ -23,7 +23,17 @@
                 <input [value]="information?.lender.birthdate" type="date" id="birthdate"  name="birthdate" class="form_input" disabled readonly>
                 <label for="birthdate" class="form_label">Fecha de nacimiento</label>
                 <span class="form_line"></span>
-              </div>
+            </div>
+            <div class="form_group">
+              <input [value]="information?.lender.ci" type="text" id="ci" name="ci" class="form_input"  placeholder=" "  disabled readonly>
+              <label for="ci" class="form_label">Carnet de identidad</label>
+              <span class="form_line"></span>
+          </div>
+          <div class="form_group">
+            <input [value]="information?.lender.phone" type="text" id="phone" name="phone" class="form_input"  placeholder=" "  disabled readonly>
+            <label for="phone" class="form_label">Celular</label>
+            <span class="form_line"></span>
+        </div>
         </div>
 
       <h3 class="form_title_service">Detalles del servicio</h3>
@@ -96,7 +106,7 @@
 
         <div class="form_group">
             <input [value]="information?.salary" type="text" id="salary" name="salary" class="form_input"  placeholder=" "  disabled readonly>
-            <label for="salary" class="form_label">Salario minimo</label>
+            <label for="salary" class="form_label">Precio por servicio</label>
             <span class="form_line"></span>
         </div>
 

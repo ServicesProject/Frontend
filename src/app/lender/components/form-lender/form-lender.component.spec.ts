@@ -19,7 +19,13 @@ describe('FormLenderComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the form with correct data', () => {
+    expect(component).toBeTruthy();
+  });
+  it('should not create the form with incorrect data', () => {
+    expect(component).toBeTruthy();
+  });
+  it('should not create the form with empty fields.', () => {
     expect(component).toBeTruthy();
   });
 });

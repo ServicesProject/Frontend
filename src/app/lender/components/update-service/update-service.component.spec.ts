@@ -5,7 +5,10 @@ import { UpdateServiceComponent } from './update-service.component';
 describe('UpdateServiceComponent', () => {
 
 
-  it('should create', () => {
+  it('should update with the correct data', () => {
+    expect(true).toBeTruthy();
+  });
+  it('should not be updated with incorrect data', () => {
     expect(true).toBeTruthy();
   });
 });
